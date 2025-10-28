@@ -1,0 +1,23 @@
+body
+{
+	background-color:#ffffff;
+}
+
+table
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:small;
+	background-color:#f7f7f7;
+}
+
+.main
+{
+	background-color:#f7f7f7;
+	height:400px;
+	vertical-align:top;
+}
+
+a 
+{
+	color:#CF5A0C;
+}

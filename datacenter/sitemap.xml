@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<feed version="0.3" xmlns="http://purl.org/atom/ns#">
+    <title>Lanai Core!</title>
+    <tagline>Site Map Lanai Core!</tagline>
+    <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=sitemap"/>
+    <id>http://la-nai.redlinesoft.net/module.php?modname=sitemap</id>
+    <modified>2007-06-23T21:21:46+00:00</modified>
+    <generator>FeedCreator 1.7.2</generator>
+    <entry>
+        <title>Home</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net</id>
+    </entry>
+    <entry>
+        <title>News</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=news"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=news</id>
+    </entry>
+    <entry>
+        <title>Forum</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=forum"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=forum</id>
+    </entry>
+    <entry>
+        <title>Contact</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=contact"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=contact</id>
+    </entry>
+    <entry>
+        <title>Shop</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=ezshopingcart"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=ezshopingcart</id>
+    </entry>
+    <entry>
+        <title>F.A.Q.</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=faq"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=faq</id>
+    </entry>
+    <entry>
+        <title>Site Map</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=sitemap"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=sitemap</id>
+    </entry>
+    <entry>
+        <title>Login</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/login/"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/login/</id>
+    </entry>
+    <entry>
+        <title>Schedule</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=event"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=event</id>
+    </entry>
+    <entry>
+        <title>Whois</title>
+        <link rel="alternate" type="text/html" href="http://la-nai.redlinesoft.net/module.php?modname=whois"/>
+        <created>2007-06-23T21:21:46+00:00</created>
+        <issued>2007-06-23T21:21:46+00:00</issued>
+        <modified>2007-06-23T21:21:46+00:00</modified>
+        <id>http://la-nai.redlinesoft.net/module.php?modname=whois</id>
+    </entry>
+</feed>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<rss version="2.0">
+    <channel>
+        <title>Lanai Core!</title>
+        <description>Daily News from Lanai Core!</description>
+        <link>http://la-nai.redlinesoft.net/module.php?modname=news</link>
+        <lastBuildDate>Tue, 24 Jul 2007 22:28:11</lastBuildDate>
+        <generator>FeedCreator 1.7.2</generator>
+        <image>
+            <url>http://la-nai.redlinesoft.net/images/xmlcoffeemug.gif</url>
+            <title>Lanai Core! logo</title>
+            <link>http://la-nai.redlinesoft.net</link>
+            <description>Feed provided by Lanai Core! Click to visit.</description>
+        </image>
+        <item>
+            <title>ละไน ซีเอ็มเอส!</title>
+            <link>http://la-nai.redlinesoft.net/module.php?modname=news&amp;mf=nwsview&amp;cid=2</link>
+            <description>เรดไลน์ซอฟต์ ออกผลิตภัณฑ์ระบบบริหารจัดการเนื้อหาเว็บไซต์ รุ่นใหม่ ในชื่อว่า  ละไน ซีเอ็มเอส  เป็นระบบจัดการเนื้อหาบนเว็บไซต์ที่พัฒนาและสนับสนุนโดยทีมงานคนไทย โดยระบบมีคุณสมบัติรองรับการทำงานต่างๆ ดังนี้
+
+    ข่าวประชาสัมพันธ์ คุณสามารถเพิ่ม แก้ไข ลบ จัดกลุ่มข่าว ใช้อิดิเตอร์แบบ WYSIWYG เพื่อเขียนข่าว ใส่ภาพ เสียง และไฟล์มัลติมีเดีย ในข่าวประชาสัมพันธ์ของคุณได้
+    กระดานข่าว กระดานถามตอบ พร้อมระบบกรองคำหยาบ สามารถเพิ่มคำของคุณเองได้ และ ป้องกันการโพส SPAM ด้วย CAPTCHA ซึ่งจะทำให้กระดานข่าวของคุณปลอดภัยมากยิ่งขึ้น นอกจากนี้ยังสามารถใช้อิดิเตอร์แบบ WYSIWYG ได้อีกด้วย
+    อัลบัมภาพ เก็บภาพความประทับใจ ภาพกิจกรรมที่สนุกสนาน ของคุณด้วยระบบอัลบัมภาพ ที่สามารถจัดการเปลี่ยนแปลงขนาดของภาพให้อัตโนมัติ ถึง 3 ขนาด โดยคุณเพียงอัพโหลดภาพที่คุณต้องการเท่านั้น
+    แบบสอบถาม ทำโพลหรือลงมติในเว็บไซต์คุณได้ง่ายๆ เพียงใส่คำถามและตัวเลือกเพียงเท่านี้คุณก็สามารถทำโพลของคุณเองได้แล้ว
+    ร้านค้า ระบบอิเลคทรอนิคคอมเมิร์ชขนาดเล็กให้คุณนำเสนอสินค้า ตลอดจนการจัดจำน่ายสินค้าบนเว็บไซต์ได้อย่างง่ายดาย
+    ถาม-ตอบ คำถามที่ถูกถามบ่อยๆ ในสินค้าหรือบริการ คุณสามารถใช้ระบบถาม-ตอบเพื่อช่วยแก้ไขปัญหาเหล่านี้ได้
+    ติดต่อสอบถาม อยากรู้ว่าติดต่อองค์กรของคุณได้ที่ไหน หรือจะส่งข้อความติดต่อใคร สามารถใช้ระบบติดต่อสอบถามได้
+    แผนที่เว็บไซต์ ไม่หลงทิศทางในเว็บไซต์ หาอะไรก็เจอ ด้วยแผนที่เว็บไซต์ที่สร้างอัตโนมัติตามข้อมูลที่คุณแสดง
+    เซิร์สเอนจิ้น ต้องการค้นหาข้อมูลในเว็บไซต์ หรือเว็บอื่นๆ ใช้เซิร์สเอนจิ้นค้นหาสิครับ บริการดีๆ จาก Yahoo TM
+    
+
+นอกจากคุณสมบัติข้างต้นแล้ว ละไน ซีเอ็มเอส ยังมีระบบจัดการเบื้องหลังที่พร้อมให้บริการทั้งในด้านการจัดการไฟล์บนเว็บไซต์ เปลี่ยนรูปแบบภาษา หน้าตาเว็บไซต์ และเครื่องมือสำหรับการพัฒนาคุณสมบัติเพิ่มเติมด้วยตัวคุณเอง</description>
+            <pubDate>Tue, 15 May 2007 20:36:57</pubDate>
+        </item>
+        <item>
+            <title>Lanai Core Change log</title>
+            <link>http://la-nai.redlinesoft.net/module.php?modname=news&amp;mf=nwsview&amp;cid=1</link>
+            <description>Lanai Core is a mature OOP framework for building web, command line and GUI applications. 
+Licensed under GNU/GPL, the project allows PHP developers to easily integrate and manage 
+code resources, and build complex applications quickly. Support PHP 4/5 compatible, compact 
+core framework with basic CMS and other modules included to get you started, ease of use: 
+learning curve not as steep as other frameworks enterprise ready, performance conscious 
+design tight integration with PEAR libraries, great for prototyping complex projects.
+
+Copyright (C) 2006  Lanai Core dot Org.
+
+This software is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This software is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+----------------------------------------------------------------------------------------------------
+
+CHANGE LOG
+==========
+
+09/05/2007
+* update bookmark link in news module
+* update gallery layout </description>
+            <pubDate>Wed, 09 May 2007 11:26:29</pubDate>
+        </item>
+    </channel>
+</rss>

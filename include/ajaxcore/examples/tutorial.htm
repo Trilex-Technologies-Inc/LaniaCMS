@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>AjaxCore Tutorial</title></head><body style="font-family: Verdana; font-size: small;">
+    <h1><strong>AjaxCore</strong> Tutorial</h1>
+    <br>
+        As per request of users, here's a brief example on how to use AjaxCore framework
+        to create AJAX applications.
+    <br>
+    <br>
+        In this example, we will be creating a page for registering users, to keep things
+        simple, let's suppouse there's an <strong>Username</strong> input field, a <strong>Password</strong>
+    input field,
+        and a textarea for user <strong>Signature</strong>.
+    <br>
+    <br>
+    <strong>
+        Where's AJAX suppose to be?</strong> as there are only three fields on our example, it would
+        be really nice to check out first that username not exists on our database prior
+        to allowing the user to submit the form, so let's do that!.
+        fist we create the fields of our example in a cool table.&nbsp;&nbsp;<br>
+                Now, we insert after the username field, a button to check out if username exists,
+    and a Div to store results.<br>
+    <br>
+&lt;table&nbsp;border="0"&nbsp;style="font-size:&nbsp;10pt;&nbsp;font-family:&nbsp;Verdana"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;300px;&nbsp;height:&nbsp;50px;"&gt;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(255, 255, 102);">Username</span>:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;400px;&nbsp;height:&nbsp;50px;"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(0, 204, 0);">&lt;input&nbsp;type="text"&nbsp;id="username"&nbsp;name="username"&nbsp;style="width:&nbsp;200px"&nbsp;/&gt;
+    </span>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(255, 204, 0);">&lt;input&nbsp;type="button"&nbsp;id="checkButton"&nbsp;name="checkButton"&nbsp;value="Check"&nbsp;/&gt;&nbsp;</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(51, 153, 255);">&lt;div&nbsp;id="resultsDiv"&gt;&amp;nbsp;&lt;/div&gt;
+<br>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;300px;&nbsp;height:&nbsp;50px;"&gt;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(255, 255, 102);">Password</span>:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;400px;&nbsp;height:&nbsp;50px;"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(0, 204, 0);">&lt;input&nbsp;type="password"&nbsp;id="password"&nbsp;name="password"&nbsp;style="width:&nbsp;200px"&nbsp;/&gt;
+
+<br>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;300px;&nbsp;height:&nbsp;200px;"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(255, 255, 102);">Signature</span>:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;400px;&nbsp;height:&nbsp;200px;"&gt;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(0, 204, 0);">&lt;textarea&nbsp;rows="5"&nbsp;style="width:&nbsp;200px"&gt;&lt;/textarea&gt;
+<br>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;colspan="2"&nbsp;&nbsp;align="center"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(255, 204, 0);">&nbsp;&lt;input&nbsp;type="button"&nbsp;id="registerButton"&nbsp;name="registerButton"&nbsp;value="Register"&nbsp;disabled="disabled"/&gt;</span>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+
+    <br> Where the yellow
+highlight represents the field text, the green highlight the input, the
+blue the results div (where text will be displayed) and the orange, the
+buttons.<br>
+    <br>
+    <br>
+    At this point, the basic structure on the page is created, now lets create the AJAX
+                stuff.
+    <br>
+    <br>
+                First, we have to create a class that extends from AjaxCore, we may use any name
+                we want, so we'll try with "AjaxFunctions" name for the class.&nbsp;<br>
+    <br>
+    <font color="#007700">class&nbsp;</font><font color="#0000bb">AjaxFunctions&nbsp;</font><font color="#007700">extends&nbsp;</font><font color="#0000bb">AjaxCore&nbsp;
+
+<br></font><font color="#007700">{&nbsp;<br>
+&nbsp;function&nbsp;</font><font color="#0000bb">AjaxFunctions</font><font color="#007700">()
+<br>&nbsp;{&nbsp;<br></font><font color="#007700">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">parent</font><font color="#007700">::</font><font color="#0000bb">AjaxCore</font><font color="#007700">();
+<br>&nbsp;}
+<br>
+    }</font><br>
+    <br>
+    <br>
+                    this is the basic structure of the class that extends from AjaxCore, but before
+                    we run it, it needs some extra configurations, to keep config values on the same
+                    place, we create a function called "setup" and we setup all values there. ( all
+                    config values are explained on the documentation )&nbsp;<br>
+    <br><font color="#007700">&nbsp;function&nbsp;</font><font color="#0000bb">setup</font><font color="#007700">()
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">setCurrentFile</font><font color="#007700">(</font><font color="#dd0000">"AjaxFunctions.class.php"</font><font color="#007700">);
+<br>&nbsp;}&nbsp;<br>
+<br></font>This sentence, sets the current class name, (where is stored on the disk),
+                    this is important because this is where the AJAX request will be made when an
+                    event is triggered,<br>
+    <br>
+                    The next step, is to create a PHP function that handles when the user press the
+                    button "checkButton", so here it is.<br>
+    
+    
+<br>&nbsp;function&nbsp;<font color="#0000bb">checkUsername</font><font color="#007700">()
+<br>&nbsp;{&nbsp;<br>&nbsp;}&nbsp;<br>
+    <br>
+</font>Later we'll create the code to check if the username exists in this function,
+    one important thing, is that always your functions remains takes no parameters,
+    no matter if you need like in this case "an username value" from the webpage.<br>
+    <br>
+    Now, let's put all this stuff
+                    together.<br>
+<font color="#000000">
+<font color="#0000bb">&lt;?php
+<br>
+<br></font><font color="#007700">require_once(</font><font color="#dd0000">"AjaxCore.class.php"</font><font color="#007700">);&nbsp;&nbsp;</font><font color="#ff8000">//&nbsp;first&nbsp;we&nbsp;include&nbsp;the&nbsp;AjaxCore&nbsp;class
+<br>
+<br></font><font color="#007700">class&nbsp;</font><font color="#0000bb">AjaxFunctions&nbsp;</font><font color="#007700">extends&nbsp;</font><font color="#0000bb">AjaxCore&nbsp;
+
+<br></font><font color="#007700">{&nbsp;<br>
+&nbsp;function&nbsp;</font><font color="#0000bb">AjaxFunctions</font><font color="#007700">()
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;<span style="background-color: rgb(255, 255, 102);"> </span></font><span style="background-color: rgb(255, 255, 102);">
+        <font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">setup</font></span><font color="#007700"><span style="background-color: rgb(255, 255, 102);">();
+<br>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">parent</font><font color="#007700">::</font><font color="#0000bb">AjaxCore</font><font color="#007700">();
+<br>&nbsp;}&nbsp;<br>&nbsp;function&nbsp;</font><font color="#0000bb">setup</font><font color="#007700">()
+
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">setCurrentFile</font><font color="#007700">(</font><font color="#dd0000">"AjaxFunctions.class.php"</font><font color="#007700">);
+<br>&nbsp;}&nbsp;<br>
+&nbsp;function&nbsp;</font><font color="#0000bb">checkUsername</font><font color="#007700">()
+<br>&nbsp;{&nbsp;<br>&nbsp;}<br>
+    }
+<br>
+
+<br>
+    <span style="background-color: rgb(255, 255, 102);">new&nbsp;</span></font><span style="background-color: rgb(255, 255, 102);"><font color="#0000bb">AjaxFunctions</font><font color="#007700">();&nbsp;</font></span><font color="#ff8000"><span style="background-color: rgb(255, 255, 102);">//&nbsp;do&nbsp;not&nbsp;forget&nbsp;this!
+            </span>
+<br></font><font color="#0000bb">?&gt;</font>
+    <br>
+    <br>
+    notice that the two sentences highlighted, the first one just calls the function
+    "setup" that we defined before. The second one, is <strong>very important</strong>
+    and you'll usually forget to add this, so please re-check this line is at the bottom
+    of the page, after the closing brace of the class.<br>
+    <br>
+    Now, we go back to the register page, and add some AJAX stuff.<br>
+    <br>
+    <font color="#000000"><span style="background-color: rgb(204, 255, 102);">
+<font color="#0000bb">&lt;?php
+<br></font><font color="#007700">require_once(</font><font color="#dd0000">"AjaxFunctions.class.php"</font><font color="#007700">);&nbsp;</font></span><span style="background-color: rgb(204, 255, 102);"><font color="#ff8000">//&nbsp;include&nbsp;our&nbsp;class
+<br></font><font color="#0000bb">$ajax</font><font color="#007700">=new&nbsp;</font><font color="#0000bb">AjaxFunctions</font></span><font color="#007700"><span style="background-color: rgb(204, 255, 102);">();
+<br>&nbsp;</span></font><font color="#0000bb"><span style="background-color: rgb(204, 255, 102);">?&gt;
+            </span>
+<br></font>&lt;html&gt;
+
+<br>&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Register&nbsp;page&lt;/title&gt;
+<br>
+        <span style="background-color: rgb(255, 255, 102);">&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type="text/javascript"&nbsp;src="prototype.js"&gt;&lt;/script&gt;&nbsp;&lt;!--&nbsp;include&nbsp;stantard&nbsp;prototype&nbsp;library&nbsp;--&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type="text/javascript"&nbsp;src="AjaxCore.js"&gt;&lt;/script&gt;&nbsp;&lt;!--&nbsp;include&nbsp;AjaxCore&nbsp;library&nbsp;--&gt;
+</span>
+<br>
+        <span style="background-color: rgb(204, 255, 102);">&nbsp; &nbsp; </span><span style="background-color: rgb(204, 255, 102);">
+            <font color="#0000bb">&lt;?php
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">echo&nbsp;</font><font color="#0000bb">$ajax</font><font color="#007700">-&gt;</font><font color="#0000bb">getJSCode</font></span><font color="#007700"><span style="background-color: rgb(204, 255, 102);">();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font color="#0000bb"><span style="background-color: rgb(204, 255, 102);">?&gt;
+        </span>
+
+<br></font>&lt;/head&gt;
+        <br>
+        <br>
+        Notice, the text highlighted in green is PHP code. At the beginning of the page,
+        we include our class and creates an instance of this class, then we call&nbsp; <strong>
+            getJSCode() </strong>function later to print some JavaScript handles that will
+        take care of the AJAX request. Also, do not forget to include the JavaScript files
+        highlighted with yellow, as they are needed.<br>
+        <br>
+        The next step, is to add some "binding" code after the <strong>checkButton</strong>
+        we defined before, there are 3 ways of binding, all of them are documented on the
+        project's documentation page.<br>
+        <br>
+        * <strong>bind</strong> ( does a bind between a html object and a php function,
+        when a JavaScript event is triggered )
+        <br>
+        * <strong>bindTimer</strong> ( does a bind between a html object and a php function,
+        when a JavaScript event is triggered and timer expires)
+        <br>
+        * <strong>bindPeriodicalTimer</strong> ( does a bind between a html object and a
+        php function, when a JavaScript event is triggered and keeps repeating each time
+        timer expires).
+        <br>
+        <br>
+        In this case, we need a simple bind between the <strong>checkButton</strong> and
+        the <strong>checkUsername</strong> PHP function, so, if you see the documentation
+        you'll get the signature of the method.
+        <br>
+        <br>
+        bind(string $id, string $event, string $bindto, [ string $params ])<br>
+        <br>
+        and of course, this method returns the JavaScript code that does the AJAX request,
+        so we only need to fill this function and all dirty stuff is generated. Now we place
+        the bind, <strong>after</strong> the button.<br>
+        <br>
+        &nbsp;&nbsp;<font color="#0000bb">&lt;?php
+&nbsp;</font><font color="#007700">echo&nbsp;</font><font color="#0000bb">$ajax</font><font color="#007700">-&gt;</font><font color="#0000bb">bind</font><font color="#007700">(</font><font color="#dd0000">"checkButton"</font><font color="#007700">,</font><font color="#dd0000">"onclick"</font><font color="#007700">,</font><font color="#dd0000">"checkUsername"</font><font color="#007700">,</font><font color="#dd0000">"username"</font><font color="#007700">);
+
+&nbsp;</font><font color="#0000bb">?&gt;</font>&nbsp;&nbsp;&nbsp;
+        <br>
+        <br>
+        where, "<strong>checkButton</strong>" is the ID of the button.<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "<strong>onclick</strong>" is the event that
+        triggers the action.<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "<strong>checkUsername</strong>", is the PHP
+        function that will be called.<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "<strong>username</strong>", is the field that
+        we need to send along with the AJAX request ( if you need to send various fields,
+        with this syntax &nbsp; &nbsp; "field1,field2,field3" , if you need an static value,
+        i.e. send something is not an element on the page, you'll have to attach a prefix
+        _ on the var name, as&nbsp; "field1, field2, _static1=whatever"<br>
+        <br>
+        Now, the last thing to do is Add some code to the PHP functions that handles
+        the request, as this function needs the "username" sended along with the binding,
+        you'll have to retrive it with $this-&gt;request['variablename'];&nbsp;<br>
+        <br>
+        <font color="#007700">&nbsp;function&nbsp;</font><font color="#0000bb">checkUsername</font><font color="#007700">()
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$user</font><font color="#007700">=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">request</font><font color="#007700">[</font><font color="#dd0000">'username'</font><font color="#007700">];
+    <span style="color: rgb(255, 128, 0);">// retrieve username sended with the bind;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">=array();&nbsp;</font><font color="#ff8000">//&nbsp;define&nbsp;an&nbsp;array&nbsp;to&nbsp;store&nbsp;our&nbsp;JavaScript&nbsp;code;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">if(</font><font color="#0000bb">$user</font><font color="#007700">==</font><font color="#dd0000">"test"</font><font color="#007700">)&nbsp;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</font><font color="#ff8000">//&nbsp;username&nbsp;exists
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlDisable</font><font color="#007700">(</font><font color="#dd0000">"registerButton"</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;disable&nbsp;register&nbsp;button
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlInner</font><font color="#007700">(</font><font color="#dd0000">"resultsDiv"</font><font color="#007700">,</font><font color="#dd0000">"&lt;font&nbsp;color='red'&gt;Username&nbsp;already&nbsp;exists&lt;/font"</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;sets
+    some text on the&nbsp;on&nbsp;div&nbsp;"resultsDiv"
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;else
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</font><font color="#ff8000">//&nbsp;username&nbsp;not&nbsp;exists
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlEnable</font><font color="#007700">(</font><font color="#dd0000">"registerButton"</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;enables&nbsp;register&nbsp;button
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlInner</font><font color="#007700">(</font><font color="#dd0000">"resultsDiv"</font><font color="#007700">,</font><font color="#dd0000">"&lt;font&nbsp;color='green'&gt;Username&nbsp;Ok&lt;/font"</font><font color="#007700">);&nbsp;&nbsp;</font><font color="#ff8000">//&nbsp;sets
+    some text on the&nbsp;on&nbsp;div&nbsp;"resultsDiv"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">arrayToString</font><font color="#007700">(</font><font color="#0000bb">$code</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;converts&nbsp;our&nbsp;array&nbsp;into&nbsp;a&nbsp;printable&nbsp;JavaScript&nbsp;string
+
+<br>&nbsp;</font><font color="#007700">}&nbsp;<br></font>
+        <br>
+        <strong>notice</strong>: some of the methods of this function were added on AjaxCore
+        1.1.1,<br>
+        <br>
+        now, we've created our first AJAX application.<br>
+        <br>
+        <br>
+        Below both files used on this tutorial<br>
+        <br>
+        <strong>BEGIN AjaxFunctions.php<br>
+            --------------------------------------------------------------------------</strong><br>
+    
+</font>
+
+<font color="#000000">
+<font color="#0000bb">&lt;?php
+<br>
+<br></font><font color="#007700">require_once(</font><font color="#dd0000">"AjaxCore.class.php"</font><font color="#007700">);&nbsp;&nbsp;</font><font color="#ff8000">//&nbsp;first&nbsp;we&nbsp;include&nbsp;the&nbsp;AjaxCore&nbsp;class
+<br>
+</font><font color="#007700">class&nbsp;</font><font color="#0000bb">AjaxFunctions&nbsp;</font><font color="#007700">extends&nbsp;</font><font color="#0000bb">AjaxCore&nbsp;
+
+<br></font><font color="#007700">{&nbsp;<br>
+&nbsp;function&nbsp;</font><font color="#0000bb">AjaxFunctions</font><font color="#007700">()
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">setup</font><font color="#007700">();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">parent</font><font color="#007700">::</font><font color="#0000bb">AjaxCore</font><font color="#007700">();
+<br>&nbsp;}&nbsp;<br>
+<br>&nbsp;function&nbsp;</font><font color="#0000bb">setup</font><font color="#007700">()
+
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">setCurrentFile</font><font color="#007700">(</font><font color="#dd0000">"AjaxFunctions.class.php"</font><font color="#007700">);
+<br>&nbsp;}
+<br>
+<br>&nbsp;function&nbsp;</font><font color="#0000bb">checkUsername</font><font color="#007700">()
+<br>&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$user</font><font color="#007700">=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">request</font><font color="#007700">[</font><font color="#dd0000">'username'</font><font color="#007700">];
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">=array();&nbsp;</font><font color="#ff8000">//&nbsp;define&nbsp;an&nbsp;array&nbsp;to&nbsp;store&nbsp;our&nbsp;JavaScript&nbsp;code;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">if(</font><font color="#0000bb">$user</font><font color="#007700">==</font><font color="#dd0000">"test"</font><font color="#007700">)&nbsp;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</font><font color="#ff8000">//&nbsp;username&nbsp;exists
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlDisable</font><font color="#007700">(</font><font color="#dd0000">"registerButton"</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;disable&nbsp;register&nbsp;button
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlInner</font><font color="#007700">(</font><font color="#dd0000">"resultsDiv"</font><font color="#007700">,</font><font color="#dd0000">"&lt;font&nbsp;color='red'&gt;Username&nbsp;already&nbsp;exists&lt;/font"</font><font color="#007700">);&nbsp;</font><font color="#ff8000"><span style="color: rgb(0, 119, 0);">&nbsp;</span><font color="#ff8000">// sets some text on the on
+        div "resultsDiv"&nbsp;<br>
+    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;else
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</font><font color="#ff8000">//&nbsp;username&nbsp;not&nbsp;exists
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlEnable</font><font color="#007700">(</font><font color="#dd0000">"registerButton"</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;enables&nbsp;register&nbsp;button
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">$code</font><font color="#007700">[]=</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">htmlInner</font><font color="#007700">(</font><font color="#dd0000">"resultsDiv"</font><font color="#007700">,</font><font color="#dd0000">"&lt;font&nbsp;color='green'&gt;Username&nbsp;Ok&lt;/font"</font><font color="#007700">);&nbsp;&nbsp;</font><font color="#ff8000"><span style="color: rgb(0, 119, 0);"> </span><font color="#ff8000">// sets some text on the on div
+        "resultsDiv"&nbsp;<br>
+    </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">}&nbsp;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</font><font color="#0000bb">$this</font><font color="#007700">-&gt;</font><font color="#0000bb">arrayToString</font><font color="#007700">(</font><font color="#0000bb">$code</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;converts&nbsp;our&nbsp;array&nbsp;into&nbsp;a&nbsp;printable&nbsp;JavaScript&nbsp;string
+
+<br>&nbsp;</font><font color="#007700">}
+<br>}
+<br>
+new&nbsp;</font><font color="#0000bb">AjaxFunctions</font><font color="#007700">();&nbsp;</font><font color="#ff8000">//&nbsp;do&nbsp;not&nbsp;forget&nbsp;this!
+<br></font><font color="#0000bb">?&gt;</font>
+    <br>
+    <br>
+    <strong>BEGIN register.php<br>
+        --------------------------------------------------------------------------</strong><br>
+<font color="#000000">
+<font color="#0000bb">&lt;?php
+<br></font><font color="#007700">require_once(</font><font color="#dd0000">"AjaxFunctions.class.php"</font><font color="#007700">);&nbsp;</font><font color="#ff8000">//&nbsp;include&nbsp;our&nbsp;class
+<br></font><font color="#0000bb">$ajax</font><font color="#007700">=new&nbsp;</font><font color="#0000bb">AjaxFunctions</font><font color="#007700">();
+<br>&nbsp;</font><font color="#0000bb">?&gt;
+<br></font>&lt;html&gt;
+
+<br>&lt;head&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Register&nbsp;page&lt;/title&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type="text/javascript"&nbsp;src="prototype.js"&gt;&lt;/script&gt;&nbsp;&lt;!--&nbsp;include&nbsp;stantard&nbsp;prototype&nbsp;library&nbsp;--&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;type="text/javascript"&nbsp;src="AjaxCore.js"&gt;&lt;/script&gt;&nbsp;&lt;!--&nbsp;include&nbsp;AjaxCore&nbsp;library&nbsp;--&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000bb">&lt;?php
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">echo&nbsp;</font><font color="#0000bb">$ajax</font><font color="#007700">-&gt;</font><font color="#0000bb">getJSCode</font><font color="#007700">();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">?&gt;
+
+<br></font>&lt;/head&gt;
+<br>&lt;body&gt;
+<br>
+<br>&lt;table&nbsp;border="0"&nbsp;style="font-size:&nbsp;10pt;&nbsp;font-family:&nbsp;Verdana"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;300px;&nbsp;height:&nbsp;50px;"&gt;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;400px;&nbsp;height:&nbsp;50px;"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="text"&nbsp;id="username"&nbsp;name="username"&nbsp;style="width:&nbsp;200px"&nbsp;/&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="button"&nbsp;id="checkButton"&nbsp;name="checkButton"&nbsp;value="Check"&nbsp;/&gt;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000bb">&lt;?php
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#007700">echo&nbsp;</font><font color="#0000bb">$ajax</font><font color="#007700">-&gt;</font><font color="#0000bb">bind</font><font color="#007700">(</font><font color="#dd0000">"checkButton"</font><font color="#007700">,</font><font color="#dd0000">"onclick"</font><font color="#007700">,</font><font color="#dd0000">"checkUsername"</font><font color="#007700">,</font><font color="#dd0000">"username"</font><font color="#007700">);
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000bb">?&gt;</font>&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id="resultsDiv"&gt;&amp;nbsp;&lt;/div&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;300px;&nbsp;height:&nbsp;50px;"&gt;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;400px;&nbsp;height:&nbsp;50px;"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="password"&nbsp;id="password"&nbsp;name="password"&nbsp;style="width:&nbsp;200px"&nbsp;/&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;300px;&nbsp;height:&nbsp;200px;"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;style="width:&nbsp;400px;&nbsp;height:&nbsp;200px;"&gt;
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea&nbsp;rows="5"&nbsp;style="width:&nbsp;200px"&gt;&lt;/textarea&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&nbsp;colspan="2"&nbsp;&nbsp;align="center"&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type="button"&nbsp;id="registerButton"&nbsp;name="registerButton"&nbsp;value="Register"&nbsp;disabled="disabled"/&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+<br>&lt;/table&gt;
+<br>
+&lt;/body&gt;
+<br>&lt;/html&gt;
+<br>
+    <br>
+    <br>
+    <strong>
+        That's all, Folks!</strong></font></font>
+
+
+</font></body></html>

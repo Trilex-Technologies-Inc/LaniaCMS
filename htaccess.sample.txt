@@ -1,0 +1,9 @@
+Options -Indexes
+Options +FollowSymLinks
+DirectoryIndex index.php
+RewriteEngine on
+#RewriteRule ^([^\.]+)\.htm$ module.php?modname=$1 [L,QSA]
+#RewriteRule ^(.+)\.([^\.]+)\.([^\.]+)\.htm$ $1.htm?$2=$3 [N,QSA]
+
+php_flag magic_quotes_gpc On
+

@@ -1,0 +1,158 @@
+Lanai Core is a mature OOP framework for building web, command line and GUI applications. 
+Licensed under GNU/GPL, the project allows PHP developers to easily integrate and manage 
+code resources, and build complex applications quickly. Support PHP 4/5 compatible, compact 
+core framework with basic CMS and other modules included to get you started, ease of use: 
+learning curve not as steep as other frameworks enterprise ready, performance conscious 
+design tight integration with PEAR libraries, great for prototyping complex projects.
+
+Copyright (C) 2006  Lanai Core dot Org.
+
+This software is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This software is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+----------------------------------------------------------------------------------------------------
+
+CHANGE LOG
+==========
+25/06/2007
+* Update UI in some modules and themes
+* Add java script calendar
+
+15/05/2007
+* add comment feature in news module
+
+09/05/2007
+* update bookmark link in news module
+* update gallery layout 
+
+07/05/2007
+* add auto create menu in content module
+
+28/04/2007
+* fix load shopping cart session
+* fix file upload in fckEditor
+
+27/04/2007
+* fix block input layout
+
+20/04/2007
+* fix layout theme 'zenlike'
+* add new block 'yahoo search'
+
+19/04/2007
+* add new theme 'zenlike'
+* add new menu block
+* add new module 'yahoo search'
+* fix forum interface
+
+18/04/2007
+* fixed show number format in ezshop
+
+10/04/2007
+* add config module
+* fixed shopping cart bugs
+* fixed load offline page
+
+
+06/04/2007
+* fixed shopping cart user interface 
+
+04/04/2007
+* add shopping cart module
+
+29/03/2007
+* update Thai language in gallery module.
+* add new popup module.
+* add new popup block
+* add Tag class for sys_lanai
+
+27/03/2007
+* add popup module and block
+
+
+25/03/2007
+* update ajax scription generator  in "lamud" 
+* update installation script
+* fixed gallery module
+
+24/03/2007
+* update gallery module admin
+
+23/03/2007:
+* add gallery module
+
+19/03/2007:
+* Ajax Framework
+* Graph Library
+* Lanai HTML Library
+* UI Update
+* class.pager.php update
+
+23/01/2007:
+* add "Long Live The King" Block
+
+15/01/2007:
+* add Japanese Language in some modules and blocks
+
+04/01/2007:
+* add explorer module
+* add new theme
+* fixed lamud CRUD script
+ 
+03/01/2007:
+* add poll module
+* google, alexa page rank block
+* fixed language encoding
+* fixed feed block
+
+23/12/2006:
+* Fixed delete cache after change theme
+* Fixed pager class
+* Optimized ADODb API
+* Fixed build user table and menu table
+* update language RSS Thai language file
+
+22/12/2006:
+* Release La-Nai 1.0rc2
+* Fixed build forum table in instalation script
+
+8/12/2006:
+* Release La-Nai 1.0rc1
+* Fixed Lanai Core APIs
+* Update Module Loader all exist themes
+* Update Lamud 1.2
+* Bundle Module Forum
+
+17/12/2006:
+* Release La-Nai 1.0pre-release
+* Bundle Module News
+
+12/12/2006:
+* Lamud - Command Line Script for Code Generator
+
+17/11/2006:
+* Release Modified Core 5
+* Cutting all old fasion module
+* Thai Translation
+
+21/11/2006:
+* Release Core 5
+* Delete logs module
+* Bundle Yahoo Search
+* SEO
+
+6/9/2006 :
+* Released Lanai Core 0.4.1 
+* 17 modules, 9 blocks.
+* CAPTCHA bunble

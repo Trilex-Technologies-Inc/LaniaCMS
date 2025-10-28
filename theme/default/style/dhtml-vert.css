@@ -1,0 +1,113 @@
+/* Root = Vertical, Secondary = Vertical */
+ul#navmenu,
+ul#navmenu li,
+ul#navmenu ul {
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+  width: 160px; /*For KHTML*/
+  list-style: none;
+}
+
+ul#navmenu li {
+	display: block !important;
+	display: inline;
+	position: relative;
+	background-position: left;
+}
+
+/* Root Menu */
+ul#navmenu a {
+  border: 1px solid #FFF;
+ /*    border-right-color: #CCC;
+  border-bottom-color: #CCC;*/
+  border-top-color: #CCC;
+  padding: 5px 5px 5px 5px;
+  display: block;
+  background: #FFF;
+  color: #333399;
+  font-weight: normal ; 
+  text-decoration: none;
+  height: auto !important;
+  height: 1%; /*For IE*/
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu a:hover,
+ul#navmenu li:hover a,
+ul#navmenu li.iehover a {
+  background: #EEE;
+  color: #000;
+}
+
+/* 2nd Menu */
+ul#navmenu li:hover li a,
+ul#navmenu li.iehover li a {
+  background: #FFF;
+  color: #3399FF;
+}
+
+/* 2nd Menu Hover Persistence */
+ul#navmenu li:hover li a:hover,
+ul#navmenu li:hover li:hover a,
+ul#navmenu li.iehover li a:hover,
+ul#navmenu li.iehover li.iehover a {
+  background: #EEE;
+  color: #000;
+}
+
+/* 3rd Menu */
+ul#navmenu li:hover li:hover li a,
+ul#navmenu li.iehover li.iehover li a {
+  background: #EEE;
+  color: #666;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#navmenu li:hover li:hover li a:hover,
+ul#navmenu li:hover li:hover li:hover a,
+ul#navmenu li.iehover li.iehover li a:hover,
+ul#navmenu li.iehover li.iehover li.iehover a {
+  background: #CCC;
+  color: #FFF;
+}
+
+/* 4th Menu */
+ul#navmenu li:hover li:hover li:hover li a,
+ul#navmenu li.iehover li.iehover li.iehover li a {
+  background: #EEE;
+  color: #666;
+}
+
+/* 4th Menu Hover */
+ul#navmenu li:hover li:hover li:hover li a:hover,
+ul#navmenu li.iehover li.iehover li.iehover li a:hover {
+  background: #CCC;
+  color: #FFF;
+}
+
+ul#navmenu ul,
+ul#navmenu ul ul,
+ul#navmenu ul ul ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 160px;
+}
+
+/* Do Not Move - Must Come Before display:block for Gecko */
+ul#navmenu li:hover ul ul,
+ul#navmenu li:hover ul ul ul,
+ul#navmenu li.iehover ul ul,
+ul#navmenu li.iehover ul ul ul {
+  display: none;
+}
+
+ul#navmenu li:hover ul,
+ul#navmenu ul li:hover ul,
+ul#navmenu ul ul li:hover ul,
+ul#navmenu li.iehover ul,
+ul#navmenu ul li.iehover ul,
+ul#navmenu ul ul li.iehover ul {
+  display: block;
+}

@@ -1,0 +1,2437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>AjaxCore 1.1.2 » Documentation</title>
+    <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+</head>
+<body>
+    <table border="0" align="center" width="740">
+			<tr>
+				<td>
+					<img src="images/ajaxcore.png" alt="AjaxCore" border="0">
+				</td>
+			</tr>
+        <tr>
+            <td align="left" valign="top">
+               		<br />		
+                    <b>AjaxCore 1.1.2 </b><br />
+                    http://ajaxcore.sourceforge.net/ <br />
+                    <br />
+                    AjaxCore is a PHP framework that aims the ease development of rich <br />
+                    AJAX applications, using Prototype's JavaScript standard library.<br />
+                    <br />
+                    Copyright 2007 Mauro Niewolski (niewolski@users.sourceforge.net)<br />
+                    <br />
+                    Licensed under the Apache License, Version 2.0 (the "License"); <br />
+                    you may not use this file except in compliance with the License. <br />
+                    You may obtain a copy of the License at <br />
+                    <br />
+                        http://www.apache.org/licenses/LICENSE-2.0<br />
+                    <br />
+                    Unless required by applicable law or agreed to in writing, software<br />
+                    distributed under the License is distributed on an "AS IS" BASIS,<br />
+                    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br />
+                    See the License for the specific language governing permissions and<br />
+                    limitations under the License.<br />
+             
+            </td>
+        </tr>
+        <tr>
+            <td align="left" height="10" valign="top">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td align="left" height="20" valign="top">
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <table border="0" width="100%">
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <h2>
+                                Public Method Summary</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_AjaxCore()">
+                                <h4>
+                                    AjaxCore([ boolean $lastbind ])</h4>
+                            </a>AjaxCore()</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setJSCode()">
+                                <h4>
+                                    setJSCode(string $id, string $before, string $after)</h4>
+                            </a>setJSCode</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setDebug()">
+                                <h4>
+                                    setDebug(bool $debug)</h4>
+                            </a>setDebug</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_getJSCode()">
+                                <h4>
+                                    getJSCode()</h4>
+                            </a>getJSCode</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_bind()">
+                                <h4>
+                                    bind(string $id, string $event, string $bindto, [ string $params ])</h4>
+                            </a>bind</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_onLoad()">
+                                <h4>
+                                    onLoad(string $bindto, [ string $params, string $request, integer $timerms ])</h4>
+                            </a>onLoad</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_bindTimer()">
+                                <h4>
+                                    bindTimer(string $id, string $event, string $bindto, string $timername, string $timerms,
+                                    [ string $params ])</h4>
+                            </a>bindTimer</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_bindPeriodicalTimer()">
+                                <h4>
+                                    bindPeriodicalTimer(string $id, string $event, string $bindto, string $timername,
+                                    string $timerms, [ string $params ])</h4>
+                            </a>bindPeriodicalTimer</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_phpArrayToJS()">
+                                <h4>
+                                    phpArrayToJS(array $array)</h4>
+                            </a>phpArrayToJS</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_startTimer()">
+                                <h4>
+                                    startTimer(string $id)</h4>
+                            </a>startTimer</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_stopTimer()">
+                                <h4>
+                                    stopTimer(string $id)</h4>
+                            </a>stopTimer</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <table border="0" width="100%">
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <h2>
+                                Private Method Summary</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setUpdating()">
+                                <h4>
+                                    setUpdating(string $code)</h4>
+                            </a>setUpdating</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setCurrentFile()">
+                                <h4>
+                                    setCurrentFile(string $file)</h4>
+                            </a>setCurrentFile</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setPlaceHolder()">
+                                <h4>
+                                    setPlaceHolder(string $placeHolder)</h4>
+                            </a>setPlaceHolder</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setMethod()">
+                                <h4>
+                                    setMethod(string $method)</h4>
+                            </a>setMethod</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_setCache()">
+                                <h4>
+                                    setCache(bool $cache)</h4>
+                            </a>setCache</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_parseCache()">
+                                <h4>
+                                    parseCache()</h4>
+                            </a>parseCache</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_lookForAction()">
+                                <h4>
+                                    lookForAction()</h4>
+                            </a>lookForAction</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_initialize()">
+                                <h4>
+                                    initialize()</h4>
+                            </a>intialize</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            array</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_getRequest()">
+                                <h4>
+                                    getRequest()</h4>
+                            </a>getRequest</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_escapeJS()">
+                                <h4>
+                                    escapeJS(string $string)</h4>
+                            </a>escapeJS (borrowed from Smarty)</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            void</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_alert()">
+                                <h4>
+                                    alert(string $message, boolean $die)</h4>
+                            </a>alert</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_arrayToString()">
+                                <h4>
+                                    arrayToString(array $array)</h4>
+                            </a>arrayToString</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_htmlDisable()">
+                                <h4>
+                                    htmlDisable(string $element)</h4>
+                            </a>htmlDisable</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_htmlEnable()">
+                                <h4>
+                                    htmlEnable(string $element)</h4>
+                            </a>htmlEnable</td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">
+                            string</td>
+                        <td align="left" valign="top" width="100%">
+                            <a href="#function_htmlInner()">
+                                <h4>
+                                    htmlInner(string $element, string $value)</h4>
+                            </a>htmlInner</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    
+        <tr>
+            <td align="left" valign="top">
+                <table border="0" width="100%">
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <h2>
+                                Public Method Details</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_AjaxCore()">
+                                <h4>
+                                    AjaxCore</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public void AjaxCore( [ boolean $lastbind ] )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            AjaxCore()
+                            <br />
+                            Class constructor.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        boolean</td>
+                                    <td align="left" valign="top">
+                                        $lastbind</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;false&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        it's the name of the last JavaScript event triggered.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setJSCode()">
+                                <h4>
+                                    setJSCode</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public void setJSCode( string $id, string $before, string $after )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setJSCode
+                            <br />
+                            Sets specific JavaScript code to execute before and after the AJAX request is made.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $id</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        HTML object id</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $before</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        JavaScript code to execute before the AJAX request is being made.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $after</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        JavaScript code to execute before the AJAX request is being made.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setDebug()">
+                                <h4>
+                                    setDebug</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public void setDebug( bool $debug )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setDebug
+                            <br />
+                            Set whether it should print JavaScript error when occurrs.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        bool</td>
+                                    <td align="left" valign="top">
+                                        $debug</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        boolean value.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_getJSCode()">
+                                <h4>
+                                    getJSCode</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public void getJSCode( )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            getJSCode
+                            <br />
+                            Returns string header JavaScript code for main placeHolder.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_bind()">
+                                <h4>
+                                    bind</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public string bind( string $id, string $event, string $bindto, [ string $params ]
+                                )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            bind
+                            <br />
+                            Does the bind between an Html object and PHP function, request will be made when
+                            appropiate JavaScript event is triggered.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $id</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        Html ID object</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $event</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        JavaScript event that will cause AJAX request ( onfocus onblur onmouseover onmouseout
+                                        onmousedown onmouseup onsubmit onclick onload onchange onkeypress onkeydown onkeyup
+                                        )</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $bindto</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        PHP function that handles the AJAX request</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $params</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;""&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        ID of the Html elements that needs to be send within the request, static values
+                                        (not html elements ) should be sent as _XXX=YYY , whether XXX represents variable
+                                        name, and YYY value.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                JavaScript code to handle the binding.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_onLoad()">
+                                <h4>
+                                    onLoad</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public string onLoad( string $bindto, [ string $params, string $request, integer
+                                $timerms ] )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            onLoad
+                            <br />
+                            Does a request to a PHP function, request will be made when onLoad JavaScript event
+                            occurs.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $bindto</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        PHP function that handles the AJAX request</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $params</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;""&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        ID of the Html elements that needs to be send within the request, static values
+                                        (not html elements ) should be sent as _XXX=YYY , whether XXX represents variable
+                                        name, and YYY value.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $request</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;"bind"&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        type of request, bind, bindTimer, bindPeriodicalTimer</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        integer</td>
+                                    <td align="left" valign="top">
+                                        $timerms</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;300&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        timer expiration time in milliseconds (only for timer requests)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                JavaScript code to handle the binding.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_bindTimer()">
+                                <h4>
+                                    bindTimer</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public string bindTimer( string $id, string $event, string $bindto, string $timername,
+                                string $timerms, [ string $params ] )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            bindTimer
+                            <br />
+                            Does the bind between an Html object and PHP function, request will be made when
+                            onLoad JavaScript event occurs and timer expires.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $id</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        Html ID object</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $event</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        JavaScript event that will cause AJAX request ( onfocus onblur onmouseover onmouseout
+                                        onmousedown onmouseup onsubmit onclick onload onchange onkeypress onkeydown onkeyup
+                                        )</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $bindto</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        PHP function that handles the AJAX request</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $timername</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        ID of the Html elements that needs to be send within the request, static values
+                                        (not html elements ) should be sent as _XXX=YYY , whether XXX represents variable
+                                        name, and YYY value.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $timerms</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        name of the timer</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $params</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;""&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        expiration time in milliseconds</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                JavaScript code to handle the binding.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_bindPeriodicalTimer()">
+                                <h4>
+                                    bindPeriodicalTimer</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public string bindPeriodicalTimer( string $id, string $event, string $bindto, string
+                                $timername, string $timerms, [ string $params ] )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            bindPeriodicalTimer
+                            <br />
+                            Does the bind between an Html object and PHP function, request will be made when
+                            onLoad JavaScript event occurs and will keep repeating when timer expires.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $id</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        Html ID object</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $event</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        JavaScript event that will cause AJAX request ( onfocus onblur onmouseover onmouseout
+                                        onmousedown onmouseup onsubmit onclick onload onchange onkeypress onkeydown onkeyup
+                                        )</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $bindto</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        PHP function that handles the AJAX request</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $timername</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        ID of the Html elements that needs to be send within the request, static values
+                                        (not html elements ) should be sent as _XXX=YYY , whether XXX represents variable
+                                        name, and YYY value.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $timerms</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        name of the timer</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $params</td>
+                                    <td align="left" valign="top">
+                                        <code>= &gt;&gt;""&lt;&lt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        expiration time in milliseconds</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                JavaScript code to handle the binding.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_phpArrayToJS()">
+                                <h4>
+                                    phpArrayToJS</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public string phpArrayToJS( array $array )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            phpArrayToJS
+                            <br />
+                            Converts an array from php to JavaScript.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        array</td>
+                                    <td align="left" valign="top">
+                                        $array</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        php array</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                JavaScript array</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_startTimer()">
+                                <h4>
+                                    startTimer</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public void startTimer( string $id )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            startTimer
+                            <br />
+                            Restarts a timer
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $id</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        is the timer id</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_stopTimer()">
+                                <h4>
+                                    stopTimer</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>public void stopTimer( string $id )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            stopTimer
+                            <br />
+                            Stops a timer
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $id</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        is the timer id</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <table border="0" width="100%">
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <h2>
+                                Private Method Details</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setUpdating()">
+                                <h4>
+                                    setUpdating</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void setUpdating( string $code )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setUpdating
+                            <br />
+                            Sets an HTML code while the AJAX request is being made.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $code</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        HTML code to show while making the request.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setCurrentFile()">
+                                <h4>
+                                    setCurrentFile</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void setCurrentFile( string $file )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setCurrentFile
+                            <br />
+                            Sets filename of the extended class that inherits of AjaxCore.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $file</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        filename of the extended class.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setPlaceHolder()">
+                                <h4>
+                                    setPlaceHolder</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void setPlaceHolder( string $placeHolder )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setPlaceHolder
+                            <br />
+                            Sets the &lt;Div&gt; id that will be used as placeholder.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $placeHolder</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        &lt;Div id=""&gt; used to return Html results.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setMethod()">
+                                <h4>
+                                    setMethod</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void setMethod( string $method )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setMethod
+                            <br />
+                            Sets whether the method should be Get or Post.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $method</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        Get or Post.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_setCache()">
+                                <h4>
+                                    setCache</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void setCache( bool $cache )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            setCache
+                            <br />
+                            Sets whether should use cache or not.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        bool</td>
+                                    <td align="left" valign="top">
+                                        $cache</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        boolean value</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_parseCache()">
+                                <h4>
+                                    parseCache</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void parseCache( )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            parseCache
+                            <br />
+                            Parses the current cache.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_lookForAction()">
+                                <h4>
+                                    lookForAction</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void lookForAction( )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            lookForAction
+                            <br />
+                            Determines what PHP function should be called upon each AJAX request
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_initialize()">
+                                <h4>
+                                    initialize</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void initialize( )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            intialize
+                            <br />
+                            Method that is called just before any PHP function, useful to initialize databases
+                            and so on.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_getRequest()">
+                                <h4>
+                                    getRequest</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private array getRequest( )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            getRequest
+                            <br />
+                            Returns Get or Post array.
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            array
+                            <p>
+                                request
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_escapeJS()">
+                                <h4>
+                                    escapeJS</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private string escapeJS( string $string )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            escapeJS (borrowed from Smarty)
+                            <br />
+                            Escape the string to JavaScript
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $string</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        String unscaped</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                escaped string</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Links</td>
+                        <td align="left" valign="top">
+                            <a td=""></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Author(s)</td>
+                        <td align="left" valign="top">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_alert()">
+                                <h4>
+                                    alert</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private void alert( string $message, boolean $die )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            alert
+                            <br />
+                            Return JavaScript Alert Message
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $message</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        message to alert</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        boolean</td>
+                                    <td align="left" valign="top">
+                                        $die</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        Warning: documentation is missing.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            void
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_arrayToString()">
+                                <h4>
+                                    arrayToString</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private string arrayToString( array $array )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            arrayToString
+                            <br />
+                            Returns a sentence form an array
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        array</td>
+                                    <td align="left" valign="top">
+                                        $array</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        of sentences</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                string with sentences</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_htmlDisable()">
+                                <h4>
+                                    htmlDisable</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private string htmlDisable( string $element )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            htmlDisable
+                            <br />
+                            Disables an html element
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $element</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        is the ID of the element</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                sentence to disable element</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_htmlEnable()">
+                                <h4>
+                                    htmlEnable</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private string htmlEnable( string $element )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            htmlEnable
+                            <br />
+                            Enables an html element
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $element</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        is the ID of the element</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                sentence to disable element</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <a name="function_htmlInner()">
+                                <h4>
+                                    htmlInner</h4>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <b>private string htmlInner( string $element, string $value )</b>
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="10">
+                            &nbsp;</td>
+                        <td align="left" valign="top">
+                            htmlInner
+                            <br />
+                            Enables an html element
+                            <p>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            Parameter</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $element</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        is the ID of the element</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left" valign="top">
+                            <table>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        string</td>
+                                    <td align="left" valign="top">
+                                        $value</td>
+                                    <td align="left" valign="top">
+                                        <code></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left" colspan="2" valign="top">
+                                        is the text to put in</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            Returns</td>
+                        <td>
+                            string
+                            <p>
+                                sentence to disable element</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="2" valign="top">
+                            <hr />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                AjaxCore 2007</td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+Install La-Nai on Windows
+====================
+
+1. Download lastest release version at https://sourceforge.net/project/showfiles.php?group_id=191629
+2. Extract to your home directory.
+3. Change permission 777 to all directories in 'datacenter', 'modules', 'theme' and 'blocks'.
+4. Browse to http://your-domain-name/lanai-dir/ 
+5. It 'll start web installation follow the instruction until finish.
+6. Delete 'install' directory after finish.
+
+Install La-Nai on Unix, Linux, OSX
+==========================
+
+1. Download lastest release version at https://sourceforge.net/project/showfiles.php?group_id=191629
+2. Extract file to your home directory.
+
+    $ tar zxvf lanai-cms_v1.2.xx.tar.gz
+
+3. Change permission 777 to all directories in 'datacenter', 'modules', 'theme' and 'blocks'.
+    
+    $ chmod 777 -R datacenter
+    $ chmod 777 blocks modules theme
+
+4. Browse to http://your-domain-name/lanai-dir/
+5. It 'll start web installation follow the instruction until finish.
+6. Delete 'install' directory after finish.
+
+
+Anonymous CVS Access
+====================
+
+This project's SourceForge.net CVS repository can be checked out through anonymous (pserver) CVS with the following instruction set. The module you wish to check out must be specified as the modulename. When prompted for a password for anonymous, simply press the Enter key. To determine the names of the modules created by this project, you may examine their CVS repository via the provided web-based CVS repository viewer.
+
+$cvs -d:pserver:anonymous@la-nai.cvs.sourceforge.net:/cvsroot/la-nai login
+ 
+$cvs -z3 -d:pserver:anonymous@la-nai.cvs.sourceforge.net:/cvsroot/la-nai co -P modulename
+
+Information about accessing this CVS repository may be found in our document titled, "CVS (Version Control for Source Code)".
+
+Updates from within the module's directory do not need the -d parameter.
+
+NOTE: UNIX file and directory names are case sensitive. The path to the project CVSROOT must be specified using lowercase characters (i.e. /cvsroot/la-nai)
+
+
+Developer CVS Access via SSH
+=========================
+
+Only project developers can access the CVS tree via this method. A SSH client must be installed on your client machine. Substitute modulename and developername with the proper values. Enter your site password when prompted.
+
+Project administrators may limit CVS access to this repository using cvs_acls or the CVS access member permissions option. Developers may verify their CVS access status on the admin page for this project.
+
+A significant amount of information about project CVS services may be found in our "CVS (Version Control for Source Code)".
+
+Developers may also make use of shared SSH keys for authentication.
+
+$export CVS_RSH=ssh
+ 
+$cvs -z3 -d:ext:developername@la-nai.cvs.sourceforge.net:/cvsroot/la-nai co -P modulename
+
+NOTE: UNIX file and directory names are case sensitive. The path to the project CVSROOT must be specified using lowercase characters (i.e. /cvsroot/la-nai) 

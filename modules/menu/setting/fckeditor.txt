@@ -1,0 +1,27 @@
+?>
+	<tr>
+		<td >
+			<? 
+				$sBasePath = "include/fckeditor/";
+				$oFCKeditor1 = new FCKeditor('body1') ;
+				$oFCKeditor1->ToolbarSet	= "MyToolbar" ;
+				$oFCKeditor1->Width ="700";				
+				$oFCKeditor1->BasePath	= $sBasePath ;
+				$oFCKeditor1->Value		= 'This is some <strong>sample text</strong>.' ;
+				$oFCKeditor1->Create() ;
+			?>
+		</td>
+	</tr>
+	<tr>
+		<td >
+			<? 
+				$oFCKeditor2 = new FCKeditor('body2') ;
+				$oFCKeditor2->ToolbarSet	= "MyToolbar" ;
+				$oFCKeditor2->Width ="700";				
+				$oFCKeditor2->BasePath	= $sBasePath ;
+				$oFCKeditor2->Value		= 'This is some <strong>sample text</strong>.' ;
+				$oFCKeditor2->Create() ;
+			?>
+		</td>
+	</tr>
+	<?

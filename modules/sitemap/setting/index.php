@@ -1,0 +1,1 @@
+This module doesn't has setting function, please goto module index.

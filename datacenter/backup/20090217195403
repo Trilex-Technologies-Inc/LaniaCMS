@@ -1,0 +1,666 @@
+<query>DROP TABLE IF EXISTS tbl_ln_banner
+<query>CREATE TABLE `tbl_ln_banner` (
+  `banId` int(10) unsigned NOT NULL auto_increment,
+  `banTitle` varchar(200) collate latin1_general_ci NOT NULL,
+  `banDescription` text collate latin1_general_ci NOT NULL,
+  `banImage` varchar(255) collate latin1_general_ci NOT NULL,
+  `banURL` varchar(255) collate latin1_general_ci NOT NULL,
+  `banDate` datetime NOT NULL,
+  `banShow` int(10) unsigned default '0',
+  `banClick` int(10) unsigned default '0',
+  PRIMARY KEY  (`banId`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_banner VALUES ('1', 'getfirefox', 'getfirefox', 'datacenter/banner/imgad.gif', 'http://www.getfirefox.com', '2007-06-22 01:37:17', '6', '1')
+<query>DROP TABLE IF EXISTS tbl_ln_block
+<query>CREATE TABLE `tbl_ln_block` (
+  `blcId` int(10) unsigned NOT NULL auto_increment,
+  `blcTitle` varchar(150) collate latin1_general_ci default NULL,
+  `blcName` varchar(150) collate latin1_general_ci default NULL,
+  `blcType` enum('b','r','c') collate latin1_general_ci NOT NULL default 'b',
+  `blcRssUrl` varchar(255) collate latin1_general_ci default NULL,
+  `blcRssRefesh` int(11) NOT NULL default '3600',
+  `blcRssTime` int(11) NOT NULL,
+  `blcContent` text collate latin1_general_ci,
+  `blcPosition` enum('t','b','l','r','c') collate latin1_general_ci default 'l',
+  `blcOrder` int(10) unsigned default '0',
+  `blcActive` enum('y','n') collate latin1_general_ci default 'y',
+  PRIMARY KEY  (`blcId`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_block VALUES ('1', 'Menu', 'bmenu', 'b', '', '3600', '0', '', 'l', '1', 'n')
+<query>INSERT INTO tbl_ln_block VALUES ('2', 'Syndicate', 'bfeed', 'b', '', '3600', '0', '', 'l', '2', 'n')
+<query>INSERT INTO tbl_ln_block VALUES ('3', 'News', 'bnews', 'b', '', '3600', '0', '', 'c', '2', 'n')
+<query>INSERT INTO tbl_ln_block VALUES ('5', 'RSS Feed', 'brssthai', 'b', '', '3600', '0', '', 'c', '1', 'y')
+<query>INSERT INTO tbl_ln_block VALUES ('13', 'Menu Horizontal', 'bmenuhorz', 'b', '', '3600', '0', '', 'l', '2', '')
+<query>INSERT INTO tbl_ln_block VALUES ('14', 'Menu Vertical', 'bmenuvert', 'b', '', '3600', '0', '', 'l', '2', '')
+<query>INSERT INTO tbl_ln_block VALUES ('16', 'Menu Horz', 'bmenuhorz', 'b', '', '3600', '0', '', 't', '2', '')
+<query>INSERT INTO tbl_ln_block VALUES ('18', 'Banner', 'bbanner', 'b', '', '3600', '0', '', 't', '2', 'n')
+<query>INSERT INTO tbl_ln_block VALUES ('21', 'LANAI1XX', 'lanai1xx', 'c', '', '0', '1188142919', '\r\n<table width=\"100%\" height=\"200\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" background=\"datacenter/media/image/banner02.png\">\r\n<tbody>\r\n<tr>\r\n<td><img width=\"27\" height=\"200\" src=\"datacenter/media/image/banner01.png\"  /></td>\r\n<td style=\"padding-right: 27px;\"><span style=\"color: rgb(255, 255, 255); font-size: 16px;\">LANAI (La-Nai) is a CMS-like system that has basic  modules, blocks, and templates. It is ready to  create a Web site, but it has a new way of  development called &quot;Generated Framework&quot;, which  means that a developer can generate module and  source code from a command line script called  &quot;La-Mud&quot;. In just a few minutes, you can create  your own module or database driven module.</span></td>\r\n<td><img width=\"305\" height=\"200\" src=\"datacenter/media/image/banner03.png\" /></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<table width=\"100%\" cellspacing=\"2\" cellpadding=\"3\" border=\"0\">\r\n<tbody>\r\n<tr>\r\n<td>&nbsp;</td>\r\n<td>&nbsp;</td>\r\n<td>&nbsp;</td>\r\n</tr>\r\n<tr>\r\n<td width=\"32%\" valign=\"top\" style=\"border-right: 0px dashed rgb(255, 51, 0);\">\r\n<h2>Screencast &amp; Tutorial</h2>\r\n<ul>\r\n<li><a href=\"http://www.lanai-core.org/screencast/lamud01/\">Create module by Lamud</a></li>\r\n<li><a href=\"http://www.lanai-core.org/screencast/lamud02/\">Module example &quot;guestbook&quot;</a></li>\r\n<li><a href=\"http://www.lanai-core.org/screencast/lamud03/\">Create installation script by lamud </a></li>\r\n<li><a href=\"http://www.lanai-core.org/screencast/lanaitheme/\">Design your own theme</a></li>\r\n<li><a href=\"http://www.lanai-core.org/screencast/lamud04/\">Create module with CRUD script</a></li>\r\n</ul>\r\n</td>\r\n<td valign=\"top\" style=\"border-right: 0px dashed rgb(255, 51, 0); padding-left: 10px;\">\r\n<h2>CVS</h2>\r\n<p>You can check out La-Nai CMS project source code\'s at  SourceForge .NET</p>\r\n<ul>\r\n<li><a href=\"https://sourceforge.net/cvs/?group_id=191629\">CVS Information</a></li>\r\n<li><a href=\"http://la-nai.cvs.sourceforge.net/la-nai\">Browse CVS We</a><a href=\"http://la-nai.cvs.sourceforge.net/la-nai\">b</a></li>\r\n</ul>\r\n</td>\r\n<td width=\"32%\" valign=\"top\" style=\"padding-left: 10px;\">\r\n<h2>Contact</h2>\r\n<p>If you found some bugs or have any ideas to suggest, please contact <strong>support@redlinesoft.net</strong></p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'c', '6', 'y')
+<query>DROP TABLE IF EXISTS tbl_ln_comment
+<query>CREATE TABLE `tbl_ln_comment` (
+  `comId` int(10) unsigned NOT NULL auto_increment,
+  `catTitle` varchar(25) collate latin1_general_ci NOT NULL,
+  `catId` int(10) unsigned NOT NULL,
+  `comDetail` text collate latin1_general_ci,
+  `comAuthor` varchar(80) collate latin1_general_ci NOT NULL,
+  `comEmail` varchar(50) collate latin1_general_ci NOT NULL,
+  `comDate` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`comId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>DROP TABLE IF EXISTS tbl_ln_contact
+<query>CREATE TABLE `tbl_ln_contact` (
+  `conId` int(11) NOT NULL auto_increment,
+  `conFname` varchar(40) collate latin1_general_ci default NULL,
+  `conLname` varchar(40) collate latin1_general_ci default NULL,
+  `conPosition` varchar(80) collate latin1_general_ci default NULL,
+  `conAddress1` varchar(80) collate latin1_general_ci default NULL,
+  `conAddress2` varchar(80) collate latin1_general_ci default NULL,
+  `conCity` varchar(50) collate latin1_general_ci default NULL,
+  `conState` varchar(50) collate latin1_general_ci default NULL,
+  `cntId` char(2) collate latin1_general_ci default 'TH',
+  `conZipcode` varchar(30) collate latin1_general_ci default NULL,
+  `conPhone` varchar(30) collate latin1_general_ci default NULL,
+  `conFax` varchar(30) collate latin1_general_ci default NULL,
+  `conMobile` varchar(30) collate latin1_general_ci default NULL,
+  `conEmail` varchar(50) collate latin1_general_ci default NULL,
+  `conURL` varchar(120) collate latin1_general_ci default NULL,
+  `conActive` enum('y','n') collate latin1_general_ci default 'y',
+  PRIMARY KEY  (`conId`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_contact VALUES ('1', 'Anuchit', 'Chalothorn', 'Project Manager', 'RedLine Software', '107 Moo 10 T.Suranaree', 'A.Muang', 'Nakhon Ratchasima', 'TH', '30000', '+66 44 214 187', '+66 44 214 187', '+ 66 898 433 717', 'anuchit@redlinesoft.net', 'http://www,redlinesoft.net', 'y')
+<query>DROP TABLE IF EXISTS tbl_ln_content
+<query>CREATE TABLE `tbl_ln_content` (
+  `conId` int(10) unsigned NOT NULL auto_increment,
+  `userId` int(11) NOT NULL,
+  `conTitle` varchar(200) collate latin1_general_ci default NULL,
+  `conBody1` text collate latin1_general_ci,
+  `conBody2` text collate latin1_general_ci NOT NULL,
+  `conCategory` char(1) collate latin1_general_ci NOT NULL default 'c',
+  `conModified` timestamp NULL default NULL,
+  `conActive` enum('y','n') collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`conId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>DROP TABLE IF EXISTS tbl_ln_country
+<query>CREATE TABLE `tbl_ln_country` (
+  `cntId` char(2) collate latin1_general_ci NOT NULL,
+  `cntName` varchar(100) collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`cntId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_country VALUES ('AF', 'Afghanistan')
+<query>INSERT INTO tbl_ln_country VALUES ('AL', 'Albania')
+<query>INSERT INTO tbl_ln_country VALUES ('DZ', 'Algeria')
+<query>INSERT INTO tbl_ln_country VALUES ('AS', 'American Samoa')
+<query>INSERT INTO tbl_ln_country VALUES ('AD', 'Andorra')
+<query>INSERT INTO tbl_ln_country VALUES ('AO', 'Angola')
+<query>INSERT INTO tbl_ln_country VALUES ('AI', 'Anguilla')
+<query>INSERT INTO tbl_ln_country VALUES ('AQ', 'Antarctica')
+<query>INSERT INTO tbl_ln_country VALUES ('AG', 'Antigua And Barbuda')
+<query>INSERT INTO tbl_ln_country VALUES ('AR', 'Argentina')
+<query>INSERT INTO tbl_ln_country VALUES ('AM', 'Armenia')
+<query>INSERT INTO tbl_ln_country VALUES ('AW', 'Aruba')
+<query>INSERT INTO tbl_ln_country VALUES ('AU', 'Australia')
+<query>INSERT INTO tbl_ln_country VALUES ('AT', 'Austria')
+<query>INSERT INTO tbl_ln_country VALUES ('AZ', 'Azerbaijan')
+<query>INSERT INTO tbl_ln_country VALUES ('BS', 'Bahamas')
+<query>INSERT INTO tbl_ln_country VALUES ('BH', 'Bahrain')
+<query>INSERT INTO tbl_ln_country VALUES ('BD', 'Bangladesh')
+<query>INSERT INTO tbl_ln_country VALUES ('BB', 'Barbados')
+<query>INSERT INTO tbl_ln_country VALUES ('BY', 'Belarus')
+<query>INSERT INTO tbl_ln_country VALUES ('BE', 'Belgium')
+<query>INSERT INTO tbl_ln_country VALUES ('BZ', 'Belize')
+<query>INSERT INTO tbl_ln_country VALUES ('BJ', 'Benin')
+<query>INSERT INTO tbl_ln_country VALUES ('BM', 'Bermuda')
+<query>INSERT INTO tbl_ln_country VALUES ('BT', 'Bhutan')
+<query>INSERT INTO tbl_ln_country VALUES ('BO', 'Bolivia')
+<query>INSERT INTO tbl_ln_country VALUES ('BA', 'Bosnia Hercegovina')
+<query>INSERT INTO tbl_ln_country VALUES ('BW', 'Botswana')
+<query>INSERT INTO tbl_ln_country VALUES ('BV', 'Bouvet Island')
+<query>INSERT INTO tbl_ln_country VALUES ('BR', 'Brazil')
+<query>INSERT INTO tbl_ln_country VALUES ('IO', 'British Indian Ocean Territory')
+<query>INSERT INTO tbl_ln_country VALUES ('BN', 'Brunei Darussalam')
+<query>INSERT INTO tbl_ln_country VALUES ('BG', 'Bulgaria')
+<query>INSERT INTO tbl_ln_country VALUES ('BF', 'Burkina Faso')
+<query>INSERT INTO tbl_ln_country VALUES ('BI', 'Burundi')
+<query>INSERT INTO tbl_ln_country VALUES ('KH', 'Cambodia')
+<query>INSERT INTO tbl_ln_country VALUES ('CM', 'Cameroon')
+<query>INSERT INTO tbl_ln_country VALUES ('CA', 'Canada')
+<query>INSERT INTO tbl_ln_country VALUES ('CV', 'Cape Verde')
+<query>INSERT INTO tbl_ln_country VALUES ('KY', 'Cayman Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('CF', 'Central African Republic')
+<query>INSERT INTO tbl_ln_country VALUES ('TD', 'Chad')
+<query>INSERT INTO tbl_ln_country VALUES ('CL', 'Chile')
+<query>INSERT INTO tbl_ln_country VALUES ('CN', 'China')
+<query>INSERT INTO tbl_ln_country VALUES ('CX', 'Christmas Island')
+<query>INSERT INTO tbl_ln_country VALUES ('CC', 'Cocos (Keeling) Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('CO', 'Colombia')
+<query>INSERT INTO tbl_ln_country VALUES ('KM', 'Comoros')
+<query>INSERT INTO tbl_ln_country VALUES ('CG', 'Congo')
+<query>INSERT INTO tbl_ln_country VALUES ('CD', 'Congo')
+<query>INSERT INTO tbl_ln_country VALUES ('CK', 'Cook Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('CR', 'Costa Rica')
+<query>INSERT INTO tbl_ln_country VALUES ('CI', 'Cote D\'Ivoire')
+<query>INSERT INTO tbl_ln_country VALUES ('HR', 'Croatia')
+<query>INSERT INTO tbl_ln_country VALUES ('CU', 'Cuba')
+<query>INSERT INTO tbl_ln_country VALUES ('CY', 'Cyprus')
+<query>INSERT INTO tbl_ln_country VALUES ('CZ', 'Czech Republic')
+<query>INSERT INTO tbl_ln_country VALUES ('CS', 'Czechoslovakia')
+<query>INSERT INTO tbl_ln_country VALUES ('DK', 'Denmark')
+<query>INSERT INTO tbl_ln_country VALUES ('DJ', 'Djibouti')
+<query>INSERT INTO tbl_ln_country VALUES ('DM', 'Dominica')
+<query>INSERT INTO tbl_ln_country VALUES ('DO', 'Dominican Republic')
+<query>INSERT INTO tbl_ln_country VALUES ('TP', 'East Timor')
+<query>INSERT INTO tbl_ln_country VALUES ('EC', 'Ecuador')
+<query>INSERT INTO tbl_ln_country VALUES ('EG', 'Egypt')
+<query>INSERT INTO tbl_ln_country VALUES ('SV', 'El Salvador')
+<query>INSERT INTO tbl_ln_country VALUES ('GB', 'England')
+<query>INSERT INTO tbl_ln_country VALUES ('GQ', 'Equatorial Guinea')
+<query>INSERT INTO tbl_ln_country VALUES ('ER', 'Eritrea')
+<query>INSERT INTO tbl_ln_country VALUES ('EE', 'Estonia')
+<query>INSERT INTO tbl_ln_country VALUES ('ET', 'Ethiopia')
+<query>INSERT INTO tbl_ln_country VALUES ('FK', 'Falkland Islands (Malvinas)')
+<query>INSERT INTO tbl_ln_country VALUES ('FO', 'Faroe Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('FJ', 'Fiji')
+<query>INSERT INTO tbl_ln_country VALUES ('FI', 'Finland')
+<query>INSERT INTO tbl_ln_country VALUES ('FR', 'France')
+<query>INSERT INTO tbl_ln_country VALUES ('FX', 'France')
+<query>INSERT INTO tbl_ln_country VALUES ('GF', 'French Guiana')
+<query>INSERT INTO tbl_ln_country VALUES ('PF', 'French Polynesia')
+<query>INSERT INTO tbl_ln_country VALUES ('TF', 'French Southern Territories')
+<query>INSERT INTO tbl_ln_country VALUES ('GA', 'Gabon')
+<query>INSERT INTO tbl_ln_country VALUES ('GM', 'Gambia')
+<query>INSERT INTO tbl_ln_country VALUES ('GE', 'Georgia')
+<query>INSERT INTO tbl_ln_country VALUES ('DE', 'Germany')
+<query>INSERT INTO tbl_ln_country VALUES ('GH', 'Ghana')
+<query>INSERT INTO tbl_ln_country VALUES ('GI', 'Gibraltar')
+<query>INSERT INTO tbl_ln_country VALUES ('GR', 'Greece')
+<query>INSERT INTO tbl_ln_country VALUES ('GL', 'Greenland')
+<query>INSERT INTO tbl_ln_country VALUES ('GD', 'Grenada')
+<query>INSERT INTO tbl_ln_country VALUES ('GP', 'Guadeloupe')
+<query>INSERT INTO tbl_ln_country VALUES ('GU', 'Guam')
+<query>INSERT INTO tbl_ln_country VALUES ('GT', 'Guatemela')
+<query>INSERT INTO tbl_ln_country VALUES ('GG', 'Guernsey')
+<query>INSERT INTO tbl_ln_country VALUES ('GN', 'Guinea')
+<query>INSERT INTO tbl_ln_country VALUES ('GW', 'Guinea-Bissau')
+<query>INSERT INTO tbl_ln_country VALUES ('GY', 'Guyana')
+<query>INSERT INTO tbl_ln_country VALUES ('HT', 'Haiti')
+<query>INSERT INTO tbl_ln_country VALUES ('HM', 'Heard and McDonald Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('HN', 'Honduras')
+<query>INSERT INTO tbl_ln_country VALUES ('HK', 'Hong Kong')
+<query>INSERT INTO tbl_ln_country VALUES ('HU', 'Hungary')
+<query>INSERT INTO tbl_ln_country VALUES ('IS', 'Iceland')
+<query>INSERT INTO tbl_ln_country VALUES ('IN', 'India')
+<query>INSERT INTO tbl_ln_country VALUES ('ID', 'Indonesia')
+<query>INSERT INTO tbl_ln_country VALUES ('IR', 'Iran (Islamic Republic Of)')
+<query>INSERT INTO tbl_ln_country VALUES ('IQ', 'Iraq')
+<query>INSERT INTO tbl_ln_country VALUES ('IE', 'Ireland')
+<query>INSERT INTO tbl_ln_country VALUES ('IM', 'Isle Of Man')
+<query>INSERT INTO tbl_ln_country VALUES ('IL', 'Israel')
+<query>INSERT INTO tbl_ln_country VALUES ('IT', 'Italy')
+<query>INSERT INTO tbl_ln_country VALUES ('JM', 'Jamaica')
+<query>INSERT INTO tbl_ln_country VALUES ('JP', 'Japan')
+<query>INSERT INTO tbl_ln_country VALUES ('JE', 'Jersey')
+<query>INSERT INTO tbl_ln_country VALUES ('JO', 'Jordan')
+<query>INSERT INTO tbl_ln_country VALUES ('KZ', 'Kazakhstan')
+<query>INSERT INTO tbl_ln_country VALUES ('KE', 'Kenya')
+<query>INSERT INTO tbl_ln_country VALUES ('KI', 'Kiribati')
+<query>INSERT INTO tbl_ln_country VALUES ('KP', 'Korea')
+<query>INSERT INTO tbl_ln_country VALUES ('KR', 'Korea')
+<query>INSERT INTO tbl_ln_country VALUES ('KW', 'Kuwait')
+<query>INSERT INTO tbl_ln_country VALUES ('KG', 'Kyrgyzstan')
+<query>INSERT INTO tbl_ln_country VALUES ('LA', 'Lao People\'s Democratic Republic')
+<query>INSERT INTO tbl_ln_country VALUES ('LV', 'Latvia')
+<query>INSERT INTO tbl_ln_country VALUES ('LB', 'Lebanon')
+<query>INSERT INTO tbl_ln_country VALUES ('LS', 'Lesotho')
+<query>INSERT INTO tbl_ln_country VALUES ('LR', 'Liberia')
+<query>INSERT INTO tbl_ln_country VALUES ('LY', 'Libyan Arab Jamahiriya')
+<query>INSERT INTO tbl_ln_country VALUES ('LI', 'Liechtenstein')
+<query>INSERT INTO tbl_ln_country VALUES ('LT', 'Lithuania')
+<query>INSERT INTO tbl_ln_country VALUES ('LU', 'Luxembourg')
+<query>INSERT INTO tbl_ln_country VALUES ('MO', 'Macau')
+<query>INSERT INTO tbl_ln_country VALUES ('MK', 'Macedonia')
+<query>INSERT INTO tbl_ln_country VALUES ('MG', 'Madagascar')
+<query>INSERT INTO tbl_ln_country VALUES ('MW', 'Malawi')
+<query>INSERT INTO tbl_ln_country VALUES ('MY', 'Malaysia')
+<query>INSERT INTO tbl_ln_country VALUES ('MV', 'Maldives')
+<query>INSERT INTO tbl_ln_country VALUES ('ML', 'Mali')
+<query>INSERT INTO tbl_ln_country VALUES ('MT', 'Malta')
+<query>INSERT INTO tbl_ln_country VALUES ('MH', 'Marshall Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('MQ', 'Martinique')
+<query>INSERT INTO tbl_ln_country VALUES ('MR', 'Mauritania')
+<query>INSERT INTO tbl_ln_country VALUES ('MU', 'Mauritius')
+<query>INSERT INTO tbl_ln_country VALUES ('YT', 'Mayotte')
+<query>INSERT INTO tbl_ln_country VALUES ('MX', 'Mexico')
+<query>INSERT INTO tbl_ln_country VALUES ('FM', 'Micronesia')
+<query>INSERT INTO tbl_ln_country VALUES ('MD', 'Moldova')
+<query>INSERT INTO tbl_ln_country VALUES ('MC', 'Monaco')
+<query>INSERT INTO tbl_ln_country VALUES ('MN', 'Mongolia')
+<query>INSERT INTO tbl_ln_country VALUES ('MS', 'Montserrat')
+<query>INSERT INTO tbl_ln_country VALUES ('MA', 'Morocco')
+<query>INSERT INTO tbl_ln_country VALUES ('MZ', 'Mozambique')
+<query>INSERT INTO tbl_ln_country VALUES ('MM', 'Myanmar')
+<query>INSERT INTO tbl_ln_country VALUES ('NA', 'Namibia')
+<query>INSERT INTO tbl_ln_country VALUES ('NR', 'Nauru')
+<query>INSERT INTO tbl_ln_country VALUES ('NP', 'Nepal')
+<query>INSERT INTO tbl_ln_country VALUES ('NL', 'Netherlands')
+<query>INSERT INTO tbl_ln_country VALUES ('AN', 'Netherlands Antilles')
+<query>INSERT INTO tbl_ln_country VALUES ('NT', 'Neutral Zone')
+<query>INSERT INTO tbl_ln_country VALUES ('NC', 'New Caledonia')
+<query>INSERT INTO tbl_ln_country VALUES ('NZ', 'New Zealand')
+<query>INSERT INTO tbl_ln_country VALUES ('NI', 'Nicaragua')
+<query>INSERT INTO tbl_ln_country VALUES ('NE', 'Niger')
+<query>INSERT INTO tbl_ln_country VALUES ('NG', 'Nigeria')
+<query>INSERT INTO tbl_ln_country VALUES ('NU', 'Niue')
+<query>INSERT INTO tbl_ln_country VALUES ('NF', 'Norfolk Island')
+<query>INSERT INTO tbl_ln_country VALUES ('MP', 'Northern Mariana Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('NO', 'Norway')
+<query>INSERT INTO tbl_ln_country VALUES ('OM', 'Oman')
+<query>INSERT INTO tbl_ln_country VALUES ('PK', 'Pakistan')
+<query>INSERT INTO tbl_ln_country VALUES ('PW', 'Palau')
+<query>INSERT INTO tbl_ln_country VALUES ('PS', 'Palestine')
+<query>INSERT INTO tbl_ln_country VALUES ('PA', 'Panama')
+<query>INSERT INTO tbl_ln_country VALUES ('PG', 'Papua New Guinea')
+<query>INSERT INTO tbl_ln_country VALUES ('PY', 'Paraguay')
+<query>INSERT INTO tbl_ln_country VALUES ('PE', 'Peru')
+<query>INSERT INTO tbl_ln_country VALUES ('PH', 'Philippines')
+<query>INSERT INTO tbl_ln_country VALUES ('PN', 'Pitcairn')
+<query>INSERT INTO tbl_ln_country VALUES ('PL', 'Poland')
+<query>INSERT INTO tbl_ln_country VALUES ('PT', 'Portugal')
+<query>INSERT INTO tbl_ln_country VALUES ('PR', 'Puerto Rico')
+<query>INSERT INTO tbl_ln_country VALUES ('QA', 'Qatar')
+<query>INSERT INTO tbl_ln_country VALUES ('RE', 'Reunion')
+<query>INSERT INTO tbl_ln_country VALUES ('RO', 'Romania')
+<query>INSERT INTO tbl_ln_country VALUES ('RU', 'Russian Federation')
+<query>INSERT INTO tbl_ln_country VALUES ('RW', 'Rwanda')
+<query>INSERT INTO tbl_ln_country VALUES ('SH', 'Saint Helena')
+<query>INSERT INTO tbl_ln_country VALUES ('KN', 'Saint Kitts And Nevis')
+<query>INSERT INTO tbl_ln_country VALUES ('LC', 'Saint Lucia')
+<query>INSERT INTO tbl_ln_country VALUES ('PM', 'Saint Pierre and Miquelon')
+<query>INSERT INTO tbl_ln_country VALUES ('VC', 'Saint Vincent and The Grenadines')
+<query>INSERT INTO tbl_ln_country VALUES ('WS', 'Samoa')
+<query>INSERT INTO tbl_ln_country VALUES ('SM', 'San Marino')
+<query>INSERT INTO tbl_ln_country VALUES ('ST', 'Sao Tome and Principe')
+<query>INSERT INTO tbl_ln_country VALUES ('SA', 'Saudi Arabia')
+<query>INSERT INTO tbl_ln_country VALUES ('SN', 'Senegal')
+<query>INSERT INTO tbl_ln_country VALUES ('SC', 'Seychelles')
+<query>INSERT INTO tbl_ln_country VALUES ('SL', 'Sierra Leone')
+<query>INSERT INTO tbl_ln_country VALUES ('SG', 'Singapore')
+<query>INSERT INTO tbl_ln_country VALUES ('SK', 'Slovakia')
+<query>INSERT INTO tbl_ln_country VALUES ('SI', 'Slovenia')
+<query>INSERT INTO tbl_ln_country VALUES ('SB', 'Solomon Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('SO', 'Somalia')
+<query>INSERT INTO tbl_ln_country VALUES ('ZA', 'South Africa')
+<query>INSERT INTO tbl_ln_country VALUES ('GS', 'South Georgia and The Sandwich Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('ES', 'Spain')
+<query>INSERT INTO tbl_ln_country VALUES ('LK', 'Sri Lanka')
+<query>INSERT INTO tbl_ln_country VALUES ('SD', 'Sudan')
+<query>INSERT INTO tbl_ln_country VALUES ('SR', 'Suriname')
+<query>INSERT INTO tbl_ln_country VALUES ('SJ', 'Svalbard and Jan Mayen Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('SZ', 'Swaziland')
+<query>INSERT INTO tbl_ln_country VALUES ('SE', 'Sweden')
+<query>INSERT INTO tbl_ln_country VALUES ('CH', 'Switzerland')
+<query>INSERT INTO tbl_ln_country VALUES ('SY', 'Syrian Arab Republic')
+<query>INSERT INTO tbl_ln_country VALUES ('TW', 'Taiwan')
+<query>INSERT INTO tbl_ln_country VALUES ('TJ', 'Tajikista')
+<query>INSERT INTO tbl_ln_country VALUES ('TZ', 'Tanzania')
+<query>INSERT INTO tbl_ln_country VALUES ('TH', 'Thailand')
+<query>INSERT INTO tbl_ln_country VALUES ('TG', 'Togo')
+<query>INSERT INTO tbl_ln_country VALUES ('TK', 'Tokelau')
+<query>INSERT INTO tbl_ln_country VALUES ('TO', 'Tonga')
+<query>INSERT INTO tbl_ln_country VALUES ('TT', 'Trinidad and Tobago')
+<query>INSERT INTO tbl_ln_country VALUES ('TN', 'Tunisia')
+<query>INSERT INTO tbl_ln_country VALUES ('TR', 'Turkey')
+<query>INSERT INTO tbl_ln_country VALUES ('TM', 'Turkmenistan')
+<query>INSERT INTO tbl_ln_country VALUES ('TC', 'Turks and Caicos Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('TV', 'Tuvalu')
+<query>INSERT INTO tbl_ln_country VALUES ('UG', 'Uganda')
+<query>INSERT INTO tbl_ln_country VALUES ('UA', 'Ukraine')
+<query>INSERT INTO tbl_ln_country VALUES ('AE', 'United Arab Emirates')
+<query>INSERT INTO tbl_ln_country VALUES ('UK', 'United Kingdom')
+<query>INSERT INTO tbl_ln_country VALUES ('US', 'United States')
+<query>INSERT INTO tbl_ln_country VALUES ('UM', 'United States Minor Outlying Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('UY', 'Uruguay')
+<query>INSERT INTO tbl_ln_country VALUES ('SU', 'USSR')
+<query>INSERT INTO tbl_ln_country VALUES ('UZ', 'Uzbekistan')
+<query>INSERT INTO tbl_ln_country VALUES ('VU', 'Vanuatu')
+<query>INSERT INTO tbl_ln_country VALUES ('VA', 'Vatican City State')
+<query>INSERT INTO tbl_ln_country VALUES ('VE', 'Venezuela')
+<query>INSERT INTO tbl_ln_country VALUES ('VN', 'Vietnam')
+<query>INSERT INTO tbl_ln_country VALUES ('VG', 'Virgin Islands (British)')
+<query>INSERT INTO tbl_ln_country VALUES ('VI', 'Virgin Islands (U.S.)')
+<query>INSERT INTO tbl_ln_country VALUES ('WF', 'Wallis and Futuna Islands')
+<query>INSERT INTO tbl_ln_country VALUES ('WG', 'West Bank and Gaza')
+<query>INSERT INTO tbl_ln_country VALUES ('EH', 'Western Sahara')
+<query>INSERT INTO tbl_ln_country VALUES ('YE', 'Yemen')
+<query>INSERT INTO tbl_ln_country VALUES ('YU', 'Yugoslavia')
+<query>INSERT INTO tbl_ln_country VALUES ('ZR', 'Zaire')
+<query>INSERT INTO tbl_ln_country VALUES ('ZM', 'Zambia')
+<query>INSERT INTO tbl_ln_country VALUES ('ZW', 'Zimbabwe')
+<query>INSERT INTO tbl_ln_country VALUES ('A1', 'Private Proxy')
+<query>INSERT INTO tbl_ln_country VALUES ('A2', 'Satellite')
+<query>DROP TABLE IF EXISTS tbl_ln_item_tag
+<query>CREATE TABLE `tbl_ln_item_tag` (
+  `tagId` int(10) unsigned NOT NULL,
+  `itmId` int(10) unsigned NOT NULL,
+  `itmType` varchar(20) collate latin1_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>DROP TABLE IF EXISTS tbl_ln_log
+<query>CREATE TABLE `tbl_ln_log` (
+  `logDatetime` datetime NOT NULL,
+  `logUAgent` varchar(300) collate latin1_general_ci NOT NULL,
+  `logIP` varchar(15) collate latin1_general_ci NOT NULL,
+  `pagId` int(10) unsigned NOT NULL,
+  `logState` enum('h','v') collate latin1_general_ci NOT NULL,
+  KEY `tbl_ln_log_FKIndex1` (`pagId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:21:29', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'v')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:23:10', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:23:41', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:24:01', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:24:36', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:24:41', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '3', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:24:55', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '4', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:24:58', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '5', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:25:00', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '6', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:25:01', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:25:02', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '6', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:25:04', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '7', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:27:28', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '7', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:27:49', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '7', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:01', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:02', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '6', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:03', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '4', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:03', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '6', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:05', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '8', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:12', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:14', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '9', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:15', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '3', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:15', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:17', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '3', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:19', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:20', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '11', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:21', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:23', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '12', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:27', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '11', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:28', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:30', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:28:32', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:06', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '3', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:06', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:07', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '11', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:08', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:09', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:30', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:39', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '13', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:40', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:29:52', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:30:25', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:30:28', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '7', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:30:31', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:30:35', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '7', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:30:43', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '14', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:44:33', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '14', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:44:37', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '14', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:44:41', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '14', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:45:01', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:45:24', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:46:28', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '14', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:13', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:14', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '4', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:15', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '9', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:19', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '3', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:19', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:20', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '11', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:21', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:23', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:26', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:47:39', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:13', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '14', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:16', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:17', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '6', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:18', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '4', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:19', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '9', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:20', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '3', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:21', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:22', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '11', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:23', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:24', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '11', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:25', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '10', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:27', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '12', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:30', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:48:41', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '2', 'h')
+<query>INSERT INTO tbl_ln_log VALUES ('2009-02-17 19:53:55', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6', '127.0.0.1', '1', 'h')
+<query>DROP TABLE IF EXISTS tbl_ln_log_page
+<query>CREATE TABLE `tbl_ln_log_page` (
+  `pagId` int(10) unsigned NOT NULL auto_increment,
+  `pagTitle` varchar(300) collate latin1_general_ci default NULL,
+  `pagUrl` varchar(300) collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`pagId`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_log_page VALUES ('1', 'Lanai Core!', '/module.php?modname=member&mf=memloginform')
+<query>INSERT INTO tbl_ln_log_page VALUES ('2', 'Lanai Core!', '/')
+<query>INSERT INTO tbl_ln_log_page VALUES ('3', 'Lanai Core!', '/module.php?modname=log')
+<query>INSERT INTO tbl_ln_log_page VALUES ('4', 'Lanai Core!', '/module.php?modname=poll')
+<query>INSERT INTO tbl_ln_log_page VALUES ('5', 'Lanai Core!', '/module.php?modname=poll&mid=1')
+<query>INSERT INTO tbl_ln_log_page VALUES ('6', 'Lanai Core!', '/module.php?modname=news')
+<query>INSERT INTO tbl_ln_log_page VALUES ('7', 'Lanai Core!', '/module.php?modname=news&mf=nwsview&cid=2')
+<query>INSERT INTO tbl_ln_log_page VALUES ('8', 'Lanai Core!', '/module.php?modname=news&mf=nwsview&cid=1')
+<query>INSERT INTO tbl_ln_log_page VALUES ('9', 'Lanai Core!', '/module.php?modname=search')
+<query>INSERT INTO tbl_ln_log_page VALUES ('10', 'Lanai Core!', '/module.php?modname=contact')
+<query>INSERT INTO tbl_ln_log_page VALUES ('11', 'Lanai Core!', '/module.php?modname=sitemap')
+<query>INSERT INTO tbl_ln_log_page VALUES ('12', 'Lanai Core!', '/module.php?modname=contact&cid=1')
+<query>INSERT INTO tbl_ln_log_page VALUES ('13', 'Lanai Core!', '/module.php')
+<query>INSERT INTO tbl_ln_log_page VALUES ('14', 'Lanai Core!', '/module.php?modname=setting')
+<query>DROP TABLE IF EXISTS tbl_ln_log_stat
+<query>CREATE TABLE `tbl_ln_log_stat` (
+  `statDate` date NOT NULL,
+  `statHit` int(10) unsigned NOT NULL,
+  `statVisit` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`statDate`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_log_stat VALUES ('2009-02-17', '76', '1')
+<query>DROP TABLE IF EXISTS tbl_ln_menu
+<query>CREATE TABLE `tbl_ln_menu` (
+  `mnuId` int(10) unsigned NOT NULL auto_increment,
+  `mnuParentId` int(11) NOT NULL default '0',
+  `mnuTitle` varchar(150) collate latin1_general_ci default NULL,
+  `mnuUrl` varchar(255) collate latin1_general_ci default NULL,
+  `mnuTarget` varchar(20) collate latin1_general_ci default NULL,
+  `conId` int(10) unsigned NOT NULL default '0',
+  `modId` int(10) unsigned NOT NULL default '0',
+  `mnuType` enum('m','c','l') collate latin1_general_ci default 'l',
+  `mnuActive` enum('y','n') collate latin1_general_ci default NULL,
+  `mnuOrder` int(11) default '0',
+  PRIMARY KEY  (`mnuId`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_menu VALUES ('1', '0', 'Home', 'http://lanai2x-basic.redlinesoft.net', '', '0', '0', 'l', 'y', '1')
+<query>INSERT INTO tbl_ln_menu VALUES ('2', '0', 'News', '', '', '0', '8', 'm', 'y', '2')
+<query>INSERT INTO tbl_ln_menu VALUES ('5', '0', 'Poll', '', '', '0', '14', 'm', 'y', '5')
+<query>INSERT INTO tbl_ln_menu VALUES ('14', '0', 'Search', '', '', '0', '30', 'm', 'y', '9')
+<query>INSERT INTO tbl_ln_menu VALUES ('13', '0', 'Statistic', '', '', '0', '27', 'm', 'y', '11')
+<query>INSERT INTO tbl_ln_menu VALUES ('4', '0', 'Contact', '', '', '0', '2', 'm', 'y', '12')
+<query>INSERT INTO tbl_ln_menu VALUES ('6', '0', 'Site Map', '', '', '0', '11', 'm', 'y', '13')
+<query>INSERT INTO tbl_ln_menu VALUES ('7', '0', 'Login', 'http://lanai2x-basic.redlinesoft.net/login/', '', '0', '0', 'l', 'y', '14')
+<query>DROP TABLE IF EXISTS tbl_ln_meta
+<query>CREATE TABLE `tbl_ln_meta` (
+  `mtaId` int(10) unsigned NOT NULL default '1',
+  `mtaKeywords` varchar(255) collate latin1_general_ci default NULL,
+  `mtaDescription` varchar(255) collate latin1_general_ci default NULL,
+  `mtaAbstract` varchar(100) collate latin1_general_ci default NULL,
+  `mtaAuthor` varchar(75) collate latin1_general_ci default NULL,
+  `mtaDistribution` varchar(20) collate latin1_general_ci default NULL,
+  `mtaCopyright` varchar(255) collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`mtaId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_meta VALUES ('1', 'redlinesoft, opensharepoint, opensource, lanai, lanai-cms', 'This is my site.', 'This is my site.', 'lanaicms@redlinesoft.net', 'Global', 'Copyright (c) 2007 La-Nai Content Managment System.')
+<query>DROP TABLE IF EXISTS tbl_ln_module
+<query>CREATE TABLE `tbl_ln_module` (
+  `modId` int(10) unsigned NOT NULL auto_increment,
+  `modTitle` varchar(50) collate latin1_general_ci NOT NULL,
+  `modName` varchar(50) collate latin1_general_ci NOT NULL,
+  `modActive` enum('y','n') collate latin1_general_ci default 'y',
+  `modOrder` int(10) unsigned default '0',
+  `modSetting` enum('y','n') collate latin1_general_ci NOT NULL default 'n',
+  PRIMARY KEY  (`modId`)
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_module VALUES ('1', 'block', 'block', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('2', 'contact', 'contact', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('3', 'content', 'content', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('4', 'language', 'language', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('5', 'member', 'member', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('6', 'menu', 'menu', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('7', 'module', 'module', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('8', 'news', 'news', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('9', 'rssthai', 'rssthai', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('10', 'theme', 'theme', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('11', 'sitemap', 'sitemap', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('12', 'backup', 'backup', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('14', 'poll', 'poll', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('15', 'explorer', 'explorer', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('20', 'config', 'config', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('22', 'setting', 'setting', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('23', 'sitemap', 'sitemap', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('24', 'info', 'info', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('25', 'banner', 'banner', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('27', 'log', 'log', 'y', '2', 'y')
+<query>INSERT INTO tbl_ln_module VALUES ('30', 'search', 'search', 'y', '2', 'y')
+<query>DROP TABLE IF EXISTS tbl_ln_news
+<query>CREATE TABLE `tbl_ln_news` (
+  `nwsId` int(11) NOT NULL auto_increment,
+  `chnId` int(11) NOT NULL default '0',
+  `userId` int(11) NOT NULL,
+  `nwsTitle` varchar(200) collate latin1_general_ci default NULL,
+  `nwsPreface` text collate latin1_general_ci,
+  `nwsBody` text collate latin1_general_ci,
+  `nwsActive` enum('y','n') collate latin1_general_ci default 'y',
+  `nwsCreate` datetime default NULL,
+  `nwsModified` timestamp NULL default NULL,
+  PRIMARY KEY  (`nwsId`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_news VALUES ('1', '1', '1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu felis. Nulla mattis massa eu erat. Nullam facilisis dolor a mi. Suspendisse libero ante, mollis ultrices, tincidunt a, lacinia non, libero. Ut ultricies lacus eu diam. Nunc sit amet est ac lacus hendrerit rutrum. Cras a metus. Fusce volutpat laoreet dolor. Integer ac massa. Maecenas id erat. Maecenas pulvinar, velit sed aliquam faucibus, elit nulla rhoncus magna, eu fermentum metus velit in sapien. Vivamus interdum rutrum tortor.</p>', '<p>Sed nunc. Duis suscipit ante sed libero. Suspendisse hendrerit sollicitudin enim. Ut at libero. Morbi rutrum adipiscing turpis. Ut lacinia magna at ante. Nulla suscipit augue eget sem. Donec hendrerit ullamcorper lacus. Proin non libero quis mi congue blandit. Donec consequat, quam mollis facilisis ultrices, odio ipsum commodo tortor, at hendrerit risus augue ut nulla. Vestibulum a odio. Donec interdum urna eu felis. Etiam tempus, nunc vel dignissim hendrerit, neque ante euismod justo, eget dignissim sapien diam ut tortor. Cras pharetra lobortis nisl. Mauris congue. Nam vel sem. Maecenas id neque. Maecenas blandit nulla. Maecenas lacinia ligula a tellus lacinia semper.</p>', 'y', '2009-01-12 19:31:18', '2009-01-12 19:31:18')
+<query>INSERT INTO tbl_ln_news VALUES ('2', '1', '1', 'Cras tortor. Cras et sem sed magna lobortis pharetra', '<p>Cras tortor. Cras et sem sed magna lobortis pharetra. Etiam a metus. Aenean id urna et ante ornare molestie. Mauris iaculis, tellus ac tempus vestibulum, nisl neque facilisis velit, in sagittis erat arcu vitae mauris. Nulla tellus. Sed convallis, ipsum sit amet mattis faucibus, pede enim auctor turpis, at pulvinar orci orci feugiat mauris. Sed lectus felis, interdum eu, condimentum nec, pretium eget, justo. Phasellus lobortis mauris ac quam. Praesent lacus enim, dictum et, vehicula at, lacinia et, dolor. Cras condimentum justo quis lorem. Aliquam arcu. Nullam nunc. Fusce eu elit. Nam posuere, lectus vulputate laoreet eleifend, risus nisl molestie metus, ut suscipit massa dolor tincidunt risus.</p>', '<p>Vivamus quis augue quis neque pharetra venenatis. Ut nisi pede, accumsan ut, aliquet ac, commodo ultricies, pede. Praesent nec pede id mauris suscipit porttitor. Mauris sollicitudin, est non varius tincidunt, velit diam hendrerit orci, eget consequat ligula lectus vel nisl. Praesent venenatis ante sed nisi egestas egestas. Donec tellus est, pharetra non, pellentesque semper, pellentesque sit amet, tortor. Sed eget turpis. Nullam felis urna, vehicula eget, consectetur non, bibendum ac, ante. Sed faucibus nunc tempor arcu. Fusce erat nulla, lobortis nec, adipiscing quis, blandit quis, orci. Aenean et risus. Morbi a quam et nibh bibendum tristique. Nullam nec felis eu mauris pharetra varius. Etiam at nibh. Vestibulum adipiscing.</p>', 'y', '2009-01-12 19:31:51', '2009-01-12 19:40:26')
+<query>DROP TABLE IF EXISTS tbl_ln_news_channel
+<query>CREATE TABLE `tbl_ln_news_channel` (
+  `chnId` int(11) NOT NULL auto_increment,
+  `chnTitle` varchar(200) collate latin1_general_ci default NULL,
+  `chnDescription` text collate latin1_general_ci,
+  `chnActive` enum('y','n') collate latin1_general_ci NOT NULL default 'y',
+  `chnModified` timestamp NULL default NULL,
+  PRIMARY KEY  (`chnId`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_news_channel VALUES ('1', 'General', 'News & Information in general category.', 'y', '2009-01-12 19:28:55')
+<query>DROP TABLE IF EXISTS tbl_ln_poll
+<query>CREATE TABLE `tbl_ln_poll` (
+  `pllId` int(10) unsigned NOT NULL auto_increment,
+  `pllTitle` varchar(200) collate latin1_general_ci default NULL,
+  `pllLag` int(10) unsigned default NULL,
+  `pllActive` enum('y','n') collate latin1_general_ci default 'y',
+  `pllCreate` timestamp NULL default NULL,
+  PRIMARY KEY  (`pllId`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_poll VALUES ('1', 'What color do you like?', '86400', 'y', '2009-01-12 20:20:56')
+<query>DROP TABLE IF EXISTS tbl_ln_poll_option
+<query>CREATE TABLE `tbl_ln_poll_option` (
+  `ppoId` int(10) unsigned NOT NULL auto_increment,
+  `pllId` int(10) unsigned NOT NULL,
+  `ppoTitle` varchar(200) collate latin1_general_ci default NULL,
+  `ppoScore` int(10) unsigned default '0',
+  PRIMARY KEY  (`ppoId`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_poll_option VALUES ('1', '1', 'Red', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('2', '1', 'Green', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('3', '1', 'Blue', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('4', '1', 'Orange', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('5', '1', 'Pink', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('6', '1', 'Black', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('7', '1', 'White', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('8', '1', 'Gray', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('9', '1', 'Yellow', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('10', '1', '', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('11', '1', '', '0')
+<query>INSERT INTO tbl_ln_poll_option VALUES ('12', '1', '', '0')
+<query>DROP TABLE IF EXISTS tbl_ln_poll_stat
+<query>CREATE TABLE `tbl_ln_poll_stat` (
+  `pllId` int(10) unsigned NOT NULL,
+  `pstIP` varchar(20) collate latin1_general_ci default NULL,
+  `pstTime` bigint(20) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>DROP TABLE IF EXISTS tbl_ln_privilege
+<query>CREATE TABLE `tbl_ln_privilege` (
+  `modAccess` enum('y','n') collate latin1_general_ci NOT NULL default 'y',
+  `modId` int(10) unsigned NOT NULL,
+  `userPrivilege` enum('a','u','m') collate latin1_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '1', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '2', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '3', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '4', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '5', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '6', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '7', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '8', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '9', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '10', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '12', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '14', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '15', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '20', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '24', 'a')
+<query>INSERT INTO tbl_ln_privilege VALUES ('y', '25', 'a')
+<query>DROP TABLE IF EXISTS tbl_ln_read
+<query>CREATE TABLE `tbl_ln_read` (
+  `catTitle` varchar(20) collate latin1_general_ci default NULL,
+  `redId` int(10) unsigned NOT NULL,
+  `redTotal` int(10) unsigned NOT NULL default '1'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_read VALUES ('news', '2', '5')
+<query>INSERT INTO tbl_ln_read VALUES ('news', '1', '1')
+<query>DROP TABLE IF EXISTS tbl_ln_rss
+<query>CREATE TABLE `tbl_ln_rss` (
+  `rssId` int(10) unsigned NOT NULL auto_increment,
+  `rssTitle` varchar(120) collate latin1_general_ci default NULL,
+  `rssURL` varchar(80) collate latin1_general_ci default NULL,
+  `rssReload` int(10) unsigned default NULL,
+  `rssView` varchar(20) collate latin1_general_ci default 'list',
+  `rssItemCount` int(10) unsigned default '5',
+  `rssShowDescription` enum('y','n') collate latin1_general_ci default 'y',
+  `rssNumColumn` int(10) unsigned default '2',
+  `rssNumImage` int(10) unsigned default '5',
+  `rssFixedImage` varchar(80) collate latin1_general_ci default NULL,
+  `rssAlterImage` varchar(80) collate latin1_general_ci default NULL,
+  `rssImageWidth` int(10) unsigned default NULL,
+  `rssImageHeight` int(10) unsigned default NULL,
+  `rssImageAlign` varchar(20) collate latin1_general_ci default 'left',
+  `rssTarget` varchar(20) collate latin1_general_ci default '_blank',
+  `rssOrder` int(10) unsigned default NULL,
+  `rssActive` enum('y','n') collate latin1_general_ci default 'y',
+  PRIMARY KEY  (`rssId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>DROP TABLE IF EXISTS tbl_ln_tag
+<query>CREATE TABLE `tbl_ln_tag` (
+  `tagId` int(10) unsigned NOT NULL auto_increment,
+  `tagWord` varchar(80) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`tagId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>DROP TABLE IF EXISTS tbl_ln_user
+<query>CREATE TABLE `tbl_ln_user` (
+  `userId` int(11) NOT NULL auto_increment,
+  `userFname` varchar(40) collate latin1_general_ci default NULL,
+  `userLname` varchar(40) collate latin1_general_ci default NULL,
+  `userAddress1` varchar(80) collate latin1_general_ci default NULL,
+  `userAddress2` varchar(80) collate latin1_general_ci default NULL,
+  `userCity` varchar(50) collate latin1_general_ci default NULL,
+  `userState` varchar(50) collate latin1_general_ci default NULL,
+  `cntId` char(2) collate latin1_general_ci default 'TH',
+  `userZipcode` varchar(5) collate latin1_general_ci default NULL,
+  `userPhone` varchar(11) collate latin1_general_ci default NULL,
+  `userFax` varchar(20) collate latin1_general_ci default NULL,
+  `userMobile` varchar(20) collate latin1_general_ci default NULL,
+  `userEmail` varchar(30) collate latin1_general_ci default NULL,
+  `userURL` varchar(80) collate latin1_general_ci default NULL,
+  `userLogin` varchar(20) collate latin1_general_ci default NULL,
+  `userPassword` varchar(60) collate latin1_general_ci default NULL,
+  `userPrivilege` enum('a','m','u') collate latin1_general_ci NOT NULL default 'u',
+  `userCreated` datetime default NULL,
+  `userActive` enum('y','n') collate latin1_general_ci default 'y',
+  PRIMARY KEY  (`userId`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+<query>INSERT INTO tbl_ln_user VALUES ('1', 'Lanai', 'Core', ' ', ' ', ' ', ' ', 'TH', ' ', ' ', ' ', ' ', 'admin@lanai2x-basic.redlinesof', ' ', 'admin', 'c75163b731c1f6323a04eeeb85f89aa2', 'a', '2009-02-17 19:20:53', 'y')
