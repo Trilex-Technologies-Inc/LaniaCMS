@@ -70,28 +70,37 @@
 			$pager->Render($rows);
 		}
 		
-		function getContactCombo($name){
-			$sql="SELECT * FROM ".$this->cfg['tablepre']."contact WHERE conActive='y' ORDER BY conFName ASC";
-			//$db->debug=true;
-			$rs=$this->db->execute($sql);	
-			?>
-				<select name="<?=$name; ?>" onchange="MM_jumpMenu('parent',this,0)">
-				<option value="<?=$_SERVER['PHP_SELF']."?modname=".$_REQUEST['modname']."&cid=0"; ?>">-- <?=_SELECT; ?> --</option>
-			<?
-			while(!$rs->EOF){
-				if ($_REQUEST['cid']==$rs->fields['conId']) {
-				    $selected="selected";
-				} else {
-					$selected="";
-				}
-			?>			
-				<option value="<?=$_SERVER['PHP_SELF']."?modname=".$_REQUEST['modname']."&cid=".$rs->fields['conId']; ?>" <?=$selected; ?>><?=$rs->fields['conFname']; ?> <?=$rs->fields['conLname']; ?></option>			
-			<?
-			
-				$rs->movenext();
-			} // while
-			?></select><?
-		}
+		function getContactCombo($name) {
+    $sql = "SELECT * FROM " . $this->cfg['tablepre'] . "contact WHERE conActive='y' ORDER BY conFName ASC";
+    $rs = $this->db->execute($sql);
+    ?>
+    <select 
+        name="<?=$name;?>" 
+        class="form-select"
+        onchange="MM_jumpMenu('parent', this, 0)"
+        aria-label="<?=_CONTACT_TO;?>"
+    >
+        <option value="<?=$_SERVER['PHP_SELF']."?modname=".$_REQUEST['modname']."&cid=0";?>">
+            -- <?=_SELECT;?> --
+        </option>
+        <?php
+        while (!$rs->EOF) {
+            $selected = ($_REQUEST['cid'] == $rs->fields['conId']) ? 'selected' : '';
+            ?>
+            <option 
+                value="<?=$_SERVER['PHP_SELF']."?modname=".$_REQUEST['modname']."&cid=".$rs->fields['conId'];?>"
+                <?=$selected;?>
+            >
+                <?=$rs->fields['conFname'];?> <?=$rs->fields['conLname'];?>
+            </option>
+            <?php
+            $rs->movenext();
+        }
+        ?>
+    </select>
+    <?php
+}
+
 		
 		function setCountryCombo($cntid,$name){
 			global $db,$tablepre;

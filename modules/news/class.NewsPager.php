@@ -12,8 +12,8 @@
 	class NewsPager extends ADODB_Pager {
 	
 		function NewsPager(&$db,$sql,$id = 'adodb', $showPageLinks = false){
-			ADODB_Pager::ADODB_Pager($db,$sql,$id = 'adodb', $showPageLinks = false);
-			$this->page=_PAGE;
+            parent::__construct($db, $sql, $id, $showPageLinks);
+            $this->page = _PAGE;
 		}
 		
 		function RenderLayout($header,$grid,$footer)

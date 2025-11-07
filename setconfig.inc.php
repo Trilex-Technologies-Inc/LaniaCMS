@@ -110,8 +110,8 @@
 	# don't forget to add trailing back slash
 	# change 'username' to your username on web hosting account
 	define ("SMARTY_DIR", "include/smarty/");
-	require_once (SMARTY_DIR."Smarty.class.php");
-	$smarty = new Smarty;
+	require_once (SMARTY_DIR."SmartyBC.class.php");
+	$smarty = new SmartyBC;
 	$smarty->compile_dir = $cfg['datadir']."/cache";
 	$smarty->template_dir = "theme/".$cfg_theme."/html";
 	$smarty->assign("cfgTheme", $cfg_theme);

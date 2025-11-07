@@ -1,61 +1,73 @@
-<?
-    if (!empty($_REQUEST['set'])) {
-        $_SESSION['lang']=$_REQUEST['set'];
-    ?>
-        <script language="JavaScript" type="text/javascript">
-        /*<![CDATA[*/
-                location.href="index.php";
-        /*]]>*/
-        </script>
-    <?
-    }
-?>
-<script language="JavaScript" type="text/JavaScript">
-<!--
-function MM_jumpMenu(targ,selObj,restore){ //v3.0
-  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-  if (restore) selObj.selectedIndex=0;
-}
-//-->
-</script>
-<?
-    function getLanguage() {
-    	if ($handle = opendir('language/')) {
-    		$i=0;
-    	   while (false !== ($file = readdir($handle))) {
-    	  		//if ($file != "." && $file != ".."  && !is_file($file) && file_exists("language/".$file."/theme.php")) {
-    	   		if ($file != "." && $file != ".."  && !is_file($file)) {
-    				$arTheme[$i]=$file;
-    				$i++;
-    			}
-    	   }
-    	   closedir($handle);
-    	}
-    	return ($arTheme);
-    }
+<?php
+session_start();
 
-    $langar=getLanguage();
-?>
-<form name="form1">
-<?=_SETUP_SELECT_LANGUAGE; ?>
-  <select name="menu1" onChange="MM_jumpMenu('parent',this,0)">
-<?
-    foreach ($langar as $value) {
-      $xvalue=substr($value,5,strlen($value));
-      $xvalue=substr($xvalue,0,strlen($xvalue)-4);
-      if ($_SESSION['lang']==$xvalue) {
-          $selected="selected";
-      } else {
-      	  $selected="";
-      }
-?>
-    <option value="index.php?set=<?=$xvalue; ?>" <?=$selected; ?>><?=ucwords($xvalue); ?></option>
-<?
+if (!empty($_REQUEST['set'])) {
+    $_SESSION['lang'] = $_REQUEST['set'];
+    ?>
+    <script>
+        location.href = "index.php";
+    </script>
+    <?php
+}
+
+function getLanguage() {
+    $arTheme = [];
+    if ($handle = opendir('language/')) {
+        while (false !== ($file = readdir($handle))) {
+            if ($file != "." && $file != ".." && !is_file($file)) {
+                $arTheme[] = $file;
+            }
+        }
+        closedir($handle);
     }
+    return $arTheme;
+}
+
+$langar = getLanguage();
 ?>
-  </select>
-</form>
-<FORM METHOD=POST ACTION="<?=$_SERVER['PHP_SELF']; ?>">
-<INPUT TYPE="hidden" NAME="step" VALUE="b">
-<DIV ALIGN="right"><INPUT TYPE="submit" VALUE="<?=_SETUP_LICENSE_AGREEMENT; ?> >" ></DIV>
-</FORM>
+
+<!-- Bootstrap 5 Language Selector -->
+<div class="container mt-5">
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body">
+            <h5 class="card-title mb-3 text-primary fw-bold">
+                <?= _SETUP_SELECT_LANGUAGE; ?>
+            </h5>
+
+            <form name="form1" class="mb-4">
+                <div class="mb-3">
+                    <select name="menu1" class="form-select" onChange="MM_jumpMenu('parent',this,0)">
+                        <?php
+                        foreach ($langar as $value) {
+                            $xvalue = substr($value, 5, strlen($value));
+                            $xvalue = substr($xvalue, 0, strlen($xvalue) - 4);
+                            $selected = ($_SESSION['lang'] == $xvalue) ? "selected" : "";
+                            ?>
+                            <option value="index.php?set=<?= $xvalue; ?>" <?= $selected; ?>>
+                                <?= ucwords($xvalue); ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+            </form>
+
+            <form method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
+                <input type="hidden" name="step" value="b">
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <?= _SETUP_LICENSE_AGREEMENT; ?> &raquo;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+function MM_jumpMenu(targ, selObj, restore) {
+    eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+    if (restore) selObj.selectedIndex = 0;
+}
+</script>

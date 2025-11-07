@@ -1,9 +1,21 @@
-<tr>
-<td><b><?=$this->rs->fields['conTitle']; ?></b></td>
-</tr>
-<tr>
-<td><em><a href="module.php?modname=content&cid=<?=$this->rs->fields['conId']; ?>"><?=$cfg['url']; ?>/module.php?modname=content&cid=<?=$this->rs->fields['conId']; ?></em></td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-</tr>
+<?php
+// Generate SEO-friendly URL
+if ($cfg['seo'] == "yes") {
+    $link = "/laniazip/content/" . $this->rs->fields['conId'];
+} else {
+    $link = "/laniazip/module.php?modname=content&cid=" . $this->rs->fields['conId'];
+}
+?>
+
+<div class="card mb-3 shadow-sm border-0">
+  <div class="card-body">
+    <h5 class="card-title fw-bold mb-2">
+      <?= htmlspecialchars($this->rs->fields['conTitle']); ?>
+    </h5>
+    <p class="card-text">
+      <a href="<?= htmlspecialchars($link); ?>" class="text-decoration-none text-primary">
+        <?= htmlspecialchars($cfg['url'] . $link); ?>
+      </a>
+    </p>
+  </div>
+</div>

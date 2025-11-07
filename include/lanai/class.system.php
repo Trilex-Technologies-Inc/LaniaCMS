@@ -29,24 +29,43 @@
 		 * @return string
 		 */
 		function getSEOLink($url) {
-			global $cfg;
-			if ($cfg['seo']=="yes") {
-				//$uri="module.php?modname=news&mf=nwsview&cid=8";
-				$urlarr=explode("?",$url);
-				$urlarr=explode("&",$urlarr[1]);
-				foreach ($urlarr as $item){
-						list($key,$value)=explode("=",$item);
-						if ($key=="modname") 
-							$link=$value;
-						else
-							$link.=".".$key.".".$value;
-				}
-				$link.=".htm";
-				return $link;
-			} else {
-				return $url;
-			}			
-		}
+    global $cfg;
+
+    if ($cfg['seo'] == "yes") {
+        // Example input: module.php?modname=news&mf=nwsview&cid=8
+        $parts = parse_url($url);
+
+        // If URL has no query string, just return it
+        if (empty($parts['query'])) {
+            return $url;
+        }
+
+        parse_str($parts['query'], $params);
+
+        // Only apply SEO for news module
+        if (!isset($params['modname']) || $params['modname'] !== 'news') {
+            return $url;
+        }
+
+        // Build SEO-friendly link for news
+        $link = 'news';
+
+        if (!empty($params['mf'])) {
+            $link .= '/' . $params['mf'];
+        }
+
+        if (!empty($params['cid'])) {
+            $link .= '/' . $params['cid'];
+        }
+
+        // Return clean URL (without .htm)
+        return $link;
+    }
+
+    // SEO disabled → return original
+    return $url;
+}
+
 
 		/**
 		 * Retrive Menu Form Menu Table
