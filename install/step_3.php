@@ -821,11 +821,11 @@
 <TR>
 	<TD ALIGN="RIGHT">
 		<INPUT TYPE="hidden" NAME="step" VALUE="<?=($_REQUEST['step']-1)?>">
-		<INPUT TYPE="button" VALUE="< <?=_SETUP_BACK; ?>" onClick="javascript:history.back();">
+		<INPUT TYPE="button" class="btn btn-outline-secondary"  VALUE="< <?=_SETUP_BACK; ?>" onClick="javascript:history.back();">
 	</TD>
 	<TD>
 		<INPUT TYPE="hidden" NAME="step" VALUE="<?=($_REQUEST['step']+1)?>">
-        <INPUT TYPE="submit" VALUE="<?=_SETUP_CREATE_CONFIG; ?> >" >
+        <INPUT TYPE="submit" class="btn btn-primary" VALUE="<?=_SETUP_CREATE_CONFIG; ?> >" >
 	</TD>
 </TR>
 </FORM>

@@ -1,5 +1,13 @@
-<?=_SETUP_COPY_CODE; ?> 'config.inc.php'<br/><br/>
-<textarea cols="100" rows="15">
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title text-primary mb-3">
+                <?=_SETUP_COPY_CODE; ?> <code>config.inc.php</code>
+            </h5>
+
+            <div class="mb-3">
+                <label for="configCode" class="form-label fw-semibold">Generated Configuration</label>
+                <textarea id="configCode" class="form-control" rows="15" readonly>
 &lt;?
 
     ## Config your database server
@@ -8,7 +16,7 @@
     $dbuser="<?=$_SESSION['dbuser']; ?>";
     $dbpw="<?=$_SESSION['dbpw']; ?>";
     $tablepre="<?=$_SESSION['tablepre']; ?>";
-    $dbtype="mysql";
+    $dbtype="mysqli";
 
     ## Site
     $cfg_title="<?=$_SESSION['cfg_title']; ?>";
@@ -33,23 +41,35 @@
     ## Language
     $cfg_lang="<?=$_SESSION['cfg_lang']; ?>";
 
-	## SEO
-	$cfg_seo="no";
+    ## SEO
+    $cfg_seo="no";
 
 ?&gt;
-</textarea>
-<br /><br />
-<TABLE  ALIGN="right" >
-<FORM METHOD="POST" ACTION="<?=$_SERVER['PHP_SELF']; ?>">
-<TR>
-	<TD ALIGN="RIGHT">
-		<INPUT TYPE="hidden" NAME="step" VALUE="<?=($_REQUEST['step']-1)?>">
-		<INPUT TYPE="button" VALUE="< <?=_SETUP_BACK; ?>" onClick="javascript:history.back();">
-	</TD>
-	<TD>
-		<INPUT TYPE="hidden" NAME="step" VALUE="<?=($_REQUEST['step']+1)?>">
-        <INPUT TYPE="submit" VALUE="<?=_SETUP_VERIFY_CONFIG; ?> >" >
-	</TD>
-</TR>
-</FORM>
-</TABLE>
+                </textarea>
+            </div>
+
+            <form method="POST" action="<?=$_SERVER['PHP_SELF']; ?>" class="d-flex justify-content-between" id="configForm">
+                <input type="hidden" name="step" value="<?=($_REQUEST['step']-1)?>">
+                
+                <!-- Hidden input to send config content -->
+                <input type="hidden" name="config_content" id="configContent">
+
+                <button type="button" class="btn btn-outline-secondary" onclick="history.back();">
+                    &lt; <?=_SETUP_BACK; ?>
+                </button>
+
+                <input type="hidden" name="step" value="<?=($_REQUEST['step']+1)?>">
+                <button type="submit" class="btn btn-primary">
+                    <?=_SETUP_VERIFY_CONFIG; ?> &gt;
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('configForm').addEventListener('submit', function() {
+    // Copy textarea content to hidden input
+    document.getElementById('configContent').value = document.getElementById('configCode').value;
+});
+</script>

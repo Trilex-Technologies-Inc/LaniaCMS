@@ -1,5 +1,4 @@
-<?
-
+<?php
 	if ( !eregi( "setting.php", $_SERVER['PHP_SELF'] ) ) {
 	    die ( "You can't access this file directly..." );
 	} 
@@ -8,59 +7,76 @@
 	$modfunction = "modules/$module_name/module.php";
 	include_once( $modfunction ); 
 	
-	
-	$news=new News();
-	?><span class="txtContentTitle"><?=_NEWS_SETTING; ?></span><br/><br/>
-	<?=_NEWS_NEW_INSTRUCTION; ?><br/><br/>
-	
-	<img src="theme/<?=$cfg['theme']; ?>/images/save.gif" border="0" align="absmiddle"/>
-	<a href="#" onClick="javascript:document.form.submit();" ><?=_SAVE; ?></a>&nbsp;&nbsp; 
-	
-	<img src="theme/<?=$cfg['theme']; ?>/images/back.gif" border="0" align="absmiddle"/>
-	<a href="#" onClick="javascript:history.back();"><?=_BACK; ?></a>
-	<br><br>
-	<table cellpadding="3" cellspacing="1" >
-	<form name="form" method="post"  action="<?=$_SERVER['PHP_SELF']; ?>">
-	<input type="hidden" name="mf" value="nwsedit">
-	<input type="hidden" name="modname" value="<?=$module_name; ?>">
-	<input type="hidden" name="ac" value="new">
-	<tr>
-		<td ><?=_NEWS_TITLE; ?></td>
-		<td width="100%" ><input type="text" name="nwsTitle" size="40">*</td>	
-	</tr>
-	<tr>
-		<td ><?=_NEWS_GROUP; ?></td>
-		<td >
-		<?=$news->getNewsGroupCombo("chnId",""); ?>*
-		</td>	
-	</tr>
-	<tr>
-		<td  colspan="2" >
-		<? 
-				$sBasePath = "include/fckeditor/";
-				$oFCKeditor1 = new FCKeditor('nwsPreface') ;
-				$oFCKeditor1->ToolbarSet	= "MyToolbar" ;
-				$oFCKeditor1->Width ="640";	
-				$oFCKeditor1->Height ="300";			
-				$oFCKeditor1->BasePath	= $sBasePath ;
-				$oFCKeditor1->Value		= 'This is some <strong>sample text</strong>.' ;
-				$oFCKeditor1->Create() ;
-			?>*
-		</td>	
-	</tr>
-	<tr>
-		<td  colspan="2" >
-		<? 
-				$sBasePath = "include/fckeditor/";
-				$oFCKeditor2 = new FCKeditor('nwsBody') ;
-				$oFCKeditor2->ToolbarSet	= "MyToolbar" ;
-				$oFCKeditor2->Width ="640";	
-				$oFCKeditor2->Height ="300";			
-				$oFCKeditor2->BasePath	= $sBasePath ;
-				//$oFCKeditor1->Value		= 'This is some <strong>sample text</strong>.' ;
-				$oFCKeditor2->Create() ;
-			?>
-		</td>	
-	</tr>
-	</form>
-	</table>
+	$news = new News();
+?>
+
+<span class="txtContentTitle"><?=_NEWS_SETTING; ?></span><br/><br/>
+<?=_NEWS_NEW_INSTRUCTION; ?><br/><br/>
+
+<img src="theme/<?=$cfg['theme']; ?>/images/save.gif" border="0" align="absmiddle"/>
+<a href="#" onClick="javascript:document.form.submit();"><?=_SAVE; ?></a>&nbsp;&nbsp;
+
+<img src="theme/<?=$cfg['theme']; ?>/images/back.gif" border="0" align="absmiddle"/>
+<a href="#" onClick="javascript:history.back();"><?=_BACK; ?></a>
+<br><br>
+
+<!-- TinyMCE integration -->
+<script src="https://cdn.tiny.cloud/1/0w3hqupz712qov8fn27p7pnf79amc0a6cpuukotx2q5jc2c6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+tinymce.init({
+  selector: 'textarea.tinymce',
+   height: 500,
+                    menubar: true,
+                     plugins:  "print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
+
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                    paste_as_text: false, // allow full HTML
+                    valid_elements: '*[*]', // allow any tag and attribute
+                    extended_valid_elements: '*[*]',
+                    verify_html: false,
+                    cleanup: false,
+                    height: 400,
+                    code_dialog_height: 500,
+                    code_dialog_width: 800,
+                    toolbar_mode: 'sliding',
+                    setup: function(editor) {
+                        editor.on('PastePreProcess', function(e) {
+                            // allow raw HTML paste
+                            e.content = e.content;
+                        });
+                    },
+                    content_css: false // keep user CSS classes intact
+                });
+</script>
+
+<table cellpadding="3" cellspacing="1">
+<form name="form" method="post" action="<?=$_SERVER['PHP_SELF'];?>">
+<input type="hidden" name="mf" value="nwsedit">
+<input type="hidden" name="modname" value="<?=$module_name;?>">
+<input type="hidden" name="ac" value="new">
+
+<tr>
+  <td><?=_NEWS_TITLE;?></td>
+  <td width="100%"><input type="text" name="nwsTitle" size="40">*</td>	
+</tr>
+
+<tr>
+  <td><?=_NEWS_GROUP;?></td>
+  <td><?=$news->getNewsGroupCombo("chnId","");?>*</td>	
+</tr>
+
+<tr>
+  <td colspan="2">
+    <textarea name="nwsPreface" class="tinymce">This is some <strong>sample text</strong>.</textarea>*
+  </td>	
+</tr>
+
+<tr>
+  <td colspan="2">
+    <textarea name="nwsBody" class="tinymce"></textarea>
+  </td>	
+</tr>
+
+</form>
+</table>

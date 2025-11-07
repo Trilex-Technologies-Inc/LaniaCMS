@@ -1,21 +1,21 @@
 <?
 
     ## Config your database server
-    $dbname="trilexne_core";
+    $dbname="mmomen";
     $dbhost="localhost";
-    $dbuser="trilexne_admin";
-    $dbpw="admin";
-    $tablepre="tni_";
-    $dbtype="mysql";
+    $dbuser="mmomen";
+    $dbpw="8baiSSwO0ixnydsizLN35hl4w";
+    $tablepre="tbl_ln_";
+    $dbtype="mysqli";
 
     ## Site
     $cfg_title="Lanai Core!";
     $cfg_footer="&reg; Power by La-Nai Content Management System.<br/><a href=\"http://la-nai.sourceforge.net\" target=\"_blank\">La-Nai</a> is Free Software released under the <a href=\"license.txt\" title=\"GNU/GPL License\" target=\"_blank\">GNU/GPL license</a>.";
-    $cfg_url="http://www.trilexnet.com/beta/core";
-    $cfg_datadir="/home/trilexne/public_html/beta/core/datacenter";
-    $cfg_packagedir="/home/trilexne/public_html/beta/core/datacenter/package";
-    $cfg_dir="/home/trilexne/public_html/beta/core/";
-    $cfg_email="admin@trilexnet.com";
+    $cfg_url="http://mmomen.trilex.ca/laniazip";
+    $cfg_datadir="/home/mmomen/public_html/laniazip/datacenter";
+    $cfg_packagedir="/home/mmomen/public_html/laniazip/datacenter/package";
+    $cfg_dir="/home/mmomen/public_html/laniazip";
+    $cfg_email="admin@mmomen.trilex.ca";
     $cfg_theme="vertex";
 
     ## Misc
@@ -32,6 +32,6 @@
     $cfg_lang="english";
 
 	## SEO
-	$cfg_seo="no";
+	$cfg_seo="yes";
 
 ?>

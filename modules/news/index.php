@@ -1,46 +1,46 @@
-<?
-	if (!eregi("module.php", $_SERVER['PHP_SELF'])) {
-			die ("You can't access this file directly...");
-	}
-	
-	$module_name = basename(dirname(__FILE__));
-	$modfunction="modules/$module_name/module.php";
-	include_once($modfunction);
-	
-	$news = new News();
-	//$rs=$content->getNewsById($_REQUEST['cid']);
-	
-	$rsc=$news->getGroupList();
-	if (($rsc->recordcount())>1) {
-	    $rs=$news->getShowGroup();
-	?>
-	<span class="txtContentTitle"><?=_NWS_GROUP; ?></span><br/><br/>
-	<table>
-	<?
-		while(!$rs->EOF){
-		?>
-		<tr>
-			<td>
-			<img src="theme/<?=$news->cfg['theme'];?>/images/file.gif" border="0" align="absmiddle">
-			<?
-				$link=$sys_lanai->getSEOLink($_SERVER['PHP_SELF']."?modname=".$module_name."&mf=nwsviewgroup&mid=".$rs->fields['chnId']);	
-			?>
-			<a href="<?=$link; ?>">
-			<?=$rs->fields['chnTitle']; ?>
-			</a>
-			(<?=$news->getNumGroup($rs->fields['chnId']);?>)
-			</td>
-		</tr>
-		<?
-			$rs->movenext();
-		} // while
-	?></table><?
-	} else {
-	?>
-	<span class="txtContentTitle"><?=_NWS_LIST; ?></span><br/><br/>
-	<?
-		$news->getNewsListPager();
-	}
-	
-	
+<?php
+if (!eregi("module.php", $_SERVER['PHP_SELF'])) {
+    die ("You can't access this file directly...");
+}
+
+$module_name = basename(dirname(__FILE__));
+$modfunction = "modules/$module_name/module.php";
+include_once($modfunction);
+
+$news = new News();
+
+// Get grouped news
+$rsc = $news->getGroupList();
 ?>
+
+
+<div class="container my-4">
+<?php if (($rsc->RecordCount()) > 1) { 
+    $rs = $news->getShowGroup(); ?>
+    
+    <h4 class="text-primary mb-3"><?=_NWS_GROUP; ?></h4>
+    
+    <ul class="list-group">
+    <?php while(!$rs->EOF){ 
+        $link = $sys_lanai->getSEOLink($_SERVER['PHP_SELF']."?modname=".$module_name."&mf=nwsviewgroup&mid=".$rs->fields['chnId']); ?>
+        
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <img src="theme/<?=$news->cfg['theme'];?>/images/file.gif" alt="" class="me-2" style="vertical-align:middle;">
+                <a href="<?=$link; ?>" class="text-decoration-none"><?=$rs->fields['chnTitle']; ?></a>
+            </div>
+            <span class="badge bg-primary rounded-pill"><?=$news->getNumGroup($rs->fields['chnId']); ?></span>
+        </li>
+        
+    <?php $rs->MoveNext(); } ?>
+    </ul>
+
+<?php } else { ?>
+
+    <h4 class="text-primary mb-3"><?=_NWS_LIST; ?></h4>
+    <div>
+        <?php $news->getNewsListPager(); ?>
+    </div>
+
+<?php } ?>
+</div>

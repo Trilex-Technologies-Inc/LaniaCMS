@@ -1,4 +1,4 @@
-<?
+<?php
 
 		include_once('setconfig.inc.php');
 		include_once('include/header.inc.php');

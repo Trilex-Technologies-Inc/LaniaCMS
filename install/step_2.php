@@ -1,172 +1,205 @@
-<TABLE cellpadding="3" cellspacing="1" WIDTH="100%">
-<FORM METHOD="POST" ACTION="<?=$_SERVER['PHP_SELF']; ?>">
-<TR>
-    <TD colspan="2"><b><?=_SETUP_SITEINFO; ?>:</b><br /></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_SITENAME; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="cfg_title"  SIZE="40"  VALUE="Lanai Core!" ></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_URL; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="cfg_url" SIZE="30" VALUE="http://<?=$_SERVER["SERVER_NAME"];  ?>"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_DIR; ?> </TD>
-	<TD>
-        <INPUT TYPE="text" NAME="cfg_dir" SIZE="60" VALUE="<?=substr(getcwd(),0,(strlen(getcwd())-8)) ;  ?>">
-        <input type="hidden" name="cfg_off" value="no">
-        <input type="hidden" name="cfg_log" value="yes">
-    </TD>
-</TR>
-<?
-
-    function getLanguage() {
-    	if ($handle = opendir("../language/")) {
-    		$i=0;
-    	   while (false !== ($file = readdir($handle))) {
-    	  		//if ($file != "." && $file != ".."  && !is_file($file) && file_exists("language/".$file."/theme.php")) {
-    	   		if ($file != "." && $file != ".."  && !is_file($file)) {
-    				$arTheme[$i]=$file;
-    				$i++;
-    			}
-    	   }
-    	   closedir($handle);
-    	}
-    	return ($arTheme);
-    }
-
-    $langar=getLanguage();
-
-?>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_LANG; ?> </TD>
-	<TD>
-        <select name="cfg_lang" size="1">
-<?
-    foreach ($langar as $value) {
-      $xvalue=substr($value,5,strlen($value));
-      $xvalue=substr($xvalue,0,strlen($xvalue)-4);
-?>
-        <option value="<?=$xvalue; ?>" selected="selected"><?=ucwords($xvalue); ?></option>
-<?
-    }
-?>
-        </select>
-    </TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_THEME; ?> </TD>
-	<TD>
-        <select name="cfg_theme" size="1">
-        <option value="vertex" selected="selected">Default</option>
-        </select>
-    </TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_TIMEZONE; ?> </TD>
-	<TD>
-        <select name="cfg_offsettime" size="1">
-        <?
-            for ($i=0;$i<26;$i++) {
-                $isx=($i-12);
-                if ($isx==7) {
-                    $select="selected";
-                } else {
-                    $select="";
-                }
-                if ($isx>0){
-                    $isx="+".$isx;
-                }
-
-                ?><option value="<?=($i-12); ?>" <?=$select; ?>><?=$isx; ?></option><?
+<?php
+function getLanguage() {
+    if ($handle = opendir("../language/")) {
+        $i=0;
+        while (false !== ($file = readdir($handle))) {
+            if ($file != "." && $file != ".." && !is_file($file)) {
+                $arTheme[$i]=$file;
+                $i++;
             }
-        ?>
-
-        </select>
-    </TD>
-</TR>
-<TR>
-    <TD colspan="2"><br /><b><?=_SETUP_ADMININFO; ?>:</b><br /></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_USERNAME; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="username" VALUE="admin"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_PASSWORD; ?> </TD>
-<?
-	$pwdarr=array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-					'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-					'1','2','3','4','5','6','7','8','9','0');
-	for ($i=0;$i<6;$i++) {
-		$pwsstr.=$pwdarr[rand(0,62)];
-	}
+        }
+        closedir($handle);
+    }
+    return ($arTheme);
+}
 ?>
-	<TD><INPUT TYPE="text" NAME="password" VALUE="<?=$pwsstr; ?>"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_EMAIL; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="cfg_email" SIZE="30"  VALUE="admin@<?=$_SERVER["SERVER_NAME"];  ?>"></TD>
-</TR>
-<TR>
-    <TD colspan="2"><br /><b><?=_SETUP_DATABASEINFO; ?>:</b><br /></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_DB; ?> </TD>
-	<TD>MySQL<input type="hidden" name="dbtype" value="mysql"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_DBHOST; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="dbhost" VALUE="localhost"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_DBUSER; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="dbuser" VALUE="root"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_DBPWD; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="dbpw" VALUE=""></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_DBNAME; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="dbname" VALUE="lanaicore"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_TABLEPRE; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="tablepre" VALUE="tbl_ln_"></TD>
-</TR>
-<TR>
-    <TD colspan="2"><br /><b><?=_SETUP_MAILINFO; ?>: </b><br /></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_SMHOST; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="smtp_host" VALUE="localhost"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_SMPORT; ?> </TD>
-	<TD><INPUT TYPE="text" NAME="smtp_port" VALUE="25"></TD>
-</TR>
-<TR>
-	<TD BGCOLOR="#EEEEEE"><?=_SETUP_SNT2ADMIN; ?> </TD>
-	<TD>
-    <input type="radio" name="cfg_sendmail" value="yes" checked/> <?=_SETUP_YES; ?>
-    <input type="radio" name="cfg_sendmail" value="no"/> <?=_SETUP_NO; ?>
-    </TD>
-</TR>
-</TABLE>
-<br />
-<TABLE  ALIGN="right" >
-<TR>
-	<TD ALIGN="RIGHT">
-		<INPUT TYPE="hidden" NAME="step" VALUE="<?=($_REQUEST['step']-1)?>">
-		<INPUT TYPE="button" VALUE="< <?=_SETUP_BACK; ?>" onClick="javascript:history.back();">
-	</TD>
-	<TD>
-		<INPUT TYPE="hidden" NAME="step" VALUE="<?=($_REQUEST['step']+1)?>">
-        <INPUT TYPE="submit" VALUE="<?=_SETUP_CREATE_TABLE; ?> >" >
 
-	</TD>
-</TR>
-</FORM>
-</TABLE>
+<form method="POST" action="<?=$_SERVER['PHP_SELF']; ?>">
+    <!-- Site Info Section -->
+    <div class="mb-4">
+        <h5><?=_SETUP_SITEINFO; ?>:</h5>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_SITENAME; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="cfg_title" class="form-control" value="Lanai Core!">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_URL; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="cfg_url" class="form-control" value="http://<?=$_SERVER["SERVER_NAME"]; ?>">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_DIR; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="cfg_dir" class="form-control" value="<?=substr(getcwd(),0,(strlen(getcwd())-8)); ?>">
+                <input type="hidden" name="cfg_off" value="no">
+                <input type="hidden" name="cfg_log" value="yes">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_LANG; ?></label>
+            <div class="col-sm-9">
+                <select name="cfg_lang" class="form-select">
+                <?php
+                    $langar = getLanguage();
+                    foreach ($langar as $value) {
+                        $xvalue = substr($value,5,strlen($value)-9);
+                        echo '<option value="'.$xvalue.'" selected>'.ucwords($xvalue).'</option>';
+                    }
+                ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_THEME; ?></label>
+            <div class="col-sm-9">
+                <select name="cfg_theme" class="form-select">
+                    <option value="bootstrap" selected>Default</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_TIMEZONE; ?></label>
+            <div class="col-sm-9">
+                <select name="cfg_offsettime" class="form-select">
+                    <?php
+                        for ($i=0; $i<26; $i++) {
+                            $isx = ($i-12);
+                            $select = ($isx==7) ? "selected" : "";
+                            $isx = ($isx > 0) ? "+".$isx : $isx;
+                            echo "<option value='".($i-12)."' $select>$isx</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Info Section -->
+    <div class="mb-4">
+        <h5><?=_SETUP_ADMININFO; ?>:</h5>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_USERNAME; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="username" class="form-control" value="admin">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_PASSWORD; ?></label>
+            <div class="col-sm-9">
+                <?php
+                    $pwdarr = array_merge(range('a','z'), range('A','Z'), range('0','9'));
+                    $pwsstr = '';
+                    for ($i=0; $i<6; $i++) { $pwsstr .= $pwdarr[rand(0,61)]; }
+                ?>
+                <input type="text" name="password" class="form-control" value="<?=$pwsstr; ?>">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_EMAIL; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="cfg_email" class="form-control" value="admin@<?=$_SERVER["SERVER_NAME"]; ?>">
+            </div>
+        </div>
+    </div>
+
+    <!-- Database Info Section -->
+    <div class="mb-4">
+        <h5><?=_SETUP_DATABASEINFO; ?>:</h5>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_DB; ?></label>
+            <div class="col-sm-9">
+                MySQL <input type="hidden" name="dbtype" value="mysql">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_DBHOST; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="dbhost" class="form-control" value="localhost">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_DBUSER; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="dbuser" class="form-control" value="root">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_DBPWD; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="dbpw" class="form-control" value="">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_DBNAME; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="dbname" class="form-control" value="lanaicore">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_TABLEPRE; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="tablepre" class="form-control" value="tbl_ln_">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mail Info Section -->
+    <div class="mb-4">
+        <h5><?=_SETUP_MAILINFO; ?>:</h5>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_SMHOST; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="smtp_host" class="form-control" value="localhost">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_SMPORT; ?></label>
+            <div class="col-sm-9">
+                <input type="text" name="smtp_port" class="form-control" value="25">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label"><?=_SETUP_SNT2ADMIN; ?></label>
+            <div class="col-sm-9">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="cfg_sendmail" value="yes" checked>
+                    <label class="form-check-label"><?=_SETUP_YES; ?></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="cfg_sendmail" value="no">
+                    <label class="form-check-label"><?=_SETUP_NO; ?></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="d-flex justify-content-between">
+        <input type="hidden" name="step" value="<?=($_REQUEST['step']-1)?>">
+        <button type="button" class="btn btn-secondary" onclick="history.back();">&lt; <?=_SETUP_BACK; ?></button>
+
+        <input type="hidden" name="step" value="<?=($_REQUEST['step']+1)?>">
+        <button type="submit" class="btn btn-primary"><?=_SETUP_CREATE_TABLE; ?> &gt;</button>
+    </div>
+</form>

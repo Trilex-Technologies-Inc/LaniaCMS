@@ -1,0 +1,224 @@
+<?php
+/* Smarty version 3.1.48, created on 2025-10-29 10:13:18
+  from '/home/mmomen/public_html/php8/laniazip/theme/vertex/html/module.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.48',
+  'unifunc' => 'content_690220fe70c0f1_45433287',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ca4f9092122bb4b6f95e510888f29f2c7dc4714a' => 
+    array (
+      0 => '/home/mmomen/public_html/php8/laniazip/theme/vertex/html/module.tpl',
+      1 => 1761643272,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_690220fe70c0f1_45433287 (Smarty_Internal_Template $_smarty_tpl) {
+?><style type="text/css">
+<!--
+@import url("theme/<?php echo $_smarty_tpl->tpl_vars['cfgTheme']->value;?>
+/style/dhtml-horiz.css");
+-->
+</style>
+<!--[if gte IE 5.5]>
+<?php echo '<script'; ?>
+ language="JavaScript" src="theme/<?php echo $_smarty_tpl->tpl_vars['cfgTheme']->value;?>
+/style/dhtml.js" type="text/JavaScript"><?php echo '</script'; ?>
+>
+<![endif]-->
+<!-- ? Main Layout -->
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+  }
+  .article-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('images/article-bg.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 6rem 0;
+    text-align: center;
+  }
+  .article-meta {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .article-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .sidebar {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  footer {
+    border-top: 1px solid #ddd;
+    padding: 2rem 0;
+    text-align: center;
+    color: #777;
+  }
+</style>
+
+
+<!-- Include Navbar -->
+
+<header data-bs-theme="dark">
+
+
+
+
+  <?php include_once ('/home/mmomen/public_html/php8/laniazip/blocks/bmenu/index.php');?>
+
+  <!-- Search Collapse -->
+  <div class="collapse bg-dark border-top border-secondary py-4 mt-5" id="searchCollapse">
+    <div class="container">
+      <form action="module.php" method="get" class="row g-3">
+        <input type="hidden" name="modname" value="search">
+        <div class="col-12">
+          <label for="keyword" class="form-label text-light">Keyword</label>
+          <input type="text" class="form-control bg-secondary text-light border-0" id="keyword" name="keyword">
+        </div>
+
+        <div class="col-12">
+          <label for="item" class="form-label text-light">Locate in</label>
+          <select name="item" id="item" class="form-select bg-secondary text-light border-0 mb-2">
+            <option value="content">Content</option>
+            <option value="news">News</option>
+            <option value="forum">Forum</option>
+          </select>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="method" value="word" id="methodWord">
+            <label class="form-check-label text-light" for="methodWord">Word</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="method" value="phase" id="methodPhase" checked>
+            <label class="form-check-label text-light" for="methodPhase">Phrase</label>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-outline-light w-100">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Collapse -->
+  <div class="collapse bg-dark border-top border-secondary py-4 mt-5" id="loginCollapse">
+    <div class="container">
+
+      <?php include_once ('/home/mmomen/public_html/php8/laniazip/theme/vertex/block/login.inc.php');?>
+
+
+
+
+    </div>
+  </div>
+
+  <!-- Mutual collapse control -->
+  <?php echo '<script'; ?>
+>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchCollapseEl = document.getElementById('searchCollapse');
+      const loginCollapseEl = document.getElementById('loginCollapse');
+      const navbarCollapseEl = document.getElementById('navbarToggler');
+
+      const searchCollapse = new bootstrap.Collapse(searchCollapseEl, { toggle: false });
+      const loginCollapse = new bootstrap.Collapse(loginCollapseEl, { toggle: false });
+      const navbarCollapse = new bootstrap.Collapse(navbarCollapseEl, { toggle: false });
+
+      // Mutual collapse: search
+      searchCollapseEl.addEventListener('show.bs.collapse', () => {
+        loginCollapse.hide();
+        navbarCollapse.hide();
+      });
+
+      // Mutual collapse: login
+      loginCollapseEl.addEventListener('show.bs.collapse', () => {
+        searchCollapse.hide();
+        navbarCollapse.hide();
+      });
+
+      // Mutual collapse: navbar menu
+      navbarCollapseEl.addEventListener('show.bs.collapse', () => {
+        searchCollapse.hide();
+        loginCollapse.hide();
+      });
+    });
+  <?php echo '</script'; ?>
+>
+
+
+
+
+
+
+</header>
+<main>
+<!-- Article Hero -->
+<section class="article-hero">
+  <div class="container">
+    <h1 class="display-5 fw-bold">The Future of Technology</h1>
+    <div class="article-meta mt-2">
+      <i class="fas fa-calendar-alt"></i> October 25, 2025 &nbsp;|&nbsp;
+      <i class="fas fa-user"></i> By Admin &nbsp;|&nbsp;
+      <i class="fas fa-folder"></i> Tech
+    </div>
+  </div>
+</section>
+
+<!-- Main Article Content -->
+<div class="container my-5">
+  <div class="row g-5">
+
+    <!-- Article -->
+    <div class="col-md-8">
+      <div class="article-content bg-white p-4 rounded shadow-sm">
+        <?php echo $_smarty_tpl->tpl_vars['setModule']->value;?>
+
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-md-4">
+      <div class="sidebar">
+        <h5 class="fw-bold mb-3">Related Articles</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-decoration-none">How AI is Changing the World</a></li>
+          <li><a href="#" class="text-decoration-none">Top 10 Gadgets of 2025</a></li>
+          <li><a href="#" class="text-decoration-none">The Rise of Quantum Computing</a></li>
+        </ul>
+
+        <hr>
+
+        <h5 class="fw-bold mb-3">Categories</h5>
+        <span class="badge bg-secondary me-1">Tech</span>
+        <span class="badge bg-secondary me-1">Science</span>
+        <span class="badge bg-secondary me-1">Innovation</span>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+  &copy; 2007–2025 Lanai Core CMS. All rights reserved.
+</footer>
+
+<!-- Scripts -->
+<?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
+><?php }
+}

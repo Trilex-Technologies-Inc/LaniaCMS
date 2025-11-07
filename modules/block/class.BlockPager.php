@@ -10,11 +10,11 @@
 	 * @access public
 	 **/
 	class BlockPager extends ADODB_Pager {
-	
-		function BlockPager(&$db,$sql,$id = 'adodb', $showPageLinks = false){
-			ADODB_Pager::ADODB_Pager($db,$sql,$id = 'adodb', $showPageLinks = false);
-			$this->page=_PAGE;
-		}
+
+        function __construct(&$db, $sql, $id = 'adodb', $showPageLinks = false) {
+            parent::__construct($db, $sql, $id, $showPageLinks);
+            $this->page = _PAGE;
+        }
 		
 		function RenderLayout($header,$grid,$footer)
 		{
