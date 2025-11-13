@@ -211,7 +211,7 @@ body {
 <div class="collapse bg-dark border-top border-secondary py-4" id="loginCollapse">
   <div class="container">
    
-     {include_php file="theme/vertex/block/login.inc.php"}
+     {include_php file="theme/bootstrap/block/login.inc.php"}
           
       
     
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <hr class="featurette-divider">
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span>
+            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">Itï¿½ll blow your mind.</span>
             </h2>
             <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
           </div>
@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <hr class="featurette-divider">
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span>
+            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, itï¿½s that good. <span class="text-body-secondary">See for yourself.</span>
             </h2>
             <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
           </div>
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="float-end">
           <a href="#">Back to top</a>
         </p>
-        <p>&copy; 2017–2025 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+        <p>&copy; 2017ï¿½2025 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
         </p>
       </footer>
     </main>

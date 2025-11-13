@@ -70,7 +70,7 @@ foreach ($schemaarr as $val) {
         $pager->item = $_REQUEST['item'];
 
         if ($cfg['seo'] == "yes") {
-            $pager->link = "/laniazip/search/" . urlencode($_REQUEST['item']) . "/" . urlencode($_REQUEST['method']) . "/" . urlencode($_REQUEST['keyword']) . "/?";
+            $pager->link = "/search/" . urlencode($_REQUEST['item']) . "/" . urlencode($_REQUEST['method']) . "/" . urlencode($_REQUEST['keyword']) . "/?";
         } else {
             $pager->link = "module.php?modname=search&keyword=" . urlencode($_REQUEST['keyword']) . "&item=" . urlencode($_REQUEST['item']) . "&method=" . urlencode($_REQUEST['method']) . "&";
         }
@@ -98,7 +98,7 @@ function goSearch() {
     if (keyword === '') return false;
 
     <?php if ($cfg['seo'] == "yes") { ?>
-        var url = '/laniazip/search/' + encodeURIComponent(item) + '/' + encodeURIComponent(method) + '/' + encodeURIComponent(keyword);
+        var url = '/search/' + encodeURIComponent(item) + '/' + encodeURIComponent(method) + '/' + encodeURIComponent(keyword);
         window.location.href = url;
     <?php } else { ?>
         var url = 'module.php?modname=search&item=' + encodeURIComponent(item) + '&method=' + encodeURIComponent(method) + '&keyword=' + encodeURIComponent(keyword);
