@@ -1,9 +1,9 @@
 <?php
 // Generate SEO-friendly URL
 if ($cfg['seo'] == "yes") {
-    $link = "/laniazip/content/" . $this->rs->fields['conId'];
+    $link = "/content/" . $this->rs->fields['conId'];
 } else {
-    $link = "/laniazip/module.php?modname=content&cid=" . $this->rs->fields['conId'];
+    $link = "/module.php?modname=content&cid=" . $this->rs->fields['conId'];
 }
 ?>
 
