@@ -364,7 +364,7 @@
 			$write_blocdir=is_writeable("blocks");
 			$write_moddir=is_writeable("modules");
 			$write_themedir=is_writeable("theme");
-			$result=($install_dir OR $write_config OR $write_blocdir OR $write_moddir OR $write_themedir);
+			$result=($install_dir  OR $write_blocdir OR $write_moddir OR $write_themedir);
 			return $result;
 		}
 		
