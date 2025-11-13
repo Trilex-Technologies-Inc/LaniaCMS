@@ -90,7 +90,7 @@
   <div class="collapse bg-dark border-top border-secondary py-4 mt-5" id="loginCollapse">
     <div class="container">
 
-      {include_php file="theme/vertex/block/login.inc.php"}
+      {include_php file="theme/bootstrap/block/login.inc.php"}
 
 
 
@@ -182,7 +182,7 @@
 </main>
 <!-- Footer -->
 <footer>
-  &copy; 2007–2025 Lanai Core CMS. All rights reserved.
+  &copy; 2007ï¿½2025 Lanai Core CMS. All rights reserved.
 </footer>
 
 <!-- Scripts -->
