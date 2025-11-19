@@ -22,7 +22,7 @@
 							$prelink="module.php?modname=".$rsmod->fields['modName'];
 						}
 					} else if ($rsmx->fields['mnuType']=="c"){
-							$prelink= "/module.php?modname=content&cid=".$rsmx->fields['conId'];
+							$prelink= "module.php?modname=content&cid=".$rsmx->fields['conId'];
 					} else {
 						$prelink=$rsmx->fields['mnuUrl'];
 					}
