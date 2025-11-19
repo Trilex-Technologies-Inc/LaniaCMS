@@ -1,7 +1,7 @@
 <style type="text/css">
-<!--
-@import url("theme/{$cfgTheme}/style/dhtml-horiz.css");
--->
+  <!--
+  @import url("theme/{$cfgTheme}/style/dhtml-horiz.css");
+  -->
 </style>
 <!--[if gte IE 5.5]>
 <script language="JavaScript" src="theme/{$cfgTheme}/style/dhtml.js" type="text/JavaScript"></script>
@@ -135,50 +135,55 @@
 
 </header>
 <main>
-<!-- Article Hero -->
-<section class="article-hero">
-  <div class="container">
-    <h1 class="display-5 fw-bold">The Future of Technology</h1>
-    <div class="article-meta mt-2">
-      <i class="fas fa-calendar-alt"></i> October 25, 2025 &nbsp;|&nbsp;
-      <i class="fas fa-user"></i> By Admin &nbsp;|&nbsp;
-      <i class="fas fa-folder"></i> Tech
-    </div>
-  </div>
-</section>
+  <!-- Article Hero -->
+  {if $nameModule|strstr:"content"}
+    {$setModule}
+  {else}
+    <section class="article-hero">
+      <div class="container">
+        <h1 class="display-5 fw-bold">The Future of Technology</h1>
+        <div class="article-meta mt-2">
+          <i class="fas fa-calendar-alt"></i> October 25, 2025 &nbsp;|&nbsp;
+          <i class="fas fa-user"></i> By Admin &nbsp;|&nbsp;{$modname}
+          <i class="fas fa-folder"></i> Tech
+        </div>
+      </div>
+    </section>
 
-<!-- Main Article Content -->
-<div class="container my-5">
-  <div class="row g-5">
+    <!-- Main Article Content -->
+    <div class="container my-5">
+      <div class="row g-5">
 
-    <!-- Article -->
-    <div class="col-md-8">
-      <div class="article-content bg-white p-4 rounded shadow-sm">
-        {$setModule}
+        <!-- Article -->
+        <div class="col-md-8">
+          <div class="article-content bg-white p-4 rounded shadow-sm">
+            {$setModule}
 
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-4">
+          <div class="sidebar">
+            <h5 class="fw-bold mb-3">Related Articles</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-decoration-none">How AI is Changing the World</a></li>
+              <li><a href="#" class="text-decoration-none">Top 10 Gadgets of 2025</a></li>
+              <li><a href="#" class="text-decoration-none">The Rise of Quantum Computing</a></li>
+            </ul>
+
+            <hr>
+
+            <h5 class="fw-bold mb-3">Categories</h5>
+            <span class="badge bg-secondary me-1">Tech</span>
+            <span class="badge bg-secondary me-1">Science</span>
+            <span class="badge bg-secondary me-1">Innovation</span>
+          </div>
+        </div>
       </div>
     </div>
+  {/if}
 
-    <!-- Sidebar -->
-    <div class="col-md-4">
-      <div class="sidebar">
-        <h5 class="fw-bold mb-3">Related Articles</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none">How AI is Changing the World</a></li>
-          <li><a href="#" class="text-decoration-none">Top 10 Gadgets of 2025</a></li>
-          <li><a href="#" class="text-decoration-none">The Rise of Quantum Computing</a></li>
-        </ul>
-
-        <hr>
-
-        <h5 class="fw-bold mb-3">Categories</h5>
-        <span class="badge bg-secondary me-1">Tech</span>
-        <span class="badge bg-secondary me-1">Science</span>
-        <span class="badge bg-secondary me-1">Innovation</span>
-      </div>
-    </div>
-  </div>
-</div>
 </main>
 <!-- Footer -->
 <footer>
