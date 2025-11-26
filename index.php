@@ -11,6 +11,7 @@
 
 		$theme=New Theme();
 		$smarty->assign ("getLogoHeader", $theme->getLogoHeader());
+        $smarty->assign ("siteName", $cfg['title']);
 		$smarty->assign ("getFooter", $theme->getFooter());
 		$smarty->assign ("setBlockLeft", $theme->setBlock("l"));
 		$smarty->assign ("setBlockRight", $theme->setBlock("r"));

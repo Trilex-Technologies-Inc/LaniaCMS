@@ -175,7 +175,3 @@ if ($rs->recordcount() > 0) {
         </div>
     </div>
 </div>
-
-
-
-</div>

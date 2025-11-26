@@ -485,7 +485,7 @@ class ADODB_Active_Record {
 
             case ADODB_ASSOC_CASE_UPPER:
                 foreach($cols as $name => $fldobj) {
-                    $name = strtoupper($name);
+                    $name = ($name);
 
                     if ($ADODB_ACTIVE_DEFVALS && isset($fldobj->default_value)) {
                         $this->$name = $fldobj->default_value;
@@ -497,7 +497,7 @@ class ADODB_Active_Record {
                 }
 
                 foreach($pkeys as $k => $name) {
-                    $keys[strtoupper($name)] = strtoupper($name);
+                    $keys[($name)] = ($name);
                 }
                 break;
             default:
@@ -512,7 +512,7 @@ class ADODB_Active_Record {
                     $attr[$name] = $fldobj;
                 }
                 foreach($pkeys as $k => $name) {
-                    $keys[$name] = $cols[strtoupper($name)]->name;
+                    $keys[$name] = $cols[($name)]->name;
                 }
                 break;
         }
@@ -1038,7 +1038,7 @@ class ADODB_Active_Record {
                 break;
             case ADODB_ASSOC_CASE_UPPER:
                 foreach ($pkey as $k => $v) {
-                    $pkey[$k] = strtoupper($v);
+                    $pkey[$k] = ($v);
                 }
                 break;
         }
