@@ -15,12 +15,12 @@ if (file_exists($modfunction)) {
 $faq = new Faq();
 ?>
 
-<!-- TinyMCE -->
-<script src="https://cdn.tiny.cloud/1/0w3hqupz712qov8fn27p7pnf79amc0a6cpuukotx2q5jc2c6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
+<script src="include/tinymce/js/tinymce/tinymce.min.js"></script>
+
 tinymce.init({
     selector: 'textarea.tinymce',
     height: 300,
+ license_key: 'gpl',
     menubar: true,
     plugins: "preview paste importcss searchreplace autolink code visualblocks fullscreen image link media table charmap help emoticons",
     toolbar: 'undo redo | formatselect | bold italic underline | link image media table | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat',

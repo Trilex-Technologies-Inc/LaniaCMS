@@ -12,13 +12,12 @@
 	$rs = $content->getContentById($_REQUEST['mid']);
 ?>
 
-<!-- TinyMCE -->
-<script src="https://cdn.tiny.cloud/1/0w3hqupz712qov8fn27p7pnf79amc0a6cpuukotx2q5jc2c6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
+<script src="include/tinymce/js/tinymce/tinymce.min.js"></script>
 tinymce.init({
 	selector: 'textarea.tinymce',
 	height: 500,
                     menubar: true,
+  license_key: 'gpl',
                      plugins:  " preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
 
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',

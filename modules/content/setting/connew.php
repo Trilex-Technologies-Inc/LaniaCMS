@@ -12,33 +12,38 @@
 ?>
 
 <!-- TinyMCE -->
-<script src="https://cdn.tiny.cloud/1/0w3hqupz712qov8fn27p7pnf79amc0a6cpuukotx2q5jc2c6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-tinymce.init({
-	selector: 'textarea.tinymce',
-   height: 500,
-                    menubar: true,
-                     plugins:  " preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
 
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-                    paste_as_text: false, // allow full HTML
-                    valid_elements: '*[*]', // allow any tag and attribute
-                    extended_valid_elements: '*[*]',
-                    verify_html: false,
-                    cleanup: false,
-                    height: 400,
-                    code_dialog_height: 500,
-                    code_dialog_width: 800,
-                    toolbar_mode: 'sliding',
-                    setup: function(editor) {
-                        editor.on('PastePreProcess', function(e) {
-                            // allow raw HTML paste
-                            e.content = e.content;
-                        });
-                    },
-                    content_css: false // keep user CSS classes intact
-                });
+<script src="include/tinymce/js/tinymce/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea.tinymce',
+        license_key: 'gpl',
+        height: 500,
+        menubar: true,
+        plugins: " preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
+
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        paste_as_text: false, // allow full HTML
+        valid_elements: '*[*]', // allow any tag and attribute
+        extended_valid_elements: '*[*]',
+        verify_html: false,
+        cleanup: false,
+        height: 400,
+        code_dialog_height: 500,
+        code_dialog_width: 800,
+        toolbar_mode: 'sliding',
+        setup: function (editor) {
+            editor.on('PastePreProcess', function (e) {
+                // allow raw HTML paste
+                e.content = e.content;
+            });
+        },
+        content_css: false // keep user CSS classes intact
+    });
 </script>
+
+
 
 <span class="txtContentTitle"><?=_CONTENT_SETTING; ?></span><br/><br/>
 <?=_CONTENT_NEW_INSTRUCTION; ?><br/><br/>

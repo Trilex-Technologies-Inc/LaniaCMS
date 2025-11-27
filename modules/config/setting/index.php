@@ -8,7 +8,9 @@ $status = $objConfig->getCurrentStatus();
 
 $objMeta = new Meta();
 $objMeta->_table = $cfg['tablepre'] . "meta";
+$objMeta->mtaId=1;
 $objMeta->Load("mtaId=1");
+
 ?>
 
 <div class="container mt-4">
@@ -52,7 +54,7 @@ $objMeta->Load("mtaId=1");
                 <label class="col-sm-3 col-form-label"><?=_CFG_KEYWORDS; ?></label>
                 <div class="col-sm-9">
                     <input type="text" name="mtaKeywords" maxlength="255" class="form-control"
-                           value="<?=$objMeta->mtakeywords; ?>">
+                           value="<?=$objMeta->MTAKEYWORDS; ?>">
                 </div>
             </div>
 
@@ -60,7 +62,7 @@ $objMeta->Load("mtaId=1");
                 <label class="col-sm-3 col-form-label"><?=_CFG_DESCRIPTION; ?></label>
                 <div class="col-sm-9">
                     <input type="text" name="mtaDescription" maxlength="255" class="form-control"
-                           value="<?=$objMeta->mtadescription; ?>">
+                           value="<?=$objMeta->MTADESCRIPTION; ?>">
                 </div>
             </div>
 
@@ -68,7 +70,7 @@ $objMeta->Load("mtaId=1");
                 <label class="col-sm-3 col-form-label"><?=_CFG_ABSTRACT; ?></label>
                 <div class="col-sm-9">
                     <input type="text" name="mtaAbstract" maxlength="100" class="form-control"
-                           value="<?=$objMeta->mtaabstract; ?>">
+                           value="<?=$objMeta->MTAABSTRACT; ?>">
                 </div>
             </div>
 
@@ -76,14 +78,14 @@ $objMeta->Load("mtaId=1");
                 <label class="col-sm-3 col-form-label"><?=_CFG_AUTHOR; ?></label>
                 <div class="col-sm-9">
                     <input type="text" name="mtaAuthor" maxlength="75" class="form-control"
-                           value="<?=$objMeta->mtaauthor; ?>">
+                           value="<?=$objMeta->MTAAUTHOR; ?>">
                 </div>
             </div>
 
             <?php
             $v1 = $v2 = $v3 = "";
-            if ($objMeta->mtadistribution == "Global") $v1 = "selected";
-            else if ($objMeta->mtadistribution == "Local") $v2 = "selected";
+            if ($objMeta->MTADESCRIPTION == "Global") $v1 = "selected";
+            else if ($objMeta->MTADESCRIPTION == "Local") $v2 = "selected";
             else $v3 = "selected";
             ?>
 
@@ -102,7 +104,7 @@ $objMeta->Load("mtaId=1");
                 <label class="col-sm-3 col-form-label"><?=_CFG_COPY; ?></label>
                 <div class="col-sm-9">
                     <input type="text" name="mtaCopyright" maxlength="255" class="form-control"
-                           value="<?=$objMeta->mtacopyright; ?>">
+                           value="<?=$objMeta->MTACOPYRIGHT; ?>">
                 </div>
             </div>
 
