@@ -1,5 +1,0 @@
-<?
-
-    ## Config your database server
-
-?>
