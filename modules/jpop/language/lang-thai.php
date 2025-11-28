@@ -19,38 +19,22 @@
 /*                                                                        */
 /**************************************************************************/
 
-define("_GALLRY","Image Gallery "); 
-define("_GAL_GAL_INDEX"," Gallery Index"); 
-define("_ITEMS"," itmes in this gallery."); 
-define("_ITEMS_MO","Last modified on ");
-define("_GAL_PAGE",""); 
-define("_GAL_LAST","&raquo;"); 
-define("_GAL_FIRST","&laquo;"); 
-define("_GAL_PREV","prev "); 
-define("_GAL_NEXT"," next"); 
-define("_INDEX"," Index"); 
-define("_GAL_ITEM_TITLE","Title : "); 
-define("_GAL_ITEM_DES","Description : "); 
-define("_GAL_ITEM_SIZE","Image Size : "); 
-define("_GAL_PIXELS"," pixels"); 
-define("_GAL_SETTING","Gallery Setting"); 
-define("_GAL_GALLERY_NEW","New");
-define("_GAL_NEW_GALLERY","New Gallery");
-define("_GAL_GALLERY_TITLE","Title");
-define("_GAL_GALLERY_DESC","Description"); 
-define("_GAL_BROWSE","Browse : "); 
-define("_GAL_ERROR_CANNOT_INSERT_DATA","Cannot add your data, please try  again. "); 
-define("_ADD_ITEM","Add Items"); 
-define("_GAL_NEW_ITEM","Add new items");
-define("_GAL_BACK","Back "); 
-define("_EDIT_GALLERY","Edit Gallery "); 
-define("_DEL_GALLERY","Del Gallery "); 
-define("_VIW_GALLERY","View Gallery "); 
-define("_GAL_MAN_ITEM","Mannage Item "); 
-define("_GAL_EDIT_GALLERY","Edit Gallery "); 
-define("_GAL_WANT_TO_DELETE","Do you want to delete this gallery ?");
-define("_YES","Yes ");
-define("_NO","No ");
-
+define("_JPOP_SETTING","ตั้งค่าป๊อปอัพ"); 
+define("_JPOP_NEW","สร้าง"); 
+define("_JPOP_BACK","กลับ"); 
+define("_JPOP_PAGE","หน้า "); 
+define("_JPOP_LAST","&raquo;"); 
+define("_JPOP_FIRST","&laquo;"); 
+define("_JPOP_PREV","prev "); 
+define("_JPOP_NEXT"," next"); 
+define("_ACTIVED","ทำงาน"); 
+define("_DEACTIVED","ไม่ทำงาน"); 
+define("_JPOP_NEW_SETTING","สร้างป๊อปอัพ"); 
+define("_JPOP_TITLE","หัวข้อ");
+define("_JPOP_DES","รายละเอียด");
+define("_JPOP_BG_TITLE","สีพื้นหลังหัวข้อ");
+define("_JPOP_BG_DES","สีพื้นหลังรายละเอียด");
+define("_JPOP_BG_BORDER","สีกรอบ");
+define("_JPOP_EDIT_SETTING","แก้ไขป๊อปอัพ");
 
 ?>
