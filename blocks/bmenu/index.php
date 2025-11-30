@@ -1,5 +1,6 @@
 <?php
 include_once("include/lanai/class.navigator.php");
+
 global $db, $tablepre, $sys_lanai;
 $sys_nav = new Navigator();
 
@@ -7,10 +8,6 @@ $sql = "SELECT * FROM {$tablepre}menu WHERE mnuActive='y' AND mnuParentId=0 ORDE
 $rs = $db->execute($sql);
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
-  <div class="container-fluid">
-    <!-- Brand -->
-    <a class="navbar-brand fw-bold text-uppercase" href="#">Hidden Brand</a>
 
     <!-- Right-side icons (mobile & desktop) -->
     <div class="d-flex d-lg-none align-items-center">
@@ -77,6 +74,4 @@ $rs = $db->execute($sql);
         </button>
       </div>
     </div>
-  </div>
-</nav>
 

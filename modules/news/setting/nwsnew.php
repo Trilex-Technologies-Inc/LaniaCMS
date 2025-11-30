@@ -20,13 +20,12 @@
 <a href="#" onClick="javascript:history.back();"><?=_BACK; ?></a>
 <br><br>
 
-<!-- TinyMCE integration -->
-<script src="https://cdn.tiny.cloud/1/0w3hqupz712qov8fn27p7pnf79amc0a6cpuukotx2q5jc2c6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script>
+<script src="include/tinymce/js/tinymce/tinymce.min.js"></script>
 tinymce.init({
   selector: 'textarea.tinymce',
    height: 500,
+  license_key: 'gpl',
                     menubar: true,
                      plugins:  "print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
 

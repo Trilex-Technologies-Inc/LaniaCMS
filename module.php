@@ -5,11 +5,14 @@ include_once('include/header.inc.php');
 
 $theme = new Theme();
 $smarty->assign("getLogoHeader", $theme->getLogoHeader());
+$smarty->assign ("siteName", $cfg['title']);
 $smarty->assign("getFooter", $theme->getFooter());
 $smarty->assign("setBlockLeft", $theme->setBlock("l"));
 $smarty->assign("setBlockRight", $theme->setBlock("r"));
 $smarty->assign("setModule", $theme->getModule($_REQUEST['modname'], $_REQUEST['mf']));
 $smarty->assign("nameModule", $_REQUEST['modname']);
+$smarty->assign("mf", isset($_REQUEST['mf']) ? $_REQUEST['mf'] : null);
+
 //$smarty->assign ("setBlockCenter", $theme->setBlock("c"));
 $smarty->assign("setBlockTop", $theme->setBlock("t"));
 $smarty->assign("setBlockBottom", $theme->setBlock("b"));

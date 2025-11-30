@@ -15,7 +15,8 @@ if (!$rs) {
 	/* no data to edit - show error message*/
 	$sys_lanai->getErrorBox("Data not found!");
 }  else {
-	$objConfig->mtakeywords=$_POST['mtaKeywords'];
+	$objConfig->mtaId=1;
+    $objConfig->mtakeywords=$_POST['mtaKeywords'];
 	$objConfig->mtadescription=$_POST['mtaDescription'];
 	$objConfig->mtaabstract=$_POST['mtaAbstract'];
 	$objConfig->mtaauthor=$_POST['mtaAuthor'];
