@@ -121,7 +121,7 @@ function getLanguage() {
         <div class="mb-3 row">
             <label class="col-sm-3 col-form-label"><?=_SETUP_DB; ?></label>
             <div class="col-sm-9">
-                MySQL <input type="hidden" name="dbtype" value="mysql">
+                MySQL <input type="hidden" name="dbtype" value="mysqli">
             </div>
         </div>
 

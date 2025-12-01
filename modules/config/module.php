@@ -7,6 +7,34 @@ ADOdb_Active_Record::SetDatabaseAdapter($db);
 /*	Class Meta	*/
 class Meta extends ADOdb_Active_Record {
 	var $_table = 'tbl_ln_meta';
+    function updateSetting($data = []) {
+        global $db; // ADOdb connection
+
+
+        $setParts = [];
+        $params = [];
+
+        foreach ($data as $key => $value) {
+            $setParts[] = "$key = ?";
+            $params[] = $value;
+        }
+
+
+        if (empty($setParts)) {
+            return false;
+        }
+        $params[] = 1; // mtaId=1
+
+        $sql = "
+            UPDATE {$this->_table}
+            SET " . implode(", ", $setParts) . "
+            WHERE mtaId = ?
+        ";
+
+        $result = $db->Execute($sql, $params);
+
+        return $result ? true : false;
+    }
 }
 
 class SysConfig {
@@ -42,7 +70,7 @@ class SysConfig {
 		}
 		fclose($handle);
 	}
-	
+
 	function configIsWrite(){
 		if (is_writable('config.inc.php')) {
 			return true;
