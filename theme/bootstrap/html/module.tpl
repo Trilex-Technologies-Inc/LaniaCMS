@@ -187,7 +187,8 @@
   <p class="float-end">
     <a href="#">Back to top</a>
   </p>
-  <p>&copy; 2017–2025 {$siteName} &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  <p>&copy; 2017–2025 powered by <a href="https://lanaicms.com/">LanaiCMS</a> </p>
+
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

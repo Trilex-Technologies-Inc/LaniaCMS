@@ -44,10 +44,12 @@ $blc_lanai = new Block();
                 <textarea id="blcContent" name="blcContent" rows="20" cols="80"><?=htmlspecialchars($rs->fields['blcContent']); ?></textarea>
 
                 <!-- TinyMCE with API key and full HTML support -->
-                <script src="https://cdn.tiny.cloud/1/0w3hqupz712qov8fn27p7pnf79amc0a6cpuukotx2q5jc2c6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+                <script src="include/tinymce/js/tinymce/tinymce.min.js"></script>
+
                 <script>
                 tinymce.init({
                     selector: '#blcContent',
+                    license_key: 'gpl',
                     height: 500,
                     menubar: true,
                      plugins:  "print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",

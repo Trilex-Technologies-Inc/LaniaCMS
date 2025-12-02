@@ -52,8 +52,3 @@
 </tr>
 </table>
 <br><br>
-<?
-	if (empty($to)) {
-		$sys_lanai->getErrorBox(_REGISTER_THIS_PRODUCT." <a href=\"http://www.redlinesoft.net/register/\" target=\"_blank\">http://www.redlinesoft.net/register/</a>");
-	}
-?>
