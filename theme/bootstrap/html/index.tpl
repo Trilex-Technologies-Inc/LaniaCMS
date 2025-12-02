@@ -241,49 +241,33 @@
 
 <main>
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+
+        {* Carousel indicators *}
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            {foreach $banners as $i => $banner}
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{$i}" {if $i == 0}class="active" aria-current="true"{/if} aria-label="Slide {$i+1}"></button>
+            {/foreach}
         </div>
+
+        {* Carousel slides *}
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            {foreach $banners as $i => $banner}
+                <div class="carousel-item {if $i == 0}active{/if}">
+                    <img src="{$banner.image}" class="d-block w-100" alt="{$banner.title}">
+                    <div class="container">
+                        <div class="carousel-caption {if $i == 0}text-start{elseif $i == count($banners)-1}text-end{else}text-center{/if}">
+                            <h1>{$banner.title}</h1>
+                            <p class="opacity-75">{$banner.description}</p>
+                            {if $banner.url}
+                                <p><a class="btn btn-lg btn-primary" href="{$banner.url}">Learn more</a></p>
+                            {/if}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+            {/foreach}
         </div>
+
+        {* Carousel controls *}
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -293,6 +277,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
 
     <div class="container marketing">
         <div class="row">

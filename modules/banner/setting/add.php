@@ -8,11 +8,11 @@ if (!eregi("setting.php", $_SERVER['PHP_SELF'])) {
 if ($_REQUEST['ac']=="add") {
 	
 $objbanner=new banner();
-$objbanner->bantitle=$_REQUEST['banTitle'];
-$objbanner->bandescription=$_REQUEST['banDescription'];
-$objbanner->banimage=$_REQUEST['banImage'];
-$objbanner->banurl=$_REQUEST['banURL'];
-$objbanner->bandate=date("Y-m-d H:i:s");
+$objbanner->banTitle=$_REQUEST['banTitle'];
+$objbanner->banDescription=$_REQUEST['banDescription'];
+$objbanner->banImage=$_REQUEST['banImage'];
+$objbanner->banURL=$_REQUEST['banURL'];
+$objbanner->banDate=date("Y-m-d H:i:s");
 
 $result=$objbanner->save();
 

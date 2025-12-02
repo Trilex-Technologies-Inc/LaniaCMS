@@ -108,6 +108,14 @@
 			$rs=$db->execute($sql);
 			return $rs;
 		}
+        function getBanners(){
+            global $db,$tablepre;
+            $sql="SELECT * FROM ".$tablepre."banner 
+				
+					ORDER BY banId  ASC";
+            $rs=$db->execute($sql);
+            return $rs;
+        }
 		
 		/**
 		 * Feed RSS Url

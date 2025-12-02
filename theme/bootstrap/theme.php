@@ -71,8 +71,27 @@
   			} // while 		
 			return array($blcArray,$blcArrayTitle);
   	}
-  	
-  	function setBlock2Db($info,$blcId) {
+        function getBanners() {
+            global $sys_lanai;
+
+            $banners = array();
+            $rs=$sys_lanai->getBanners();
+
+            while (!$rs->EOF) {
+                $banners[] = array(
+                    'id' => $rs->fields['banId'],
+                    'title' => $rs->fields['banTitle'],
+                    'description' => $rs->fields['banDescription'],
+                    'image' => $rs->fields['banImage'],
+                    'url' => $rs->fields['banURL']
+                );
+                $rs->movenext();
+            }
+
+            return $banners;
+        }
+
+        function setBlock2Db($info,$blcId) {
   		global $sys_lanai,$db,$cfg;
   		$strx="<TABLE cellpadding=\"3\" cellspacing=\"1\"  width=\"100%\">";
 					
