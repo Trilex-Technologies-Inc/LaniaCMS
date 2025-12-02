@@ -5,7 +5,7 @@
 <img src="theme/<?=$cfg['theme']; ?>/images/file.gif" border="0" align="absmiddle"/>
 <a href="license.txt" target="_blank"><?=_LICENSE; ?></a>&nbsp;
 <img src="theme/<?=$cfg['theme']; ?>/images/config.gif" border="0" align="absmiddle"/>
-<a href="http://www.redlinesoft.net" target="_blank"><?=_CREDIT; ?></a>&nbsp;
+<a href="https://wwww.lanaicms.com/" target="_blank"><?=_CREDIT; ?></a>&nbsp;
 <img src="theme/<?=$cfg['theme']; ?>/images/back.gif" border="0" align="absmiddle"/>
 <a href="module.php?modname=setting" ><?=_BACK; ?></a><br><br>
 <?
