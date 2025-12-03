@@ -17,8 +17,8 @@
 /*                                                                        */
 /**************************************************************************/
 
-define("_BANN_SETTING","Banner Setting");
-define("_BANN_SETTING_INSTRUCTION","Click 'New' to add new banner, click 'delete' to delete banner or click 'back' back to previous page.");
+define("_BANN_SETTING","Carousel Setting");
+define("_BANN_SETTING_INSTRUCTION","Click 'New' to add new carousel, click 'delete' to delete carousel or click 'back' back to previous page.");
 define("_BANN_TITLE","Title");
 define("_BANN_DESCRIPTION","Description");
 define("_BANN_SHOW","Show");
@@ -33,9 +33,9 @@ define("_BANN_EDIT_ITEM","Edit Banner");
 define("_BANN_EDIT_INSTRUCTION","Please complete the following form (*) are required.");
 define("_BANN_NOTFOUND","Banner data not found!");
 
-define("_BANN_TITLE_EMPTY","Please enter banner title.");
-define("_BANN_DES_EMPTY","Please enter banner description.");
-define("_BANN_IMAGE_URL_EMPTY","Please enter banner image URL.");
+define("_BANN_TITLE_EMPTY","Please enter carousel title.");
+define("_BANN_DES_EMPTY","Please enter carousel description.");
+define("_BANN_IMAGE_URL_EMPTY","Please enter carousel image URL.");
 define("_BANN_URL_EMPTY","Please enter URL.");
 
 ?>

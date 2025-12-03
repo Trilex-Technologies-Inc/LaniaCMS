@@ -17,13 +17,13 @@
 	switch($_REQUEST['step']){
 		case "1": 			
 			// create nessary tables
-			?><LI>Create Table <?=$cfg['tablepre']."banner" ?> <?
+			?><LI>Create Table <?=$cfg['tablepre']."carousel" ?> <?
 			
 			// create table script
-			$sql="DROP TABLE IF EXISTS ".$cfg['tablepre']."banner;";
+			$sql="DROP TABLE IF EXISTS ".$cfg['tablepre']."carousel;";
 			$db->execute($sql);
 			
-			$sql="CREATE TABLE ".$cfg['tablepre']."banner (
+			$sql="CREATE TABLE ".$cfg['tablepre']."carousel (
 					  bnnId INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 					  bnnTitle VARCHAR(80) NULL,
 					  bnnURL VARCHAR(80) NULL,

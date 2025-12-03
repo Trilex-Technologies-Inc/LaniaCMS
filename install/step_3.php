@@ -372,8 +372,27 @@
 ?>
     <li>
 <?
-    $sql="INSERT INTO ".$_SESSION['tablepre']."banner VALUES (null, 'getfirefox', 'getfirefox', 'datacenter/banner/imgad.gif', 'http://www.getfirefox.com', '2007-06-22 01:37:17', 1, 1) ";
-    dbexecute("Update Banner",$sql);
+$sql1 = "INSERT INTO ".$_SESSION['tablepre']."banner 
+VALUES (NULL, 'example 1', 'description 1',
+'https://wowslider.com/sliders/demo-93/data1/images/landscape.jpg',
+'https://wowslider.com/sliders/demo-93/data1/images/landscape.jpg',
+'2025-12-02 10:24:13', NULL, NULL)";
+dbexecute("Insert Banner 1", $sql1);
+
+$sql2 = "INSERT INTO ".$_SESSION['tablepre']."banner 
+VALUES (NULL, 'example 2', 'description 2',
+'https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg',
+'https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg',
+'2025-12-02 10:25:18', NULL, NULL)";
+dbexecute("Insert Banner 2", $sql2);
+
+$sql3 = "INSERT INTO ".$_SESSION['tablepre']."banner 
+VALUES (NULL, 'example 3', 'description 3',
+'https://fastly.picsum.photos/id/52/1024/480.jpg?hmac=EhPOe5u6CjvoQFyYjJFtpUOCAiW8-49KWTIgBmH4ct4',
+'https://fastly.picsum.photos/id/52/1024/480.jpg?hmac=EhPOe5u6CjvoQFyYjJFtpUOCAiW8-49KWTIgBmH4ct4',
+'2025-12-03 09:00:26', 0, 0)";
+dbexecute("Insert Banner 3", $sql3);
+
 ?>
 </ul>
 <b><?=_SETUP_UPDATE_SYSTEM_TABLE; ?> :</b>
@@ -768,7 +787,7 @@
 					(22, 'setting', 'setting', 'y', 2, 'y'),
 					(23, 'sitemap', 'sitemap', 'y', 2, 'y'),
 					(24, 'info', 'info', 'y', 2, 'y'),
-					(25, 'banner', 'banner', 'y', 2, 'y'),
+					(25, 'carousel', 'carousel', 'y', 2, 'y'),
 					(27, 'log', 'log', 'y', 2, 'y'),
 					(30, 'search', 'search', 'y', 2, 'y')		
             ";

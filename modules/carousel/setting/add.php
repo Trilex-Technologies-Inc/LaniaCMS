@@ -19,7 +19,7 @@ $result=$objbanner->save();
 if (!$result) { 
 	$sys_lanai->getErrorBox($objbanner->ErrorMsg());
 } else {
-	$sys_lanai->go2Page("setting.php?modname=banner");
+	$sys_lanai->go2Page("setting.php?modname=carousel");
 }
 
 } else {
@@ -29,7 +29,7 @@ if (!$result) {
 <!--<img src="theme/<?=$cfg['theme']; ?>/images/save.gif" border="0" align="absmiddle"/>
 <a href="#" onClick="javascript:document.addform.submit();"><?=_BANN_SAVE; ?></a> -->
 <img src="theme/<?=$cfg['theme']; ?>/images/back.gif" border="0" align="absmiddle"/>
-<a href="setting.php?modname=banner" ><?=_BACK; ?></a><br><br>
+<a href="setting.php?modname=carousel" ><?=_BACK; ?></a><br><br>
 <script>
 // load image
 	function loadImage() {
@@ -40,14 +40,14 @@ if (!$result) {
 </script>
 <table>
 <form name="addform" method="get" action="setting.php">
-<input type="hidden" name="modname" value="banner">
+<input type="hidden" name="modname" value="carousel">
 <input type="hidden" name="mf" value="add">
 <input type="hidden" name="ac" value="add">
 <tr><td><?=_BANN_TITLE; ?></td><td><input type="text" id="banTitle" name="banTitle" size="30">*</td></tr>
 <tr><td valign="top"><?=_BANN_DES; ?></td><td><textarea name="banDescription" cols="30" rows="5"></textarea>*</td></tr>
 <tr><td><?=_BANN_IMAGE_URL; ?></td><td><input type="text" id="banImage" name="banImage" size="50" onblur="javacript:loadImage()">*</td></tr>
 <tr><td><?=_BANN_URL; ?></td><td><input type="text" id="banURL" name="banURL" size="40">*</td></tr>
-<tr><td>&nbsp;</td><td><img src="modules/banner/images/space.gif" name="banView" ></td></tr>
+<tr><td>&nbsp;</td><td><img src="modules/carousel/images/space.gif" name="banView" ></td></tr>
 <tr><td>&nbsp;</td><td><input  type="submit" value="<?=_SAVE; ?>" class="inputButton"> <input  type="reset" value="<?=_RESET; ?>" class="inputButton"></td></tr>
 </form>
 </table>

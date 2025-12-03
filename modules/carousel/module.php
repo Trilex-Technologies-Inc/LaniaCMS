@@ -5,7 +5,7 @@ global $db;
 
 ADOdb_Active_Record::SetDatabaseAdapter($db);
 
-/*	Class banner	*/
+/*	Class carousel	*/
 class banner extends ADOdb_Active_Record {
     var $_table = 'tbl_ln_banner';
 
@@ -160,7 +160,7 @@ class bannerPager extends Pager {
            		}
            ?>
            <td class="dataColumn" align="center">
-          <a href="setting.php?modname=banner&mf=edit&id=<?=$this->rs->fields['banId']; ?>" ><img src="theme/<?=$cfg['theme']; ?>/images/edit.gif" border="0" align="absmiddle"/></a>
+          <a href="setting.php?modname=carousel&mf=edit&id=<?=$this->rs->fields['banId']; ?>" ><img src="theme/<?=$cfg['theme']; ?>/images/edit.gif" border="0" align="absmiddle"/></a>
            </tr>
            <?
           $this->rs->movenext();

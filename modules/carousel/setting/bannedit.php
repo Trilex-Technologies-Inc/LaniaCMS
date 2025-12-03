@@ -14,7 +14,7 @@ switch ($_REQUEST['ac']) {
                 /* perform delete */
                 $objbanner->deleteBanner($selarr[$i]);
 
-                $sys_lanai->go2Page("setting.php?modname=banner");
+                $sys_lanai->go2Page("setting.php?modname=carousel");
             }
             //}
         }

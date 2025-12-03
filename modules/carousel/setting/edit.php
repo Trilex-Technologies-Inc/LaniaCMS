@@ -17,7 +17,7 @@ if (!$rs) {
         if (!$result) {
             $sys_lanai->getErrorBox("Save failed!");
         } else {
-            $sys_lanai->go2Page("setting.php?modname=banner");
+            $sys_lanai->go2Page("setting.php?modname=carousel");
         }
 
     } else {
@@ -25,11 +25,11 @@ if (!$rs) {
         <span class="txtContentTitle"><?=_BANN_EDIT_ITEM; ?></span><br><br>
         <?=_BANN_EDIT_INSTRUCTION; ?><br/><br/>
         <img src="theme/<?=$cfg['theme']; ?>/images/back.gif" border="0" align="absmiddle"/>
-        <a href="setting.php?modname=banner"><?=_BACK; ?></a><br><br>
+        <a href="setting.php?modname=carousel"><?=_BACK; ?></a><br><br>
 
         <table>
             <form name="addform" method="get" action="setting.php">
-                <input type="hidden" name="modname" value="banner">
+                <input type="hidden" name="modname" value="carousel">
                 <input type="hidden" name="mf" value="edit">
                 <input type="hidden" name="ac" value="edit">
                 <input type="hidden" name="banId" value="<?=$_REQUEST['id']; ?>">
