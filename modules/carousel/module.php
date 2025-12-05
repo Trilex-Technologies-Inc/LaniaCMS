@@ -5,35 +5,86 @@ global $db;
 
 ADOdb_Active_Record::SetDatabaseAdapter($db);
 
-/*	Class banner	*/
+/*	Class carousel	*/
 class banner extends ADOdb_Active_Record {
-	var $_table = 'tbl_ln_banner';
-	
-	function getMax(){
-		global $db;
-		$sql="SELECT MAX(banId) FROM ".$this->_table;
-		$rs=$db->execute($sql);
-		return ($rs->fields[0]);	
-	}
-	function getMin(){
-		global $db;
-		$sql="SELECT MIN(banId) FROM ".$this->_table;
-		$rs=$db->execute($sql);
-		return ($rs->fields[0]);
-	}
-	function randomeBann() {
-		$max=$this->getMax();
-		$min=$this->getMin();
-		$value=rand($min,$max);
-		$rs=$this->Load("banId=".$value);
-		if ($rs) {
-			$x=array($value,$this->bantitle,$this->banimage);
-			$show=($this->banshow)+1;
-			$this->banshow=$show;
-			$this->save();
-			return $x;
-		}
-	}
+    var $_table = 'tbl_ln_banner';
+
+    function getMax(){
+        global $db;
+        $sql="SELECT MAX(banId) FROM ".$this->_table;
+        $rs=$db->execute($sql);
+        return ($rs->fields[0]);
+    }
+    function getMin(){
+        global $db;
+        $sql="SELECT MIN(banId) FROM ".$this->_table;
+        $rs=$db->execute($sql);
+        return ($rs->fields[0]);
+    }
+    function randomeBann() {
+        $max=$this->getMax();
+        $min=$this->getMin();
+        $value=rand($min,$max);
+        $rs=$this->Load("banId=".$value);
+        if ($rs) {
+            $x=array($value,$this->bantitle,$this->banimage);
+            $show=($this->banshow)+1;
+            $this->banshow=$show;
+            $this->save();
+            return $x;
+        }
+    }
+    function deleteBanner($id) {
+        global $db;
+
+        $id = intval($id);
+
+        $exists = $this->Load("banId = $id");
+        if (!$exists) {
+            return false;
+        }
+
+        $sql = "DELETE FROM " . $this->_table . " WHERE banId = $id";
+        $result = $db->Execute($sql);
+
+        if ($result) {
+            return true;
+        }
+
+        return false;
+    }
+    function saveBanner($data) {
+        global $db;
+
+        $id = intval($data['banId']);
+        $banDate = !empty($data['banDate']) ? $data['banDate'] : date("Y-m-d H:i:s");
+
+
+        $sql = "
+        UPDATE {$this->_table}
+        SET 
+            bantitle      = " . $db->qstr($data['banTitle']) . ",
+            bandescription = " . $db->qstr($data['banDescription']) . ",
+            banimage      = " . $db->qstr($data['banImage']) . ",
+            banurl        = " . $db->qstr($data['banURL']) . ",
+            bandate       = " . $db->qstr($banDate) . ",
+            banshow       = " . intval($data['banShow']) . ",
+            banclick      = " . intval($data['banClick']) . "
+        WHERE banId = $id
+    ";
+
+        $result = $db->Execute($sql);
+        if ($result === false) {
+
+            return false;
+        }
+
+        return true;
+
+
+    }
+
+
 }
 
 class bannerPager extends Pager {
@@ -109,7 +160,7 @@ class bannerPager extends Pager {
            		}
            ?>
            <td class="dataColumn" align="center">
-          <a href="setting.php?modname=banner&mf=edit&id=<?=$this->rs->fields['banId']; ?>" ><img src="theme/<?=$cfg['theme']; ?>/images/edit.gif" border="0" align="absmiddle"/></a>
+          <a href="setting.php?modname=carousel&mf=edit&id=<?=$this->rs->fields['banId']; ?>" ><img src="theme/<?=$cfg['theme']; ?>/images/edit.gif" border="0" align="absmiddle"/></a>
            </tr>
            <?
           $this->rs->movenext();

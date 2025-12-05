@@ -372,8 +372,27 @@
 ?>
     <li>
 <?
-    $sql="INSERT INTO ".$_SESSION['tablepre']."banner VALUES (null, 'getfirefox', 'getfirefox', 'datacenter/banner/imgad.gif', 'http://www.getfirefox.com', '2007-06-22 01:37:17', 1, 1) ";
-    dbexecute("Update Banner",$sql);
+$sql1 = "INSERT INTO ".$_SESSION['tablepre']."banner 
+VALUES (NULL, 'example 1', 'description 1',
+'https://wowslider.com/sliders/demo-93/data1/images/landscape.jpg',
+'https://wowslider.com/sliders/demo-93/data1/images/landscape.jpg',
+'2025-12-02 10:24:13', NULL, NULL)";
+dbexecute("Insert Banner 1", $sql1);
+
+$sql2 = "INSERT INTO ".$_SESSION['tablepre']."banner 
+VALUES (NULL, 'example 2', 'description 2',
+'https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg',
+'https://wowslider.com/sliders/demo-93/data1/images/sunset.jpg',
+'2025-12-02 10:25:18', NULL, NULL)";
+dbexecute("Insert Banner 2", $sql2);
+
+$sql3 = "INSERT INTO ".$_SESSION['tablepre']."banner 
+VALUES (NULL, 'example 3', 'description 3',
+'https://fastly.picsum.photos/id/52/1024/480.jpg?hmac=EhPOe5u6CjvoQFyYjJFtpUOCAiW8-49KWTIgBmH4ct4',
+'https://fastly.picsum.photos/id/52/1024/480.jpg?hmac=EhPOe5u6CjvoQFyYjJFtpUOCAiW8-49KWTIgBmH4ct4',
+'2025-12-03 09:00:26', 0, 0)";
+dbexecute("Insert Banner 3", $sql3);
+
 ?>
 </ul>
 <b><?=_SETUP_UPDATE_SYSTEM_TABLE; ?> :</b>
@@ -649,59 +668,40 @@
 ?>
     <li>
 <?
-    $sql="INSERT INTO `".$_SESSION['tablepre']."block` (`blcId`, `blcTitle`, `blcName`, `blcType`, `blcRssUrl`, `blcRssRefesh`, `blcRssTime`, `blcContent`, `blcPosition`, `blcOrder`, `blcActive`)
-            VALUES  (1, 'Menu', 'bmenu', 'b', '', 3600, 0, NULL, 'l', 1, 'n'),
-					(2, 'Syndicate', 'bfeed', 'b', '', 3600, 0, NULL, 'l', 2, 'n'),
-					(3, 'News', 'bnews', 'b', '', 3600, 0, NULL, 'c', 2, 'n'),
-					(5, 'RSS Feed', 'brssthai', 'b', '', 3600, 0, NULL, 'c', 1, 'y'),
-					(13, 'Menu Horizontal', 'bmenuhorz', 'b', '', 3600, 0, NULL, 'l', 2, 'n,'),
-					(14, 'Menu Vertical', 'bmenuvert', 'b', '', 3600, 0, NULL, 'l', 2, 'n,'),
-					(16, 'Menu Horz', 'bmenuhorz', 'b', '', 3600, 0, NULL, 't', 2, 'n,'),
-					(18, 'Banner', 'bbanner', 'b', '', 3600, 0, NULL, 't', 2, 'n,'),
-					(21, 'LANAI1XX', 'lanai1xx', 'c', '', 0, 1188142919, '
-<table width=\"100%\" height=\"200\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" background=\"datacenter/media/image/banner02.png\">
-<tbody>
-<tr>
-<td><img width=\"27\" height=\"200\" src=\"datacenter/media/image/banner01.png\"  /></td>
-<td style=\"padding-right: 27px;\"><span style=\"color: rgb(255, 255, 255); font-size: 16px;\">LANAI (La-Nai) is a CMS-like system that has basic  modules, blocks, and templates. It is ready to  create a Web site, but it has a new way of  development called &quot;Generated Framework&quot;, which  means that a developer can generate module and  source code from a command line script called  &quot;La-Mud&quot;. In just a few minutes, you can create  your own module or database driven module.</span></td>
-<td><img width=\"305\" height=\"200\" src=\"datacenter/media/image/banner03.png\" /></td>
-</tr>
-</tbody>
-</table>
-<table width=\"100%\" cellspacing=\"2\" cellpadding=\"3\" border=\"0\">
-<tbody>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td width=\"32%\" valign=\"top\" style=\"border-right: 0px dashed rgb(255, 51, 0);\">
-<h2>Screencast &amp; Tutorial</h2>
-<ul>
-<li><a href=\"http://www.lanai-core.org/screencast/lamud01/\">Create module by Lamud</a></li>
-<li><a href=\"http://www.lanai-core.org/screencast/lamud02/\">Module example &quot;guestbook&quot;</a></li>
-<li><a href=\"http://www.lanai-core.org/screencast/lamud03/\">Create installation script by lamud </a></li>
-<li><a href=\"http://www.lanai-core.org/screencast/lanaitheme/\">Design your own theme</a></li>
-<li><a href=\"http://www.lanai-core.org/screencast/lamud04/\">Create module with CRUD script</a></li>
-</ul>
-</td>
-<td valign=\"top\" style=\"border-right: 0px dashed rgb(255, 51, 0); padding-left: 10px;\">
-<h2>CVS</h2>
-<p>You can check out La-Nai CMS project source code\'s at  SourceForge .NET</p>
-<ul>
-<li><a href=\"https://sourceforge.net/cvs/?group_id=191629\">CVS Information</a></li>
-<li><a href=\"http://la-nai.cvs.sourceforge.net/la-nai\">Browse CVS We</a><a href=\"http://la-nai.cvs.sourceforge.net/la-nai\">b</a></li>
-</ul>
-</td>
-<td width=\"32%\" valign=\"top\" style=\"padding-left: 10px;\">
-<h2>Contact</h2>
-<p>If you found some bugs or have any ideas to suggest, please contact <strong>support@redlinesoft.net</strong></p>
-</td>
-</tr>
-</tbody>
-</table>', 'c', 6, 'y')";
-    dbexecute("Update Block Data",$sql);
+$sql = "INSERT INTO `".$_SESSION['tablepre']."block` 
+(`blcId`, `blcTitle`, `blcName`, `blcType`, `blcRssUrl`, `blcRssRefesh`, `blcRssTime`, `blcContent`, `blcPosition`, `blcOrder`, `blcActive`)
+VALUES
+(6, 'top', 'top', 'c', '', 0, 1764779424, '<div class=\"col-md-7\">
+<h2 class=\"featurette-heading fw-normal lh-1\">First featurette heading. <span class=\"text-body-secondary\">It\'ll blow your mind.</span></h2>
+<p class=\"lead\">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+</div>
+<div class=\"col-md-5\"><svg aria-label=\"Placeholder: 500x500\" class=\"bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto\" height=\"500\" preserveAspectRatio=\"xMidYMid slice\" role=\"img\" width=\"500\" xmlns=\"http://www.w3.org/2000/svg\">
+<title>Placeholder</title>
+<rect width=\"100%\" height=\"100%\" fill=\"var(--bs-secondary-bg)\"></rect>
+<text x=\"50%\" y=\"50%\" fill=\"var(--bs-secondary-color)\" dy=\".3em\">500x500</text>
+</svg></div>', 't', 1, 'y'),
+
+(8, 'center', 'center', 'c', '', 0, 1764779561, '<div class=\"col-md-5\"><svg aria-label=\"Placeholder: 500x500\" class=\"bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto\" height=\"500\" preserveAspectRatio=\"xMidYMid slice\" role=\"img\" width=\"500\" xmlns=\"http://www.w3.org/2000/svg\">
+<title>Placeholder</title>
+<rect width=\"100%\" height=\"100%\" fill=\"var(--bs-secondary-bg)\"></rect>
+<text x=\"50%\" y=\"50%\" fill=\"var(--bs-secondary-color)\" dy=\".3em\">500x500</text>
+</svg></div>
+<div class=\"col-md-7\">
+<h2 class=\"featurette-heading fw-normal lh-1\">And lastly, this one. <span class=\"text-body-secondary\">Checkmate.</span></h2>
+<p class=\"lead\">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+</div>', 'c', 2, 'y'),
+
+(9, 'bottom', 'bottom', 'c', '', 0, 1764779655, '<div class=\"col-md-7 order-md-2\">
+<h2 class=\"featurette-heading fw-normal lh-1\">Oh yeah, it\'s that good. <span class=\"text-body-secondary\">See for yourself.</span></h2>
+<p class=\"lead\">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+</div>
+<div class=\"col-md-5 order-md-1\"><svg aria-label=\"Placeholder: 500x500\" class=\"bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto\" height=\"500\" preserveAspectRatio=\"xMidYMid slice\" role=\"img\" width=\"500\" xmlns=\"http://www.w3.org/2000/svg\">
+<title>Placeholder</title>
+<rect width=\"100%\" height=\"100%\" fill=\"var(--bs-secondary-bg)\"></rect>
+<text x=\"50%\" y=\"50%\" fill=\"var(--bs-secondary-color)\" dy=\".3em\">500x500</text>
+</svg></div>', 'b', 3, 'y')";
+
+dbexecute("Update Block Data",$sql);
 ?>
     <li>
 <?
@@ -768,7 +768,7 @@
 					(22, 'setting', 'setting', 'y', 2, 'y'),
 					(23, 'sitemap', 'sitemap', 'y', 2, 'y'),
 					(24, 'info', 'info', 'y', 2, 'y'),
-					(25, 'banner', 'banner', 'y', 2, 'y'),
+					(25, 'carousel', 'carousel', 'y', 2, 'y'),
 					(27, 'log', 'log', 'y', 2, 'y'),
 					(30, 'search', 'search', 'y', 2, 'y')		
             ";

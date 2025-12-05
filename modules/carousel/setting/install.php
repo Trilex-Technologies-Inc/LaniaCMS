@@ -11,8 +11,8 @@
 
     /* initial object */
     $objPackage=new Package();
-    $cus_modname="banner";
-    $cus_title="banner";
+    $cus_modname="carousel";
+    $cus_title="carousel";
 
     /* case steps */
     switch ($_REQUEST['step']) {

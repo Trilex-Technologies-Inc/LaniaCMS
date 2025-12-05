@@ -6,229 +6,229 @@
 <!--[if gte IE 5.5]>
 <script language="JavaScript" src="theme/{$cfgTheme}/style/dhtml.js" type="text/JavaScript"></script>
 <![endif]-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <style>
-   
-   :root {
-      --sidebar-width: 250px;
-      --sidebar-collapsed-width: 70px;
-      --transition-speed: 0.3s;
-    }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<style>
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-    }
+  :root {
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 70px;
+    --transition-speed: 0.3s;
+  }
 
-    /* Sidebar Styling - FIXED SCROLLING */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Sidebar Styling - FIXED SCROLLING */
+  #sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: linear-gradient(180deg, #343a40 0%, #2c3136 100%);
+    color: #fff;
+    transition: all var(--transition-speed) ease;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+  }
+
+  /* Sidebar Header */
+  .sidebar-header {
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background: #343a40;
+  }
+
+  .sidebar-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  #sidebar.collapsed .sidebar-header h3 {
+    display: none;
+  }
+
+  /* Sidebar Menu - FIXED SCROLLING */
+  .sidebar-menu {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+  }
+
+  /* Custom Scrollbar Styling */
+  .sidebar-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .sidebar-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  .sidebar-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Firefox Scrollbar */
+  .sidebar-menu {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-menu li {
+    position: relative;
+  }
+
+  .sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-left-color: #007bff;
+  }
+
+  .sidebar-menu a.active {
+    background-color: rgba(0, 123, 255, 0.2);
+    color: #fff;
+    border-left: 3px solid #007bff;
+  }
+
+  .sidebar-menu i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  #sidebar.collapsed .sidebar-menu span {
+    display: none;
+  }
+
+  #sidebar.collapsed .sidebar-menu i {
+    margin-right: 0;
+  }
+
+  /* Main Content Area */
+  #content {
+    margin-left: var(--sidebar-width);
+    transition: all var(--transition-speed) ease;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  #content.expanded {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+
+  /* Top Navigation Bar */
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+  }
+
+  /* Toggle Button */
+  #sidebarCollapse {
+    background: transparent;
+    border: none;
+    color: #6c757d;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 5px;
+  }
+
+  #sidebarCollapse:hover {
+    color: #343a40;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  /* Dashboard Cards */
+  .dashboard-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    opacity: 0.7;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
     #sidebar {
-      width: var(--sidebar-width);
-      height: 100vh;
-      background: linear-gradient(180deg, #343a40 0%, #2c3136 100%);
-      color: #fff;
-      transition: all var(--transition-speed) ease;
-      position: fixed;
-      z-index: 1000;
-      box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
-      left: 0;
-      top: 0;
-      display: flex;
-      flex-direction: column;
+      margin-left: calc(-1 * var(--sidebar-width));
+    }
+
+    #sidebar.active {
+      margin-left: 0;
+    }
+
+    #content {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    #content.active {
+      margin-left: 0;
     }
 
     #sidebar.collapsed {
-      width: var(--sidebar-collapsed-width);
+      width: var(--sidebar-width);
+      margin-left: calc(-1 * var(--sidebar-width));
     }
 
-    /* Sidebar Header */
-    .sidebar-header {
-      padding: 20px 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
-      background: #343a40;
+    #sidebar.collapsed.active {
+      margin-left: 0;
     }
-
-    .sidebar-header h3 {
-      font-size: 1.2rem;
-      margin: 0;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    #sidebar.collapsed .sidebar-header h3 {
-      display: none;
-    }
-
-    /* Sidebar Menu - FIXED SCROLLING */
-    .sidebar-menu {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 0;
-    }
-
-    /* Custom Scrollbar Styling */
-    .sidebar-menu::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .sidebar-menu::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .sidebar-menu::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 4px;
-    }
-
-    .sidebar-menu::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    /* Firefox Scrollbar */
-    .sidebar-menu {
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
-    }
-
-    .sidebar-menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar-menu li {
-      position: relative;
-    }
-
-    .sidebar-menu a {
-      display: flex;
-      align-items: center;
-      padding: 12px 20px;
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      transition: all 0.2s;
-      white-space: nowrap;
-      overflow: hidden;
-      border-left: 3px solid transparent;
-    }
-
-    .sidebar-menu a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border-left-color: #007bff;
-    }
-
-    .sidebar-menu a.active {
-      background-color: rgba(0, 123, 255, 0.2);
-      color: #fff;
-      border-left: 3px solid #007bff;
-    }
-
-    .sidebar-menu i {
-      font-size: 1.2rem;
-      margin-right: 15px;
-      width: 20px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    #sidebar.collapsed .sidebar-menu span {
-      display: none;
-    }
-
-    #sidebar.collapsed .sidebar-menu i {
-      margin-right: 0;
-    }
-
-    /* Main Content Area */
-    #content {
-      margin-left: var(--sidebar-width);
-      transition: all var(--transition-speed) ease;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    #content.expanded {
-      margin-left: var(--sidebar-collapsed-width);
-    }
-
-    /* Top Navigation Bar */
-    .navbar {
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 10px 20px;
-    }
-
-    /* Toggle Button */
-    #sidebarCollapse {
-      background: transparent;
-      border: none;
-      color: #6c757d;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      padding: 5px;
-    }
-
-    #sidebarCollapse:hover {
-      color: #343a40;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-    }
-
-    /* Dashboard Cards */
-    .dashboard-card {
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
-      border: none;
-      margin-bottom: 20px;
-    }
-
-    .dashboard-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card-icon {
-      font-size: 2rem;
-      opacity: 0.7;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      #sidebar {
-        margin-left: calc(-1 * var(--sidebar-width));
-      }
-
-      #sidebar.active {
-        margin-left: 0;
-      }
-
-      #content {
-        margin-left: 0;
-        width: 100%;
-      }
-
-      #content.active {
-        margin-left: 0;
-      }
-
-      #sidebar.collapsed {
-        width: var(--sidebar-width);
-        margin-left: calc(-1 * var(--sidebar-width));
-      }
-
-      #sidebar.collapsed.active {
-        margin-left: 0;
-      }
-    }</style>
+  }</style>
 </head>
 <body>
 <div class="wrapper">
@@ -244,7 +244,7 @@
     <div class="sidebar-menu">
       <ul>
         <li><a href="setting.php?modname=backup"><i class="bi bi-hdd-stack"></i> Manage Backup</a></li>
-        <li><a href="setting.php?modname=banner"><i class="bi bi-images"></i> Manage Banner</a></li>
+        <li><a href="setting.php?modname=carousel"><i class="bi bi-images"></i> Manage Carousel</a></li>
         <li><a href="setting.php?modname=block"><i class="bi bi-grid-3x3-gap-fill"></i> Manage Block</a></li>
         <li><a href="setting.php?modname=config"><i class="bi bi-gear"></i> Manage Config</a></li>
         <li><a href="setting.php?modname=contact"><i class="bi bi-person-lines-fill"></i> Manage Contact</a></li>
@@ -305,7 +305,7 @@
 
 
 
-                  <div>{$setModule}</div>
+              <div>{$setModule}</div>
 
 
 
@@ -352,11 +352,11 @@
       });
     });
   });
- 
-sidebarCollapseMobile.addEventListener('click', function() {
-  sidebar.classList.toggle('active');
-  // Removed content.classList.toggle('active') to avoid conflicts
-});
+
+  sidebarCollapseMobile.addEventListener('click', function() {
+    sidebar.classList.toggle('active');
+    // Removed content.classList.toggle('active') to avoid conflicts
+  });
 </script>
 </body>
 </html>

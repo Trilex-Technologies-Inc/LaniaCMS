@@ -13,21 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <style>
+        body {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            color: rgb(var(--bs-tertiary-color-rgb));
+            font-family: 'Poppins', sans-serif;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
             -webkit-user-select: none;
             -moz-user-select: none;
             user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
         }
 
         .b-example-divider {
@@ -97,28 +99,90 @@
             display: block !important;
         }
 
-        /* GLOBAL STYLES */
-        body {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            color: rgb(var(--bs-tertiary-color-rgb));
+        .navbar-dark.bg-dark {
+            background-color: #212529 !important;
         }
 
-        /* CAROUSEL STYLES */
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
         .carousel {
             margin-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        .carousel-indicators {
+            bottom: 10px;
+            z-index: 15;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 4px;
         }
 
         .carousel-caption {
-            bottom: 3rem;
+            bottom: 1.5rem;
             z-index: 10;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            left: 5%;
+            right: 5%;
+            width: 90%;
+            text-align: center;
         }
 
         .carousel-item {
-            height: 32rem;
+            height: 500px;
+            position: relative;
         }
 
-        /* MARKETING CONTENT */
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            margin: 0 15px;
+            z-index: 20;
+        }
+
+        .carousel-control-prev {
+            left: 10px;
+        }
+
+        .carousel-control-next {
+            right: 10px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
         .marketing .col-lg-4 {
             margin-bottom: 1.5rem;
             text-align: center;
@@ -129,16 +193,277 @@
             margin-left: .75rem;
         }
 
-        /* FEATURETTES */
         .featurette-divider {
             margin: 5rem 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .featurette-heading {
             letter-spacing: -.05rem;
+            font-weight: 600;
         }
 
-        /* RESPONSIVE CSS */
+        .collapse.bg-dark {
+            background-color: #343a40 !important;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .form-control.bg-secondary {
+            background-color: #495057 !important;
+            border-color: #6c757d !important;
+            color: #fff !important;
+        }
+
+        .login-form input[type="text"]::placeholder,
+        .login-form input[type="password"]::placeholder {
+            color: #adb5bd !important;
+        }
+
+        footer.container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #712cf9;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item {
+                height: 350px;
+                min-height: 350px;
+            }
+
+            .carousel-caption {
+                bottom: 0.75rem;
+                padding: 1rem;
+            }
+
+            .carousel-caption h1 {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.9rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.4;
+            }
+
+            .carousel-caption .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 40px;
+                height: 40px;
+                margin: 0 10px;
+            }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            body {
+                padding-top: 2.5rem;
+            }
+
+            .navbar {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-item {
+                height: 280px;
+                min-height: 280px;
+            }
+
+            .carousel-caption {
+                bottom: 0.5rem;
+                padding: 0.75rem;
+                left: 3%;
+                right: 3%;
+                width: 94%;
+            }
+
+            .carousel-caption h1 {
+                font-size: 1.25rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .carousel-caption .btn {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .carousel-indicators {
+                bottom: 5px;
+            }
+
+            .carousel-indicators button {
+                width: 8px;
+                height: 8px;
+                margin: 0 3px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 35px;
+                height: 35px;
+                margin: 0 5px;
+            }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+
+            .featurette-heading {
+                font-size: 1.75rem;
+            }
+
+            .featurette-divider {
+                margin: 3rem 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .carousel-item {
+                height: 220px;
+                min-height: 220px;
+            }
+
+            .carousel-caption {
+                padding: 0.5rem;
+            }
+
+            .carousel-caption h1 {
+                font-size: 1rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.7rem;
+                -webkit-line-clamp: 1;
+            }
+
+            .carousel-caption .btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .carousel-caption p {
+                margin-bottom: 1.25rem;
+                line-height: 1.4;
+                font-size: 1.1rem;
+            }
+
+            .carousel-caption h1 {
+                font-size: 2.5rem;
+            }
+
+            .featurette-heading {
+                font-size: 50px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 60px;
+                height: 60px;
+            }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .carousel-item {
+                height: 600px;
+            }
+
+            .carousel-caption {
+                bottom: 3rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .carousel-item {
+                height: 650px;
+            }
+        }
+
+        @media (min-width: 62em) {
+            .featurette-heading {
+                margin-top: 7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-form .d-flex {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .login-form .d-flex > * {
+                width: 100%;
+                margin-right: 0 !important;
+            }
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        @media (max-width: 350px) {
+            .carousel {
+                margin-bottom: 2rem;
+            }
+
+            .carousel-item {
+                height: 200px;
+                min-height: 200px;
+            }
+
+            .carousel-caption {
+                display: none;
+            }
+        }
+
         @media (min-width: 40em) {
             .carousel-caption p {
                 margin-bottom: 1.25rem;
@@ -147,12 +472,6 @@
 
             .featurette-heading {
                 font-size: 50px;
-            }
-        }
-
-        @media (min-width: 62em) {
-            .featurette-heading {
-                margin-top: 7rem;
             }
         }
     </style>
@@ -174,7 +493,8 @@
                 <input type="hidden" name="modname" value="search">
                 <div class="col-12">
                     <label for="keyword" class="form-label text-light">Keyword</label>
-                    <input type="text" class="form-control bg-secondary text-light border-0" id="keyword" name="keyword">
+                    <input type="text" class="form-control bg-secondary text-light border-0" id="keyword"
+                           name="keyword">
                 </div>
                 <div class="col-12">
                     <label for="item" class="form-label text-light">Locate in</label>
@@ -188,7 +508,8 @@
                         <label class="form-check-label text-light" for="methodWord">Word</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="method" value="phase" id="methodPhase" checked>
+                        <input class="form-check-input" type="radio" name="method" value="phase" id="methodPhase"
+                               checked>
                         <label class="form-check-label text-light" for="methodPhase">Phrase</label>
                     </div>
                 </div>
@@ -241,49 +562,34 @@
 
 <main>
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+
+        {* Carousel indicators *}
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            {foreach $banners as $i => $banner}
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{$i}" {if $i == 0}class="active"
+                        aria-current="true"{/if} aria-label="Slide {$i+1}"></button>
+            {/foreach}
         </div>
+
+        {* Carousel slides *}
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            {foreach $banners as $i => $banner}
+                <div class="carousel-item {if $i == 0}active{/if}">
+                    <img src="{$banner.image}" class="d-block w-100" alt="{$banner.title}">
+                    <div class="container">
+                        <div class="carousel-caption {if $i == 0}text-start{elseif $i == count($banners)-1}text-end{else}text-center{/if}">
+                            <h1>{$banner.title}</h1>
+                            <p class="opacity-75">{$banner.description}</p>
+                            {if $banner.url}
+                                <p><a class="btn btn-lg btn-primary" href="{$banner.url}">Learn more</a></p>
+                            {/if}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg aria-hidden="true" class="bd-placeholder-img" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+            {/foreach}
         </div>
+
+        {* Carousel controls *}
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -294,73 +600,67 @@
         </button>
     </div>
 
+
     <div class="container marketing">
         <div class="row">
             {section name=i loop=$setBlockTop[0]}
                 {$setBlockTop[0][i]}
             {/section}
-
+        </div>
+        <hr class="featurette-divider">
+        <div class="row">
             {section name=i loop=$setBlockCenter[0]}
                 {$setBlockCenter[0][i]}
             {/section}
-
+        </div>
+        <hr class="featurette-divider">
+        <div class="row">
             {section name=i loop=$setBlockBottom[0]}
                 {$setBlockBottom[0][i]}
             {/section}
-        </div>
-
-        <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It'll blow your mind.</span></h2>
-                <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-            </div>
-            <div class="col-md-5">
-                <svg aria-label="Placeholder: 500x500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" height="500" preserveAspectRatio="xMidYMid slice" role="img" width="500" xmlns="http://www.w3.org/2000/svg">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect>
-                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                </svg>
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it's that good. <span class="text-body-secondary">See for yourself.</span></h2>
-                <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <svg aria-label="Placeholder: 500x500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" height="500" preserveAspectRatio="xMidYMid slice" role="img" width="500" xmlns="http://www.w3.org/2000/svg">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect>
-                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                </svg>
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
-                <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-            </div>
-            <div class="col-md-5">
-                <svg aria-label="Placeholder: 500x500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" height="500" preserveAspectRatio="xMidYMid slice" role="img" width="500" xmlns="http://www.w3.org/2000/svg">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect>
-                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                </svg>
-            </div>
         </div>
     </div>
 
     <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; 2017–2025 powered by <a href="https://lanaicms.com/">LanaiCMS</a> </p>
+        <p>&copy; 2017–2025 powered by <a href="https://lanaicms.com/">LanaiCMS</a></p>
     </footer>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        function adjustCarouselHeight() {
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const screenWidth = window.innerWidth;
+
+            carouselItems.forEach(item => {
+
+                item.style.height = '';
+
+
+                const img = item.querySelector('img');
+                if (img && img.complete) {
+                    img.style.objectFit = 'cover';
+                }
+            });
+        }
+
+
+        adjustCarouselHeight();
+
+
+        window.addEventListener('resize', adjustCarouselHeight);
+
+        const myCarousel = document.getElementById('myCarousel');
+        if (myCarousel) {
+            myCarousel.addEventListener('slid.bs.carousel', adjustCarouselHeight);
+        }
+    });
+</script>
 </body>
 </html>
